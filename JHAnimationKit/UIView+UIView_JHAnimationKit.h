@@ -16,50 +16,71 @@
 #pragma mark - Chainable Properties
 
 // Makers
--(JHChainableRect)makeFrame;
--(JHChainableRect)makeBounds;
--(JHChainablePoint)makeOrigin;
--(JHChainablePoint)makeCenter;
--(JHChainableFloat)makeX;
--(JHChainableFloat)makeY;
--(JHChainableFloat)makeWidth;
--(JHChainableFloat)makeHeight;
--(JHChainableFloat)makeOpacity;
--(JHChainableColor)makeBackground;
--(JHChainableColor)makeTint;
--(JHChainableColor)makeBorderColor;
--(JHChainableFloat)makeBorderWidth;
--(JHChainableFloat)makeCornerRadius;
+- (JHChainableRect) makeFrame;
+- (JHChainableRect) makeBounds;
+- (JHChainablePoint) makeOrigin;
+- (JHChainablePoint) makeCenter;
+- (JHChainableFloat) makeX;
+- (JHChainableFloat) makeY;
+- (JHChainableFloat) makeWidth;
+- (JHChainableFloat) makeHeight;
+- (JHChainableFloat) makeOpacity;
+- (JHChainableColor) makeBackground;
+- (JHChainableColor) makeBorderColor;
+- (JHChainableFloat) makeBorderWidth;
+- (JHChainableFloat) makeCornerRadius;
+- (JHChainableFloat) makeScale;
+- (JHChainableFloat) makeScaleX;
+- (JHChainableFloat) makeScaleY;
+- (JHChainablePoint) makeAnchor;
 
 // Movers
--(JHChainableFloat)moveX;
--(JHChainableFloat)moveY;
--(JHChainablePoint)moveXY;
--(JHChainableDegrees)rotate;
--(JHChainableFloat)scaleX;
--(JHChainableFloat)scaleY;
--(JHChainablePoint)scaleXY;
+- (JHChainableFloat) moveX;
+- (JHChainableFloat) moveY;
+- (JHChainablePoint) moveXY;
+- (JHChainableFloat) moveHeight;
+- (JHChainableFloat) moveWidth;
+- (JHChainableDegrees) rotate;
 
+// Anchors
+- (UIView *) anchorDefault;
+- (UIView *) anchorCenter;
+- (UIView *) anchorTopLeft;
+- (UIView *) anchorTopRight;
+- (UIView *) anchorBottomLeft;
+- (UIView *) anchorBottomRight;
+- (UIView *) anchorTop;
+- (UIView *) anchorBottom;
+- (UIView *) anchorLeft;
+- (UIView *) anchorRight;
 
-// TODO: Anchor points!
-//-(JHChainablePoint)anchor;
+#pragma mark - Semantics (Easier to read)
 
-#pragma mark - Semantics
+// view.moveX(10).thenAfter(1.0).seconds.rotate(90) == view.moveX(10).thenAfter(1.0).rotate(90)
+- (UIView *) seconds;
 
--(UIView *)then;
+#pragma mark - Multiple Animation Chaining
+
+- (JHChainableTimeInterval) thenAfter;
 
 #pragma mark - Animations
 
 // Animation Type
--(UIView *)easeIn;
--(UIView *)easeOut;
--(UIView *)easeInOut;
+- (UIView *) easeIn;
+- (UIView *) easeOut;
+- (UIView *) easeInOut;
+
+// Spraaaaangs
+// TODO ADD SPRINGS
 
 // Delay
--(JHChainableTimeInterval)delay;
+- (JHChainableTimeInterval) delay;
+- (JHChainableTimeInterval) wait; // same as delay
 
 // Executors
--(JHChainableAnimation)animate;
--(JHChainableAnimationWithCompletion)animateWithCompletion;
+- (JHChainableAnimation) animate;
+- (JHChainableAnimationWithCompletion) animateWithCompletion;
+
+@property (nonatomic, copy) JHAnimationCompletion animationCompletion;
 
 @end

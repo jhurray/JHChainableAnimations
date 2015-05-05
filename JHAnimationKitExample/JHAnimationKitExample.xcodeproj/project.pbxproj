@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		262E789E1AF95B8500BC59D9 /* JNWSpringAnimation in Resources */ = {isa = PBXBuildFile; fileRef = 262E789D1AF95B8500BC59D9 /* JNWSpringAnimation */; };
 		26B6C0F91AF1BF3700FDFB8B /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 26B6C0F81AF1BF3700FDFB8B /* main.m */; };
 		26B6C0FC1AF1BF3700FDFB8B /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 26B6C0FB1AF1BF3700FDFB8B /* AppDelegate.m */; };
 		26B6C0FF1AF1BF3700FDFB8B /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 26B6C0FE1AF1BF3700FDFB8B /* ViewController.m */; };
@@ -28,6 +29,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		262E789D1AF95B8500BC59D9 /* JNWSpringAnimation */ = {isa = PBXFileReference; lastKnownFileType = folder; name = JNWSpringAnimation; path = ../../JHAnimationKit/JNWSpringAnimation; sourceTree = "<group>"; };
 		26B6C0F31AF1BF3700FDFB8B /* JHAnimationKitExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = JHAnimationKitExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		26B6C0F71AF1BF3700FDFB8B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		26B6C0F81AF1BF3700FDFB8B /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -44,7 +46,7 @@
 		26B6C11E1AF1BFA700FDFB8B /* JHAnimationKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JHAnimationKit.h; path = ../../JHAnimationKit/JHAnimationKit.h; sourceTree = "<group>"; };
 		26B6C11F1AF1C12B00FDFB8B /* UIView+UIView_JHAnimationKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIView+UIView_JHAnimationKit.h"; path = "../../JHAnimationKit/UIView+UIView_JHAnimationKit.h"; sourceTree = "<group>"; };
 		26B6C1201AF1C12B00FDFB8B /* UIView+UIView_JHAnimationKit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIView+UIView_JHAnimationKit.m"; path = "../../JHAnimationKit/UIView+UIView_JHAnimationKit.m"; sourceTree = "<group>"; };
-		26B6C1231AF1DA4A00FDFB8B /* JHChainableBlocks.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JHChainableBlocks.h; sourceTree = "<group>"; };
+		26B6C1241AF1E41100FDFB8B /* JHChainableBlocks.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JHChainableBlocks.h; path = ../../JHAnimationKit/JHChainableBlocks.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -128,8 +130,9 @@
 		26B6C11C1AF1BF7000FDFB8B /* JHAnimationKit */ = {
 			isa = PBXGroup;
 			children = (
+				262E789D1AF95B8500BC59D9 /* JNWSpringAnimation */,
 				26B6C11E1AF1BFA700FDFB8B /* JHAnimationKit.h */,
-				26B6C1231AF1DA4A00FDFB8B /* JHChainableBlocks.h */,
+				26B6C1241AF1E41100FDFB8B /* JHChainableBlocks.h */,
 				26B6C11F1AF1C12B00FDFB8B /* UIView+UIView_JHAnimationKit.h */,
 				26B6C1201AF1C12B00FDFB8B /* UIView+UIView_JHAnimationKit.m */,
 			);
@@ -216,6 +219,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				262E789E1AF95B8500BC59D9 /* JNWSpringAnimation in Resources */,
 				26B6C1021AF1BF3700FDFB8B /* Main.storyboard in Resources */,
 				26B6C1071AF1BF3700FDFB8B /* LaunchScreen.xib in Resources */,
 				26B6C1041AF1BF3700FDFB8B /* Images.xcassets in Resources */,
