@@ -37,21 +37,20 @@
 -(void) animateView:(UIButton *)sender {
     NSLog(@"In Animate View");
     
-//    sender.userInteractionEnabled = NO;
-//    
-//    __weak ViewController *weakSelf = self;
-//    self.myView.animationCompletion = JHAnimationCompletion() {
-//        weakSelf.myView.layer.transform = CATransform3DMakeRotation(0, 0, 0, 1);
-//        weakSelf.myView.frame = CGRectMake(150, 50, 50, 50);
-//        weakSelf.myView.makeOpacity(1.0).animate(1.5);
-//        sender.userInteractionEnabled = YES;
-//    };
-//    
-//    self.myView.moveWidth(50).bounce.anchorTopLeft.
-//        thenAfter(0.8).rotate(95).easeBack.wait(0.2).
-//        thenAfter(0.5).moveY(300).easeIn.makeOpacity(0.0).animate(0.4);
+    sender.userInteractionEnabled = NO;
     
-    self.myView.movePolar(20, 90).animate(1.0);
+    __weak ViewController *weakSelf = self;
+    self.myView.animationCompletion = JHAnimationCompletion() {
+        weakSelf.myView.layer.transform = CATransform3DMakeRotation(0, 0, 0, 1);
+        weakSelf.myView.frame = CGRectMake(150, 50, 50, 50);
+        weakSelf.myView.makeOpacity(1.0).animate(1.5);
+        sender.userInteractionEnabled = YES;
+    };
+    
+    self.myView.moveWidth(50).bounce.anchorTopLeft.
+        thenAfter(0.8).rotate(95).easeBack.wait(0.2).
+        thenAfter(0.5).moveY(300).easeIn.makeOpacity(0.0).animate(0.4);
+    
     
 }
 

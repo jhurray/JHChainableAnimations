@@ -18,6 +18,7 @@
 // Makers
 - (JHChainableRect) makeFrame;
 - (JHChainableRect) makeBounds;
+- (JHChainableSize) makeSize;
 - (JHChainablePoint) makeOrigin;
 - (JHChainablePoint) makeCenter;
 - (JHChainableFloat) makeX;

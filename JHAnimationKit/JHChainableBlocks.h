@@ -22,6 +22,9 @@ typedef UIView* (^JHChainableTimeInterval)(NSTimeInterval t);
 typedef UIView* (^JHChainableRect)(CGRect rect);
 #define JHChainableRect(rect) ^UIView* (CGRect rect)
 
+typedef UIView* (^JHChainableSize)(CGFloat width, CGFloat height);
+#define JHChainableSize(width,height) ^UIView* (CGFloat width, CGFloat height)
+
 typedef UIView* (^JHChainablePoint)(CGFloat x, CGFloat y);
 #define JHChainablePoint(x,y) ^UIView* (CGFloat x, CGFloat y)
 
