@@ -71,7 +71,7 @@ There are also a lot of really good animation libraries out there such as [RBBAn
 Either clone the repo and manually add the Files in [JHChainableAnimations](./JHChainableAnimations) or add the following to your Podfile
 
 ```
-pod 'JHPullToRefreshKit', '~> 1.0.1'
+pod 'JHChainableAnimations', '~> 1.0.1'
 ```
 Then just import the following header.
 
