@@ -68,12 +68,18 @@ self.myView.moveX(50).thenAfter(1.0).makeBackground([UIColor purpleColor]).easeI
 There are also a lot of really good animation libraries out there such as [RBBAnimation](https://github.com/robb/RBBAnimation), [DCAnimationKit](https://github.com/daltoniam/DCAnimationKit), and [PMTween](https://github.com/poetmountain/PMTween),  but they still fall short of having powerful chainable animations AND easy to read/write syntax. 
 
 ##Usage
+Either clone the repo and manually add the Files in [JHChainableAnimations](./JHChainableAnimations) or add the following to your Podfile
+
+```
+pod 'JHPullToRefreshKit', '~> 1.0.1'
+```
+Then just import the following header.
 
 ```objective-c
 #import "JHChainableAnimations.h"
 ```
 
-This is all a UIView category, so these chainables can be used on any UIView where the header above is imported.
+This is all a UIView category, so these chainables can be used on any UIView in a file where the header is imported.
 
 ###Animating
 Chainable properties like **moveX(x)** must come between the view and the **animate(t)** function
