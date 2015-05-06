@@ -34,7 +34,7 @@ CAAnimations and UIView animations are extremely powerful, but it is difficult t
 
 Furthermore, complicated animations are difficult to read. 
 
-Say I want to move myView 50 pixels to the right and then change the background color with inward easing when the movement has finished:
+Say I want to move myView 50 pixels to the right with spring and then change the background color with inward easing when the movement has finished:
 
 ###The Old Way
 
@@ -62,7 +62,7 @@ Thats pretty gross huh... With JHChainableAnimations it is one line of code.
 ###The New Way (JHChainableAnimations!!!)
 
 ```objective-c
-self.myView.moveX(50).thenAfter(1.0).makeBackground([UIColor purpleColor]).easeIn.animate(0.5);
+self.myView.moveX(50).spring.thenAfter(1.0).makeBackground([UIColor purpleColor]).easeIn.animate(0.5);
 ```
 
 There are also a lot of really good animation libraries out there such as [RBBAnimation](https://github.com/robb/RBBAnimation), [DCAnimationKit](https://github.com/daltoniam/DCAnimationKit), and [PMTween](https://github.com/poetmountain/PMTween),  but they still fall short of having powerful chainable animations AND easy to read/write syntax. 
