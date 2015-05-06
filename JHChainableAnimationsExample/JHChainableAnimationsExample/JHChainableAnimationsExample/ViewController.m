@@ -19,7 +19,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.myView = [[UIView alloc] initWithFrame:CGRectMake(150, 50, 50, 50)];
+    self.myView = [[UIView alloc] initWithFrame:CGRectMake(100, 150, 50, 50)];
     self.myView.backgroundColor = [UIColor blueColor];
     [self.view addSubview:self.myView];
     
@@ -46,9 +46,10 @@
         sender.userInteractionEnabled = YES;
     };
     
-    self.myView.moveWidth(50).bounce.anchorTopLeft.
-    thenAfter(0.8).rotate(95).easeBack.wait(0.2).
-    thenAfter(0.5).moveY(300).easeIn.makeOpacity(0.0).animate(0.4);
+    UIColor *purple = [UIColor purpleColor];
+    self.myView.moveWidth(50).bounce.makeBackground(purple).easeIn.anchorTopLeft.
+        thenAfter(0.8).rotate(95).easeBack.wait(0.2).
+        thenAfter(0.5).moveY(300).easeIn.makeOpacity(0.0).animate(0.4);
     
     
 }
