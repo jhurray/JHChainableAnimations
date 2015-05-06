@@ -26,7 +26,7 @@
 - (JHChainableFloat) makeHeight;
 - (JHChainableFloat) makeOpacity;
 - (JHChainableColor) makeBackground;
-- (JHChainableColor) makeBorderColor;
+- (JHChainableColor) makeBorderColor; // wierd when with border width
 - (JHChainableFloat) makeBorderWidth;
 - (JHChainableFloat) makeCornerRadius;
 - (JHChainableFloat) makeScale;
@@ -41,6 +41,7 @@
 - (JHChainableFloat) moveHeight;
 - (JHChainableFloat) moveWidth;
 - (JHChainableDegrees) rotate;
+- (JHChainablePolarCoordinate) movePolar;
 
 // Anchors
 - (UIView *) anchorDefault;
@@ -65,13 +66,47 @@
 
 #pragma mark - Animations
 
-// Animation Type
+// Simple effects
 - (UIView *) easeIn;
 - (UIView *) easeOut;
 - (UIView *) easeInOut;
+- (UIView *) easeBack;
+- (UIView *) spring;
+- (UIView *) bounce;
 
-// Spraaaaangs
-// TODO ADD SPRINGS
+// Animation Keyframe Calculation Type
+// Functions from https://github.com/NachoSoto/NSBKeyframeAnimation
+// source: http://gsgd.co.uk/sandbox/jquery/easing/jquery.easing.1.3.js
+- (UIView *) easeInQuad;
+- (UIView *) easeOutQuad;
+- (UIView *) easeInOutQuad;
+- (UIView *) easeInCubic;
+- (UIView *) easeOutCubic;
+- (UIView *) easeInOutCubic;
+- (UIView *) easeInQuart;
+- (UIView *) easeOutQuart;
+- (UIView *) easeInOutQuart;
+- (UIView *) easeInQuint;
+- (UIView *) easeOutQuint;
+- (UIView *) easeInOutQuint;
+- (UIView *) easeInSine;
+- (UIView *) easeOutSine;
+- (UIView *) easeInOutSine;
+- (UIView *) easeInExpo;
+- (UIView *) easeOutExpo;
+- (UIView *) easeInOutExpo;
+- (UIView *) easeInCirc;
+- (UIView *) easeOutCirc;
+- (UIView *) easeInOutCirc;
+- (UIView *) easeInElastic;
+- (UIView *) easeOutElastic;
+- (UIView *) easeInOutElastic;
+- (UIView *) easeInBack;
+- (UIView *) easeOutBack;
+- (UIView *) easeInOutBack;
+- (UIView *) easeInBounce;
+- (UIView *) easeOutBounce;
+- (UIView *) easeInOutBounce;
 
 // Delay
 - (JHChainableTimeInterval) delay;

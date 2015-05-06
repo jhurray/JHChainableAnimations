@@ -31,6 +31,9 @@ typedef UIView* (^JHChainableFloat)(CGFloat f);
 typedef UIView* (^JHChainableDegrees)(CGFloat angle);
 #define JHChainableDegrees(angle) ^UIView* (CGFloat angle)
 
+typedef UIView* (^JHChainablePolarCoordinate)(CGFloat radius, CGFloat angle);
+#define JHChainablePolarCoordinate(radius, angle) ^UIView* (CGFloat radius, CGFloat angle)
+
 typedef UIView* (^JHChainableColor)(UIColor *color);
 #define JHChainableColor(color) ^UIView* (UIColor *color)
 

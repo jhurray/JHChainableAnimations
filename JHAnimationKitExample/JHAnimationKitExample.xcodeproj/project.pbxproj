@@ -7,7 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		262E789E1AF95B8500BC59D9 /* JNWSpringAnimation in Resources */ = {isa = PBXBuildFile; fileRef = 262E789D1AF95B8500BC59D9 /* JNWSpringAnimation */; };
+		262E78A11AF984CF00BC59D9 /* JHKeyframeAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = 262E78A01AF984CF00BC59D9 /* JHKeyframeAnimation.m */; };
+		262E78AE1AF9C39100BC59D9 /* NSBKeyframeAnimationFunctions.c in Sources */ = {isa = PBXBuildFile; fileRef = 262E78AC1AF9C39100BC59D9 /* NSBKeyframeAnimationFunctions.c */; };
 		26B6C0F91AF1BF3700FDFB8B /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 26B6C0F81AF1BF3700FDFB8B /* main.m */; };
 		26B6C0FC1AF1BF3700FDFB8B /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 26B6C0FB1AF1BF3700FDFB8B /* AppDelegate.m */; };
 		26B6C0FF1AF1BF3700FDFB8B /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 26B6C0FE1AF1BF3700FDFB8B /* ViewController.m */; };
@@ -29,7 +30,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		262E789D1AF95B8500BC59D9 /* JNWSpringAnimation */ = {isa = PBXFileReference; lastKnownFileType = folder; name = JNWSpringAnimation; path = ../../JHAnimationKit/JNWSpringAnimation; sourceTree = "<group>"; };
+		262E789F1AF984CF00BC59D9 /* JHKeyframeAnimation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JHKeyframeAnimation.h; path = ../../JHAnimationKit/JHKeyframeAnimation.h; sourceTree = "<group>"; };
+		262E78A01AF984CF00BC59D9 /* JHKeyframeAnimation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = JHKeyframeAnimation.m; path = ../../JHAnimationKit/JHKeyframeAnimation.m; sourceTree = "<group>"; };
+		262E78AC1AF9C39100BC59D9 /* NSBKeyframeAnimationFunctions.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = NSBKeyframeAnimationFunctions.c; path = ../../JHAnimationKit/NSBKeyframeAnimationFunctions/NSBKeyframeAnimationFunctions.c; sourceTree = "<group>"; };
+		262E78AD1AF9C39100BC59D9 /* NSBKeyframeAnimationFunctions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NSBKeyframeAnimationFunctions.h; path = ../../JHAnimationKit/NSBKeyframeAnimationFunctions/NSBKeyframeAnimationFunctions.h; sourceTree = "<group>"; };
 		26B6C0F31AF1BF3700FDFB8B /* JHAnimationKitExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = JHAnimationKitExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		26B6C0F71AF1BF3700FDFB8B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		26B6C0F81AF1BF3700FDFB8B /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -67,6 +71,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		262E78B01AF9C3D500BC59D9 /* NSBKeyframeAnimationFunctions */ = {
+			isa = PBXGroup;
+			children = (
+				262E78AD1AF9C39100BC59D9 /* NSBKeyframeAnimationFunctions.h */,
+				262E78AC1AF9C39100BC59D9 /* NSBKeyframeAnimationFunctions.c */,
+			);
+			name = NSBKeyframeAnimationFunctions;
+			sourceTree = "<group>";
+		};
 		26B6C0EA1AF1BF3700FDFB8B = {
 			isa = PBXGroup;
 			children = (
@@ -130,11 +143,13 @@
 		26B6C11C1AF1BF7000FDFB8B /* JHAnimationKit */ = {
 			isa = PBXGroup;
 			children = (
-				262E789D1AF95B8500BC59D9 /* JNWSpringAnimation */,
+				262E78B01AF9C3D500BC59D9 /* NSBKeyframeAnimationFunctions */,
 				26B6C11E1AF1BFA700FDFB8B /* JHAnimationKit.h */,
 				26B6C1241AF1E41100FDFB8B /* JHChainableBlocks.h */,
 				26B6C11F1AF1C12B00FDFB8B /* UIView+UIView_JHAnimationKit.h */,
 				26B6C1201AF1C12B00FDFB8B /* UIView+UIView_JHAnimationKit.m */,
+				262E789F1AF984CF00BC59D9 /* JHKeyframeAnimation.h */,
+				262E78A01AF984CF00BC59D9 /* JHKeyframeAnimation.m */,
 			);
 			name = JHAnimationKit;
 			sourceTree = "<group>";
@@ -219,7 +234,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				262E789E1AF95B8500BC59D9 /* JNWSpringAnimation in Resources */,
 				26B6C1021AF1BF3700FDFB8B /* Main.storyboard in Resources */,
 				26B6C1071AF1BF3700FDFB8B /* LaunchScreen.xib in Resources */,
 				26B6C1041AF1BF3700FDFB8B /* Images.xcassets in Resources */,
@@ -241,6 +255,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				26B6C0FF1AF1BF3700FDFB8B /* ViewController.m in Sources */,
+				262E78A11AF984CF00BC59D9 /* JHKeyframeAnimation.m in Sources */,
+				262E78AE1AF9C39100BC59D9 /* NSBKeyframeAnimationFunctions.c in Sources */,
 				26B6C0FC1AF1BF3700FDFB8B /* AppDelegate.m in Sources */,
 				26B6C0F91AF1BF3700FDFB8B /* main.m in Sources */,
 				26B6C1211AF1C12B00FDFB8B /* UIView+UIView_JHAnimationKit.m in Sources */,
