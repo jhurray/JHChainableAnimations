@@ -2,6 +2,6 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "self:JHAnimationKitExample.xcodeproj">
+      location = "self:JHChainableAnimationsExample.xcodeproj">
    </FileRef>
 </Workspace>

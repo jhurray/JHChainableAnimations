@@ -6,9 +6,9 @@
 //  Copyright (c) 2015 jhurray. All rights reserved.
 //
 
-#ifndef JHAnimationKitExample_JHAnimationKit_h
-#define JHAnimationKitExample_JHAnimationKit_h
+#ifndef JHAnimationKitExample_JHChainableAnimations_h
+#define JHAnimationKitExample_JHChainableAnimations_h
 
-#import "UIView+UIView_JHAnimationKit.h"
+#import "UIView+JHChainableAnimations.h"
 
 #endif

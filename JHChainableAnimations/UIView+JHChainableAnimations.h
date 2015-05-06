@@ -11,7 +11,7 @@
 #import "JHChainableBlocks.h"
 
 
-@interface UIView (UIView_JHAnimationKit)
+@interface UIView (UIView_JHChainableAnimations)
 
 #pragma mark - Chainable Properties
 
@@ -56,16 +56,28 @@
 - (UIView *) anchorLeft;
 - (UIView *) anchorRight;
 
-#pragma mark - Semantics (Easier to read)
-
-// view.moveX(10).thenAfter(1.0).seconds.rotate(90) == view.moveX(10).thenAfter(1.0).rotate(90)
-- (UIView *) seconds;
-
 #pragma mark - Multiple Animation Chaining
 
 - (JHChainableTimeInterval) thenAfter;
 
 #pragma mark - Animations
+
+// Delay
+- (JHChainableTimeInterval) delay;
+- (JHChainableTimeInterval) wait; // same as delay
+
+// Executors
+- (JHChainableAnimation) animate;
+- (JHChainableAnimationWithCompletion) animateWithCompletion;
+
+@property (nonatomic, copy) JHAnimationCompletion animationCompletion;
+
+#pragma mark - Semantics (Easier to read)
+
+// view.moveX(10).thenAfter(1.0).seconds.rotate(90) == view.moveX(10).thenAfter(1.0).rotate(90)
+- (UIView *) seconds;
+
+#pragma mark - Animation Effects
 
 // Simple effects
 - (UIView *) easeIn;
@@ -75,7 +87,7 @@
 - (UIView *) spring;
 - (UIView *) bounce;
 
-// Animation Keyframe Calculation Type
+// Animation Keyframe Calculation Functions
 // Functions from https://github.com/NachoSoto/NSBKeyframeAnimation
 // source: http://gsgd.co.uk/sandbox/jquery/easing/jquery.easing.1.3.js
 - (UIView *) easeInQuad;
@@ -108,15 +120,5 @@
 - (UIView *) easeInBounce;
 - (UIView *) easeOutBounce;
 - (UIView *) easeInOutBounce;
-
-// Delay
-- (JHChainableTimeInterval) delay;
-- (JHChainableTimeInterval) wait; // same as delay
-
-// Executors
-- (JHChainableAnimation) animate;
-- (JHChainableAnimationWithCompletion) animateWithCompletion;
-
-@property (nonatomic, copy) JHAnimationCompletion animationCompletion;
 
 @end

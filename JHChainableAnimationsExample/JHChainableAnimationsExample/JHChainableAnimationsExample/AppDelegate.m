@@ -1,13 +1,12 @@
 //
 //  AppDelegate.m
-//  JHAnimationKitExample
+//  JHChainableAnimationsExample
 //
-//  Created by Jeff Hurray on 4/29/15.
+//  Created by Jeff Hurray on 5/6/15.
 //  Copyright (c) 2015 jhurray. All rights reserved.
 //
 
 #import "AppDelegate.h"
-#import "JHAnimationKit.h"
 
 @interface AppDelegate ()
 
@@ -18,7 +17,6 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
-    
     return YES;
 }
 

@@ -1,14 +1,13 @@
 //
 //  ViewController.m
-//  JHAnimationKitExample
+//  JHChainableAnimationsExample
 //
-//  Created by Jeff Hurray on 4/29/15.
+//  Created by Jeff Hurray on 5/6/15.
 //  Copyright (c) 2015 jhurray. All rights reserved.
 //
 
+#import "JHChainableAnimations.h"
 #import "ViewController.h"
-#import "JHAnimationKit.h"
-#import "JHKeyframeAnimation.h"
 
 @interface ViewController ()
 
@@ -48,8 +47,8 @@
     };
     
     self.myView.moveWidth(50).bounce.anchorTopLeft.
-        thenAfter(0.8).rotate(95).easeBack.wait(0.2).
-        thenAfter(0.5).moveY(300).easeIn.makeOpacity(0.0).animate(0.4);
+    thenAfter(0.8).rotate(95).easeBack.wait(0.2).
+    thenAfter(0.5).moveY(300).easeIn.makeOpacity(0.0).animate(0.4);
     
     
 }

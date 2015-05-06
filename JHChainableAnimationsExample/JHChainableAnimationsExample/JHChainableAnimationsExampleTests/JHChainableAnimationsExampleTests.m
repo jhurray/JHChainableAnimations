@@ -1,19 +1,19 @@
 //
-//  JHAnimationKitExampleTests.m
-//  JHAnimationKitExampleTests
+//  JHChainableAnimationsExampleTests.m
+//  JHChainableAnimationsExampleTests
 //
-//  Created by Jeff Hurray on 4/29/15.
+//  Created by Jeff Hurray on 5/6/15.
 //  Copyright (c) 2015 jhurray. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>
 #import <XCTest/XCTest.h>
 
-@interface JHAnimationKitExampleTests : XCTestCase
+@interface JHChainableAnimationsExampleTests : XCTestCase
 
 @end
 
-@implementation JHAnimationKitExampleTests
+@implementation JHChainableAnimationsExampleTests
 
 - (void)setUp {
     [super setUp];

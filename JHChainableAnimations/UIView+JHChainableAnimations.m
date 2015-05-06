@@ -7,7 +7,7 @@
 //
 
 #import <objc/runtime.h>
-#import "UIView+UIView_JHAnimationKit.h"
+#import "UIView+JHChainableAnimations.h"
 #import "JHKeyframeAnimation.h"
 
 /** Degrees to Radian **/
@@ -16,7 +16,7 @@
 /** Radians to Degrees **/
 #define radiansToDegrees( radians ) ( ( radians ) * ( 180.0 / M_PI ) )
 
-@interface UIView (UIView_JHAnimationKit_Private)
+@interface UIView (UIView_JHChainableAnimations_Private)
 
 typedef void (^JHAnimationCalculationAction)(UIView *weakSelf);
 typedef void (^JHAnimationCompletionAction)(UIView *weakSelf);
@@ -54,7 +54,7 @@ typedef void (^JHAnimationCompletionAction)(UIView *weakSelf);
 @end
 
 
-@implementation UIView (UIView_JHAnimationKit_Private)
+@implementation UIView (UIView_JHChainableAnimations_Private)
 
 // Setters and getters
 
@@ -225,7 +225,7 @@ typedef void (^JHAnimationCompletionAction)(UIView *weakSelf);
 @end
 
 
-@implementation UIView (UIView_JHAnimationKit)
+@implementation UIView (UIView_JHChainableAnimations)
 
 @dynamic animationCompletion;
 
