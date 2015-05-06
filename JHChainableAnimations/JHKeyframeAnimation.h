@@ -7,7 +7,7 @@
 //
 
 #import <QuartzCore/QuartzCore.h>
-#import "NSBKeyframeAnimationFunctions.h"
+#import "NSBKeyframeAnimationFunctions/NSBKeyframeAnimationFunctions.h"
 
 @interface JHKeyframeAnimation : CAKeyframeAnimation
 
