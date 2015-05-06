@@ -27,7 +27,7 @@
 - (JHChainableFloat) makeHeight;
 - (JHChainableFloat) makeOpacity;
 - (JHChainableColor) makeBackground;
-- (JHChainableColor) makeBorderColor; // wierd when with border width
+- (JHChainableColor) makeBorderColor;
 - (JHChainableFloat) makeBorderWidth;
 - (JHChainableFloat) makeCornerRadius;
 - (JHChainableFloat) makeScale;
