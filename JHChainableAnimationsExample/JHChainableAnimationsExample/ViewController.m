@@ -38,31 +38,11 @@
     
     sender.userInteractionEnabled = NO;
     
-    [UIView animateWithDuration:1.0
-                          delay:0.0
-         usingSpringWithDamping:0.8
-          initialSpringVelocity:1.0
-                        options:0 animations:^{
-                            CGPoint newPosition = self.myView.layer.position;
-                            newPosition.x += 50;
-                            self.myView.layer.position = newPosition;
-    } completion:^(BOOL finished) {
-        [UIView animateWithDuration:0.5
-                              delay:0.0
-                            options:UIViewAnimationOptionCurveEaseIn
-                         animations:^{
-            self.myView.backgroundColor = [UIColor purpleColor];
-        } completion:nil];
-    }];
-    
-    self.myView.moveX(50).thenAfter(1.0).makeBackground([UIColor purpleColor]).easeIn.animate(0.5);
-    
-    
     __weak ViewController *weakSelf = self;
     self.myView.animationCompletion = JHAnimationCompletion() {
         weakSelf.myView.layer.transform = CATransform3DMakeRotation(0, 0, 0, 1);
-        weakSelf.myView.frame = CGRectMake(150, 50, 50, 50);
-        weakSelf.myView.makeOpacity(1.0).animate(1.5);
+        weakSelf.myView.frame = CGRectMake(100, 150, 50, 50);
+        weakSelf.myView.makeOpacity(1.0).makeBackground([UIColor blueColor]).animate(1.5);
         sender.userInteractionEnabled = YES;
     };
     

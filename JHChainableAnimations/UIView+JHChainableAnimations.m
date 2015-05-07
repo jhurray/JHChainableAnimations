@@ -1027,8 +1027,9 @@ typedef void (^JHAnimationCompletionAction)(UIView *weakSelf);
     if (self.animationGroups.count == 0) {
         [self clear];
         if (self.animationCompletion) {
-            self.animationCompletion();
+            JHAnimationCompletion completion = self.animationCompletion;
             self.animationCompletion = nil;
+            completion();
         }
     }
     else {

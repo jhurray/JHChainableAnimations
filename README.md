@@ -71,7 +71,7 @@ There are also a lot of really good animation libraries out there such as [RBBAn
 Either clone the repo and manually add the Files in [JHChainableAnimations](./JHChainableAnimations) or add the following to your Podfile
 
 ```
-pod 'JHPullToRefreshKit', '~> 1.0.1'
+pod 'JHPullToRefreshKit', '~> 1.0.2'
 ```
 Then just import the following header.
 
@@ -149,6 +149,24 @@ Below is an example of moving a view after a delay of 0.5 seconds
 view.moveXY(100, 50).wait(0.5).animate(1.0);
 // The same as view.moveXY(100, 50).delay(0.5).animate(1.0);
 ```
+###Completion
+To run code after an animation finishese set the **animationCompletion** property of your UIView.
+
+```objective-c
+view.makeX(0).animateWithCompletion(1.0, JHAnimationCompletion(){
+	NSLog(@"Animation Done");
+});
+```
+
+Is the same as: 
+
+```objective-c
+view.animationCompletion = JHAnimationCompletion(){
+	NSLog(@"Animation Done");
+};
+view.makeX(0).animate(1.0);
+```
+
 ###Semantics
 I included a chainable property called **seconds** that is there purely for show. It does however, make the code a little more readable (if you're into that sort of thing).
 
