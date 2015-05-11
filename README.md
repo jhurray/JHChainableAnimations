@@ -1,5 +1,4 @@
-#JHChainableAnimations
-Easy to read and write chainable Animations in Objective-C
+<img src="./img/logo.png" ></img>
 
 <table>
 <tr>
