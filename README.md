@@ -152,7 +152,7 @@ view.moveXY(100, 50).wait(0.5).animate(1.0);
 // The same as view.moveXY(100, 50).delay(0.5).animate(1.0);
 ```
 ###Completion
-To run code after an animation finishese set the **animationCompletion** property of your UIView.
+To run code after an animation finishes set the **animationCompletion** property of your UIView or call the **animateWithCompletion(t, completion)** function.
 
 ```objective-c
 view.makeX(0).animateWithCompletion(1.0, JHAnimationCompletion(){
@@ -168,6 +168,15 @@ view.animationCompletion = JHAnimationCompletion(){
 };
 view.makeX(0).animate(1.0);
 ```
+
+Is the same as:
+
+```objective-c
+view.makeX(0).animate(1.0).animationCompletion = JHAnimationCompletion(){
+	NSLog(@"Animation Done");
+};
+```
+
 
 ###Semantics
 I included a chainable property called **seconds** that is there purely for show. It does however, make the code a little more readable (if you're into that sort of thing).
