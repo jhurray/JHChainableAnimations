@@ -13,9 +13,9 @@
 		26C33EFA1B00EA3E00CF221A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 26C33EF91B00EA3E00CF221A /* Images.xcassets */; };
 		26C33EFD1B00EA3E00CF221A /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 26C33EFB1B00EA3E00CF221A /* LaunchScreen.xib */; };
 		26C33F091B00EA3E00CF221A /* ChainableAnimationsWithSwiftExampleTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26C33F081B00EA3E00CF221A /* ChainableAnimationsWithSwiftExampleTests.swift */; };
-		26C33F1C1B00EAD500CF221A /* JHKeyframeAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = 26C33F171B00EAD500CF221A /* JHKeyframeAnimation.m */; };
-		26C33F1D1B00EAD500CF221A /* NSBKeyframeAnimationFunctions.c in Sources */ = {isa = PBXBuildFile; fileRef = 26C33F181B00EAD500CF221A /* NSBKeyframeAnimationFunctions.c */; };
-		26C33F1E1B00EAD500CF221A /* UIView+JHChainableAnimations.m in Sources */ = {isa = PBXBuildFile; fileRef = 26C33F1B1B00EAD500CF221A /* UIView+JHChainableAnimations.m */; };
+		26C407741B00F9EE00739298 /* JHKeyframeAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = 26C4076F1B00F9EE00739298 /* JHKeyframeAnimation.m */; };
+		26C407751B00F9EE00739298 /* NSBKeyframeAnimationFunctions.c in Sources */ = {isa = PBXBuildFile; fileRef = 26C407701B00F9EE00739298 /* NSBKeyframeAnimationFunctions.c */; };
+		26C407761B00F9EE00739298 /* UIView+JHChainableAnimations.m in Sources */ = {isa = PBXBuildFile; fileRef = 26C407731B00F9EE00739298 /* UIView+JHChainableAnimations.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,14 +40,14 @@
 		26C33F071B00EA3E00CF221A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		26C33F081B00EA3E00CF221A /* ChainableAnimationsWithSwiftExampleTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChainableAnimationsWithSwiftExampleTests.swift; sourceTree = "<group>"; };
 		26C33F121B00EAB400CF221A /* ChainableAnimationsSwiftExample-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ChainableAnimationsSwiftExample-Bridging-Header.h"; sourceTree = "<group>"; };
-		26C33F141B00EAD500CF221A /* JHChainableAnimations.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JHChainableAnimations.h; path = "../../repo-main/JHChainableAnimations/JHChainableAnimations/JHChainableAnimations.h"; sourceTree = "<group>"; };
-		26C33F151B00EAD500CF221A /* JHChainableBlocks.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JHChainableBlocks.h; path = "../../repo-main/JHChainableAnimations/JHChainableAnimations/JHChainableBlocks.h"; sourceTree = "<group>"; };
-		26C33F161B00EAD500CF221A /* JHKeyframeAnimation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JHKeyframeAnimation.h; path = "../../repo-main/JHChainableAnimations/JHChainableAnimations/JHKeyframeAnimation.h"; sourceTree = "<group>"; };
-		26C33F171B00EAD500CF221A /* JHKeyframeAnimation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = JHKeyframeAnimation.m; path = "../../repo-main/JHChainableAnimations/JHChainableAnimations/JHKeyframeAnimation.m"; sourceTree = "<group>"; };
-		26C33F181B00EAD500CF221A /* NSBKeyframeAnimationFunctions.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = NSBKeyframeAnimationFunctions.c; path = "../../repo-main/JHChainableAnimations/JHChainableAnimations/NSBKeyframeAnimationFunctions.c"; sourceTree = "<group>"; };
-		26C33F191B00EAD500CF221A /* NSBKeyframeAnimationFunctions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NSBKeyframeAnimationFunctions.h; path = "../../repo-main/JHChainableAnimations/JHChainableAnimations/NSBKeyframeAnimationFunctions.h"; sourceTree = "<group>"; };
-		26C33F1A1B00EAD500CF221A /* UIView+JHChainableAnimations.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIView+JHChainableAnimations.h"; path = "../../repo-main/JHChainableAnimations/JHChainableAnimations/UIView+JHChainableAnimations.h"; sourceTree = "<group>"; };
-		26C33F1B1B00EAD500CF221A /* UIView+JHChainableAnimations.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIView+JHChainableAnimations.m"; path = "../../repo-main/JHChainableAnimations/JHChainableAnimations/UIView+JHChainableAnimations.m"; sourceTree = "<group>"; };
+		26C4076C1B00F9EE00739298 /* JHChainableAnimations.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JHChainableAnimations.h; path = ../../JHChainableAnimations/JHChainableAnimations.h; sourceTree = "<group>"; };
+		26C4076D1B00F9EE00739298 /* JHChainableBlocks.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JHChainableBlocks.h; path = ../../JHChainableAnimations/JHChainableBlocks.h; sourceTree = "<group>"; };
+		26C4076E1B00F9EE00739298 /* JHKeyframeAnimation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JHKeyframeAnimation.h; path = ../../JHChainableAnimations/JHKeyframeAnimation.h; sourceTree = "<group>"; };
+		26C4076F1B00F9EE00739298 /* JHKeyframeAnimation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = JHKeyframeAnimation.m; path = ../../JHChainableAnimations/JHKeyframeAnimation.m; sourceTree = "<group>"; };
+		26C407701B00F9EE00739298 /* NSBKeyframeAnimationFunctions.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = NSBKeyframeAnimationFunctions.c; path = ../../JHChainableAnimations/NSBKeyframeAnimationFunctions.c; sourceTree = "<group>"; };
+		26C407711B00F9EE00739298 /* NSBKeyframeAnimationFunctions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NSBKeyframeAnimationFunctions.h; path = ../../JHChainableAnimations/NSBKeyframeAnimationFunctions.h; sourceTree = "<group>"; };
+		26C407721B00F9EE00739298 /* UIView+JHChainableAnimations.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIView+JHChainableAnimations.h"; path = "../../JHChainableAnimations/UIView+JHChainableAnimations.h"; sourceTree = "<group>"; };
+		26C407731B00F9EE00739298 /* UIView+JHChainableAnimations.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIView+JHChainableAnimations.m"; path = "../../JHChainableAnimations/UIView+JHChainableAnimations.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -129,14 +129,14 @@
 		26C33F131B00EABE00CF221A /* JHChainableAnimations */ = {
 			isa = PBXGroup;
 			children = (
-				26C33F141B00EAD500CF221A /* JHChainableAnimations.h */,
-				26C33F151B00EAD500CF221A /* JHChainableBlocks.h */,
-				26C33F161B00EAD500CF221A /* JHKeyframeAnimation.h */,
-				26C33F171B00EAD500CF221A /* JHKeyframeAnimation.m */,
-				26C33F181B00EAD500CF221A /* NSBKeyframeAnimationFunctions.c */,
-				26C33F191B00EAD500CF221A /* NSBKeyframeAnimationFunctions.h */,
-				26C33F1A1B00EAD500CF221A /* UIView+JHChainableAnimations.h */,
-				26C33F1B1B00EAD500CF221A /* UIView+JHChainableAnimations.m */,
+				26C4076C1B00F9EE00739298 /* JHChainableAnimations.h */,
+				26C4076D1B00F9EE00739298 /* JHChainableBlocks.h */,
+				26C4076E1B00F9EE00739298 /* JHKeyframeAnimation.h */,
+				26C4076F1B00F9EE00739298 /* JHKeyframeAnimation.m */,
+				26C407701B00F9EE00739298 /* NSBKeyframeAnimationFunctions.c */,
+				26C407711B00F9EE00739298 /* NSBKeyframeAnimationFunctions.h */,
+				26C407721B00F9EE00739298 /* UIView+JHChainableAnimations.h */,
+				26C407731B00F9EE00739298 /* UIView+JHChainableAnimations.m */,
 			);
 			name = JHChainableAnimations;
 			sourceTree = "<group>";
@@ -241,10 +241,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				26C33F1D1B00EAD500CF221A /* NSBKeyframeAnimationFunctions.c in Sources */,
-				26C33F1C1B00EAD500CF221A /* JHKeyframeAnimation.m in Sources */,
+				26C407751B00F9EE00739298 /* NSBKeyframeAnimationFunctions.c in Sources */,
+				26C407741B00F9EE00739298 /* JHKeyframeAnimation.m in Sources */,
 				26C33EF51B00EA3E00CF221A /* ViewController.swift in Sources */,
-				26C33F1E1B00EAD500CF221A /* UIView+JHChainableAnimations.m in Sources */,
+				26C407761B00F9EE00739298 /* UIView+JHChainableAnimations.m in Sources */,
 				26C33EF31B00EA3E00CF221A /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -327,7 +327,7 @@
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
-				SWIFT_OBJC_BRIDGING_HEADER = "/Users/jhurray/Desktop/ChainableAnimationsWithSwiftExample/ChainableAnimationsWithSwiftExample/ChainableAnimationsSwiftExample-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "/Users/jhurray/Desktop/repo-main/JHChainableAnimations/JHChainableAnimationsExample-Swift/ChainableAnimationsWithSwiftExample/ChainableAnimationsSwiftExample-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
@@ -365,7 +365,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
-				SWIFT_OBJC_BRIDGING_HEADER = "/Users/jhurray/Desktop/ChainableAnimationsWithSwiftExample/ChainableAnimationsWithSwiftExample/ChainableAnimationsSwiftExample-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "/Users/jhurray/Desktop/repo-main/JHChainableAnimations/JHChainableAnimationsExample-Swift/ChainableAnimationsWithSwiftExample/ChainableAnimationsSwiftExample-Bridging-Header.h";
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
@@ -443,6 +443,7 @@
 				26C33F0E1B00EA3E00CF221A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		26C33F0F1B00EA3E00CF221A /* Build configuration list for PBXNativeTarget "ChainableAnimationsWithSwiftExampleTests" */ = {
 			isa = XCConfigurationList;
@@ -451,6 +452,7 @@
 				26C33F111B00EA3E00CF221A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
