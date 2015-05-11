@@ -71,7 +71,7 @@ There are also a lot of really good animation libraries out there such as [RBBAn
 Either clone the repo and manually add the Files in [JHChainableAnimations](./JHChainableAnimations) or add the following to your Podfile
 
 ```
-pod 'JHChainableAnimations', '~> 1.0.3'
+pod 'JHChainableAnimations', '~> 1.0.4'
 ```
 Then just import the following header.
 
@@ -80,6 +80,8 @@ Then just import the following header.
 ```
 
 This is all a UIView category, so these chainables can be used on any UIView in a file where the header is imported.
+
+Notes on using JHChainableAnimations with **Swift** can be found [here](#swift).
 
 ###Animating
 Chainable properties like **moveX(x)** must come between the view and the **animate(t)** function
@@ -175,7 +177,21 @@ view.makeScale(2.0).thenAfter(0.5).seconds.moveX(20).animate(1.0);
 // view.makeScale(2.0).thenAfter(0.5).moveX(20).animate(1.0);
 ```
 
-##<a name="chainables"></a>ChainableProperties
+##<a name="swift"></a>Using with Swift
+
+Using JHChainableAnimations with [Swift](https://developer.apple.com/swift/) is a little different. Every chainable property must have ```()``` between the name and the parameters.
+
+```swift
+// swift code
+view.makeScale()(2.0).spring().animate()(1.0);
+// is the same as 
+// view.makeScale(2.0).spring.animate(1.0);
+// in Objective-C
+```
+[Masonry](https://github.com/SnapKit/Masonry), which uses a similar chainable syntax eventually made [SnapKit](https://github.com/SnapKit/SnapKit) to make get rid of this weirdness. That may be on the horizon. 
+
+
+##<a name="chainables"></a>Chainable Properties
 
 <table>
 <tr>
