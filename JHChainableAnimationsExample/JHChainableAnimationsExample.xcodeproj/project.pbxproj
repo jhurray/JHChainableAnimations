@@ -16,7 +16,7 @@
 		262E78DC1AFA7FBA00BC59D9 /* JHChainableAnimationsExampleTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 262E78DB1AFA7FBA00BC59D9 /* JHChainableAnimationsExampleTests.m */; };
 		262E78FB1AFA91CA00BC59D9 /* JHKeyframeAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = 262E78F81AFA91CA00BC59D9 /* JHKeyframeAnimation.m */; };
 		262E78FC1AFA91CA00BC59D9 /* UIView+JHChainableAnimations.m in Sources */ = {isa = PBXBuildFile; fileRef = 262E78FA1AFA91CA00BC59D9 /* UIView+JHChainableAnimations.m */; };
-		262E78FF1AFA91D500BC59D9 /* NSBKeyframeAnimationFunctions.c in Sources */ = {isa = PBXBuildFile; fileRef = 262E78FD1AFA91D500BC59D9 /* NSBKeyframeAnimationFunctions.c */; };
+		26C33EE31B00E38600CF221A /* NSBKeyframeAnimationFunctions.c in Sources */ = {isa = PBXBuildFile; fileRef = 26C33EE11B00E38600CF221A /* NSBKeyframeAnimationFunctions.c */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,8 +49,8 @@
 		262E78F81AFA91CA00BC59D9 /* JHKeyframeAnimation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = JHKeyframeAnimation.m; path = ../../JHChainableAnimations/JHKeyframeAnimation.m; sourceTree = "<group>"; };
 		262E78F91AFA91CA00BC59D9 /* UIView+JHChainableAnimations.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIView+JHChainableAnimations.h"; path = "../../JHChainableAnimations/UIView+JHChainableAnimations.h"; sourceTree = "<group>"; };
 		262E78FA1AFA91CA00BC59D9 /* UIView+JHChainableAnimations.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIView+JHChainableAnimations.m"; path = "../../JHChainableAnimations/UIView+JHChainableAnimations.m"; sourceTree = "<group>"; };
-		262E78FD1AFA91D500BC59D9 /* NSBKeyframeAnimationFunctions.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = NSBKeyframeAnimationFunctions.c; path = ../../JHChainableAnimations/NSBKeyframeAnimationFunctions/NSBKeyframeAnimationFunctions.c; sourceTree = "<group>"; };
-		262E78FE1AFA91D500BC59D9 /* NSBKeyframeAnimationFunctions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NSBKeyframeAnimationFunctions.h; path = ../../JHChainableAnimations/NSBKeyframeAnimationFunctions/NSBKeyframeAnimationFunctions.h; sourceTree = "<group>"; };
+		26C33EE11B00E38600CF221A /* NSBKeyframeAnimationFunctions.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = NSBKeyframeAnimationFunctions.c; path = ../../JHChainableAnimations/NSBKeyframeAnimationFunctions.c; sourceTree = "<group>"; };
+		26C33EE21B00E38600CF221A /* NSBKeyframeAnimationFunctions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NSBKeyframeAnimationFunctions.h; path = ../../JHChainableAnimations/NSBKeyframeAnimationFunctions.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -148,8 +148,8 @@
 		262E78E91AFA812600BC59D9 /* NSBKeyframeAnimationFunctions */ = {
 			isa = PBXGroup;
 			children = (
-				262E78FD1AFA91D500BC59D9 /* NSBKeyframeAnimationFunctions.c */,
-				262E78FE1AFA91D500BC59D9 /* NSBKeyframeAnimationFunctions.h */,
+				26C33EE11B00E38600CF221A /* NSBKeyframeAnimationFunctions.c */,
+				26C33EE21B00E38600CF221A /* NSBKeyframeAnimationFunctions.h */,
 			);
 			name = NSBKeyframeAnimationFunctions;
 			sourceTree = "<group>";
@@ -256,7 +256,7 @@
 			files = (
 				262E78C81AFA7FBA00BC59D9 /* ViewController.m in Sources */,
 				262E78C51AFA7FBA00BC59D9 /* AppDelegate.m in Sources */,
-				262E78FF1AFA91D500BC59D9 /* NSBKeyframeAnimationFunctions.c in Sources */,
+				26C33EE31B00E38600CF221A /* NSBKeyframeAnimationFunctions.c in Sources */,
 				262E78FB1AFA91CA00BC59D9 /* JHKeyframeAnimation.m in Sources */,
 				262E78FC1AFA91CA00BC59D9 /* UIView+JHChainableAnimations.m in Sources */,
 				262E78C21AFA7FBA00BC59D9 /* main.m in Sources */,
