@@ -320,9 +320,7 @@ typedef void (^JHAnimationCompletionAction)(UIView *weakSelf);
 -(JHChainableFloat)makeY {
     JHChainableFloat chainable = JHChainableFloat(f) {
         
-        return self.makeOrigin(self.layer.frame.origin.x, f);
-        
-        return self;
+        return self.makeOrigin(self.layer.frame.origin.x, f);        
     };
     return chainable;
 }
@@ -1003,6 +1001,7 @@ typedef void (^JHAnimationCompletionAction)(UIView *weakSelf);
 -(void) animateChain {
     [self sanityCheck];
     [CATransaction begin];
+    [CATransaction setDisableActions:YES];
     [CATransaction setCompletionBlock:^{
         [self.layer removeAnimationForKey:@"AnimationChain"];
         [self chainLinkDidFinishAnimating];
@@ -1011,14 +1010,15 @@ typedef void (^JHAnimationCompletionAction)(UIView *weakSelf);
     [self animateChainLink];
     
     [CATransaction commit];
-}
-
--(void) chainLinkDidFinishAnimating {
+    
     NSMutableArray *actionCluster = [self.animationCompletionActions firstObject];
     for (JHAnimationCompletionAction action in actionCluster) {
         __weak UIView *weakSelf = self;
         action(weakSelf);
     }
+}
+
+-(void) chainLinkDidFinishAnimating {
     [self.animationCompletionActions removeObjectAtIndex:0];
     [self.animationCalculationActions removeObjectAtIndex:0];
     [self.animations removeObjectAtIndex:0];

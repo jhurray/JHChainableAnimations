@@ -36,21 +36,28 @@
 -(void) animateView:(UIButton *)sender {
     NSLog(@"In Animate View");
     
-    sender.userInteractionEnabled = NO;
+//    sender.userInteractionEnabled = NO;
+//        
+//    __weak ViewController *weakSelf = self;
+//    self.myView.animationCompletion = JHAnimationCompletion() {
+//        weakSelf.myView.layer.transform = CATransform3DMakeRotation(0, 0, 0, 1);
+//        weakSelf.myView.frame = CGRectMake(100, 150, 50, 50);
+//        weakSelf.myView.makeOpacity(1.0).makeBackground([UIColor blueColor]).animate(1.5);
+//                
+//        sender.userInteractionEnabled = YES;
+//    };
+//    
+//    UIColor *purple = [UIColor purpleColor];
+//    self.myView.moveWidth(50).bounce.makeBackground(purple).easeIn.anchorTopLeft.
+//        thenAfter(0.8).rotate(95).easeBack.wait(0.2).
+//        thenAfter(0.5).moveY(300).easeIn.makeOpacity(0.0).animate(0.4);
     
-    __weak ViewController *weakSelf = self;
-    self.myView.animationCompletion = JHAnimationCompletion() {
-        weakSelf.myView.layer.transform = CATransform3DMakeRotation(0, 0, 0, 1);
-        weakSelf.myView.frame = CGRectMake(100, 150, 50, 50);
-        weakSelf.myView.makeOpacity(1.0).makeBackground([UIColor blueColor]).animate(1.5);
-        sender.userInteractionEnabled = YES;
-    };
+//    self.myView.makeX(0).bounce.
+//        thenAfter(0.5).makeY(self.view.bounds.size.height-100).bounce.
+//        thenAfter(0.5).makeX(self.view.bounds.size.width-50).bounce.
+//        thenAfter(0.5).makeY(0).bounce.animate(0.5);
     
-    UIColor *purple = [UIColor purpleColor];
-    self.myView.moveWidth(50).bounce.makeBackground(purple).easeIn.anchorTopLeft.
-        thenAfter(0.8).rotate(95).easeBack.wait(0.2).
-        thenAfter(0.5).moveY(300).easeIn.makeOpacity(0.0).animate(0.4);
-    
+    self.myView.moveX(-100).easeInOut.animate(1.0);
     
 }
 
