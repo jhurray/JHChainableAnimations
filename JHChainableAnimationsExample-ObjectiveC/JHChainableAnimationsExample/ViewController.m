@@ -36,25 +36,27 @@
 -(void) animateView:(UIButton *)sender {
     NSLog(@"In Animate View");
     
-    sender.userInteractionEnabled = NO;
-        
-    __weak ViewController *weakSelf = self;
-    self.myView.animationCompletion = JHAnimationCompletion() {
-        weakSelf.myView.layer.transform = CATransform3DMakeRotation(0, 0, 0, 1);
-        weakSelf.myView.frame = CGRectMake(100, 150, 50, 50);
-        weakSelf.myView.makeOpacity(1.0).makeBackground([UIColor blueColor]).animate(1.0);
-        
-        sender.moveY(-50).easeInOutExpo.animate(1.1).animationCompletion = JHAnimationCompletion(){
-            sender.userInteractionEnabled = YES;
-        };
-    };
+    self.myView.makeSize(100, 100).thenAfter(1.0).makeWidth(50).animate(1.0);
     
-    UIColor *purple = [UIColor purpleColor];
-    self.myView.moveWidth(50).bounce.makeBackground(purple).easeIn.anchorTopLeft.
-        thenAfter(0.8).rotate(95).easeBack.wait(0.2).
-        thenAfter(0.5).moveY(300).easeIn.makeOpacity(0.0).animate(0.4);
-    
-    sender.moveY(50).easeInOutExpo.animate(0.5);
+//    sender.userInteractionEnabled = NO;
+//        
+//    __weak ViewController *weakSelf = self;
+//    self.myView.animationCompletion = JHAnimationCompletion() {
+//        weakSelf.myView.layer.transform = CATransform3DMakeRotation(0, 0, 0, 1);
+//        weakSelf.myView.frame = CGRectMake(100, 150, 50, 50);
+//        weakSelf.myView.makeOpacity(1.0).makeBackground([UIColor blueColor]).animate(1.0);
+//        
+//        sender.moveY(-50).easeInOutExpo.animate(1.1).animationCompletion = JHAnimationCompletion(){
+//            sender.userInteractionEnabled = YES;
+//        };
+//    };
+//    
+//    UIColor *purple = [UIColor purpleColor];
+//    self.myView.moveWidth(50).bounce.makeBackground(purple).easeIn.anchorTopLeft.
+//        thenAfter(0.8).rotate(95).easeBack.wait(0.2).
+//        thenAfter(0.5).moveY(300).easeIn.makeOpacity(0.0).animate(0.4);
+//    
+//    sender.moveY(50).easeInOutExpo.animate(0.5);
 
     
 /* OTHER COOL SHIT TO TRY: Animate on a bezier path  */    

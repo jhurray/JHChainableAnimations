@@ -27,6 +27,7 @@
 </tr>
 </table>
 
+
 ##Whats wrong with animations?
 
 CAAnimations and UIView animations are extremely powerful, but it is difficult to chain multiple animations together, especially while changing anchor points. 
@@ -70,7 +71,7 @@ There are also a lot of really good animation libraries out there such as [RBBAn
 Either clone the repo and manually add the Files in [JHChainableAnimations](./JHChainableAnimations) or add the following to your Podfile
 
 ```
-pod 'JHChainableAnimations', '~> 1.1.0'
+pod 'JHChainableAnimations', '~> 1.1.1'
 ```
 Then just import the following header.
 
@@ -207,6 +208,8 @@ view.makeScale()(2.0).spring().animate()(1.0);
 // in Objective-C
 ```
 [Masonry](https://github.com/SnapKit/Masonry), which uses a similar chainable syntax eventually made [SnapKit](https://github.com/SnapKit/SnapKit) to make get rid of this weirdness. That may be on the horizon. 
+
+[Draveness](https://github.com/Draveness) copied my code into swift and it looks pretty good. [DKAnimationKit](https://github.com/Draveness/DKAnimationKit)
 
 
 ##<a name="chainables"></a>Chainable Properties

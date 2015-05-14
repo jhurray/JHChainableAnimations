@@ -350,7 +350,19 @@ typedef void (^JHAnimationCompletionAction)(UIView *weakSelf);
 -(JHChainableFloat)makeWidth {
     JHChainableFloat chainable = JHChainableFloat(f) {
         
-        return self.makeSize(f, self.layer.bounds.size.height);
+        [self addAnimationCalculationAction:^(UIView *weakSelf) {
+            JHKeyframeAnimation *sizeAnimation = [weakSelf basicAnimationForKeyPath:@"bounds.size"];
+            sizeAnimation.fromValue = [NSValue valueWithCGSize:weakSelf.layer.bounds.size];
+            sizeAnimation.toValue = [NSValue valueWithCGSize:CGSizeMake(f, weakSelf.frame.size.height)];
+            [weakSelf addAnimationFromCalculationBlock:sizeAnimation];
+        }];
+        [self addAnimationCompletionAction:^(UIView *weakSelf) {
+            CGRect bounds = CGRectMake(0, 0, f, weakSelf.frame.size.height);
+            weakSelf.layer.bounds = bounds;
+            weakSelf.bounds = bounds;
+        }];
+        
+        return self;
     };
     return chainable;
 }
@@ -358,7 +370,19 @@ typedef void (^JHAnimationCompletionAction)(UIView *weakSelf);
 -(JHChainableFloat)makeHeight {
     JHChainableFloat chainable = JHChainableFloat(f) {
         
-        return self.makeSize(self.layer.bounds.size.width, f);
+        [self addAnimationCalculationAction:^(UIView *weakSelf) {
+            JHKeyframeAnimation *sizeAnimation = [weakSelf basicAnimationForKeyPath:@"bounds.size"];
+            sizeAnimation.fromValue = [NSValue valueWithCGSize:weakSelf.layer.bounds.size];
+            sizeAnimation.toValue = [NSValue valueWithCGSize:CGSizeMake(weakSelf.frame.size.width, f)];
+            [weakSelf addAnimationFromCalculationBlock:sizeAnimation];
+        }];
+        [self addAnimationCompletionAction:^(UIView *weakSelf) {
+            CGRect bounds = CGRectMake(0, 0, weakSelf.frame.size.width, f);
+            weakSelf.layer.bounds = bounds;
+            weakSelf.bounds = bounds;
+        }];
+        
+        return self;
     };
     return chainable;
 }
@@ -405,7 +429,7 @@ typedef void (^JHAnimationCompletionAction)(UIView *weakSelf);
         
         [self addAnimationCalculationAction:^(UIView *weakSelf) {
             JHKeyframeAnimation *colorAnimation = [weakSelf basicAnimationForKeyPath:@"borderColor"];
-            colorAnimation.fromValue = weakSelf.layer.borderColor;
+            colorAnimation.fromValue = (UIColor *)(weakSelf.layer.borderColor);
             colorAnimation.toValue = color;
             [weakSelf addAnimationFromCalculationBlock:colorAnimation];
         }];
