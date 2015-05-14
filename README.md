@@ -551,6 +551,13 @@ Info on anchoring can be found [here](https://developer.apple.com/library/ios/do
 <img src="./img/JHChainableAnimationsAnchors.png" height="200px">
 
 
+##To Do
+I have gotten a ton of great suggestions of what to do next. If you think this is missing anything please let me know! The following is what I plan on working on in no particular order.
+
+* OSX port
+* Swift Port similar to [SnapKit](http://snapkit.io/)
+* 3D rotations / movement
+
 ##Contact Info && Contributing
 
 Feel free to email me at [jhurray33@gmail.com](mailto:jhurray33@gmail.com?subject=JHChainableAnimations). I'd love to hear your thoughts on this, or see examples where this has been used.
