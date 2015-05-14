@@ -852,7 +852,7 @@ typedef void (^JHAnimationCompletionAction)(UIView *weakSelf);
 }
 
 - (UIView *) easeIn {
-    return self.easeInOutQuad;
+    return self.easeInQuad;
 }
 
 - (UIView *) easeOut {
