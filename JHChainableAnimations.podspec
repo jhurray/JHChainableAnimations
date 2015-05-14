@@ -8,6 +8,6 @@ Pod::Spec.new do |s|
   s.source   = { :git => 'https://github.com/jhurray/JHChainableAnimations.git', :tag => s.version.to_s }
   s.source_files = 'JHChainableAnimations/*{.h,.c,.m}'
   s.platform = :ios
-  s.ios.deployment_target = '7.0'
+  s.ios.deployment_target = '6.0'
   s.requires_arc = true
 end
