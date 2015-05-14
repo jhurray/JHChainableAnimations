@@ -36,27 +36,35 @@
 -(void) animateView:(UIButton *)sender {
     NSLog(@"In Animate View");
     
-    sender.userInteractionEnabled = NO;
-        
-    __weak ViewController *weakSelf = self;
-    self.myView.animationCompletion = JHAnimationCompletion() {
-        weakSelf.myView.layer.transform = CATransform3DMakeRotation(0, 0, 0, 1);
-        weakSelf.myView.frame = CGRectMake(100, 150, 50, 50);
-        weakSelf.myView.makeOpacity(1.0).makeBackground([UIColor blueColor]).animate(1.0);
-        
-        sender.moveY(-50).easeInOutExpo.animate(1.1).animationCompletion = JHAnimationCompletion(){
-            sender.userInteractionEnabled = YES;
-        };
-    };
+//    sender.userInteractionEnabled = NO;
+//        
+//    __weak ViewController *weakSelf = self;
+//    self.myView.animationCompletion = JHAnimationCompletion() {
+//        weakSelf.myView.layer.transform = CATransform3DMakeRotation(0, 0, 0, 1);
+//        weakSelf.myView.frame = CGRectMake(100, 150, 50, 50);
+//        weakSelf.myView.makeOpacity(1.0).makeBackground([UIColor blueColor]).animate(1.0);
+//        
+//        sender.moveY(-50).easeInOutExpo.animate(1.1).animationCompletion = JHAnimationCompletion(){
+//            sender.userInteractionEnabled = YES;
+//        };
+//    };
+//    
+//    UIColor *purple = [UIColor purpleColor];
+//    self.myView.moveWidth(50).bounce.makeBackground(purple).easeIn.anchorTopLeft.
+//        thenAfter(0.8).rotate(95).easeBack.wait(0.2).
+//        thenAfter(0.5).moveY(300).easeIn.makeOpacity(0.0).animate(0.4);
+//    
+//    sender.moveY(50).easeInOutExpo.animate(0.5);
+
     
-    UIColor *purple = [UIColor purpleColor];
-    self.myView.moveWidth(50).bounce.makeBackground(purple).easeIn.anchorTopLeft.
-        thenAfter(0.8).rotate(95).easeBack.wait(0.2).
-        thenAfter(0.5).moveY(300).easeIn.makeOpacity(0.0).animate(0.4);
-    
-    sender.moveY(50).easeInOutExpo.animate(0.5);
-    
-    
+/* OTHER COOL SHIT TO TRY: Animate on a bezier path  */    
+//    UIBezierPath *path = [UIBezierPath bezierPath];
+//    [path moveToPoint:self.myView.center];
+//    [path addCurveToPoint:CGPointMake(250, 200) controlPoint1:CGPointMake(150, 100) controlPoint2:CGPointMake(200, 250)];
+//    [path addLineToPoint:CGPointMake(25, 400)];
+//    [path addLineToPoint:CGPointMake(300, 500)];
+//    
+//    self.myView.moveOnPath(path).easeIn.rotate(360).bounce.animate(2.0);
     
 /* OTHER COOL SHIT TO TRY: Bounce around 4 corners  */
 //    self.myView.makeOrigin(0, 0).bounce.

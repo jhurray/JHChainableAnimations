@@ -690,6 +690,64 @@ typedef void (^JHAnimationCompletionAction)(UIView *weakSelf);
     return chainable;
 }
 
+- (UIBezierPath *) bezierPathForAnimation {
+    UIBezierPath *path = [UIBezierPath bezierPath];
+    [path moveToPoint:self.layer.position];
+    return path;
+}
+
+- (JHChainableBezierPath) moveOnPath {
+    JHChainableBezierPath chainable = JHChainableBezierPath(path) {
+        [self addAnimationCalculationAction:^(UIView *weakSelf) {
+            JHKeyframeAnimation *pathAnimation = [weakSelf basicAnimationForKeyPath:@"position"];
+            pathAnimation.path = path.CGPath;
+            [weakSelf addAnimationFromCalculationBlock:pathAnimation];
+        }];
+        [self addAnimationCompletionAction:^(UIView *weakSelf) {
+            CGPoint endPoint = path.currentPoint;
+            weakSelf.layer.position = endPoint;
+        }];
+        return self;
+    };
+    return chainable;
+}
+
+- (JHChainableBezierPath) moveAndRotateOnPath {
+    JHChainableBezierPath chainable = JHChainableBezierPath(path) {
+        
+        [self addAnimationCalculationAction:^(UIView *weakSelf) {
+            JHKeyframeAnimation *pathAnimation = [weakSelf basicAnimationForKeyPath:@"position"];
+            pathAnimation.path = path.CGPath;
+            pathAnimation.rotationMode = kCAAnimationRotateAuto;
+            [weakSelf addAnimationFromCalculationBlock:pathAnimation];
+        }];
+        [self addAnimationCompletionAction:^(UIView *weakSelf) {
+            CGPoint endPoint = path.currentPoint;
+            weakSelf.layer.position = endPoint;
+        }];
+        return self;
+    };
+    return chainable;
+}
+
+- (JHChainableBezierPath) moveAndReverseRotateOnPath {
+    JHChainableBezierPath chainable = JHChainableBezierPath(path) {
+        
+        [self addAnimationCalculationAction:^(UIView *weakSelf) {
+            JHKeyframeAnimation *pathAnimation = [weakSelf basicAnimationForKeyPath:@"position"];
+            pathAnimation.path = path.CGPath;
+            pathAnimation.rotationMode = kCAAnimationRotateAutoReverse;
+            [weakSelf addAnimationFromCalculationBlock:pathAnimation];
+        }];
+        [self addAnimationCompletionAction:^(UIView *weakSelf) {
+            CGPoint endPoint = path.currentPoint;
+            weakSelf.layer.position = endPoint;
+        }];
+        return self;
+    };
+    return chainable;
+}
+
 - (UIView *) anchorDefault {
     return self.anchorCenter;
 }

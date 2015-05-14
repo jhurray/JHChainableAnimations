@@ -40,6 +40,9 @@ typedef UIView* (^JHChainablePolarCoordinate)(CGFloat radius, CGFloat angle);
 typedef UIView* (^JHChainableColor)(UIColor *color);
 #define JHChainableColor(color) ^UIView* (UIColor *color)
 
+typedef UIView* (^JHChainableBezierPath)(UIBezierPath *path);
+#define JHChainableBezierPath(path) ^UIView* (UIBezierPath *path)
+
 typedef void    (^JHAnimationCompletion)();
 #define JHAnimationCompletion() ^void ()
 

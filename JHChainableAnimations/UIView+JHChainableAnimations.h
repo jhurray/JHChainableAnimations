@@ -44,6 +44,14 @@
 - (JHChainableDegrees) rotate;
 - (JHChainablePolarCoordinate) movePolar;
 
+// Bezier Paths
+// Animation effects dont apply
+- (JHChainableBezierPath) moveOnPath;
+- (JHChainableBezierPath) moveAndRotateOnPath;
+- (JHChainableBezierPath) moveAndReverseRotateOnPath;
+// A bezier path starting from the views layers position
+- (UIBezierPath *) bezierPathForAnimation; // Not a chainable property
+
 // Anchors
 - (UIView *) anchorDefault;
 - (UIView *) anchorCenter;
