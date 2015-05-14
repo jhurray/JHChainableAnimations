@@ -176,6 +176,16 @@ view.makeX(0).animate(1.0).animationCompletion = JHAnimationCompletion(){
 };
 ```
 
+###Bezier Paths
+You can also animate a view along a [UIBezierPath](https://developer.apple.com/library/ios/documentation/2DDrawing/Conceptual/DrawingPrintingiOS/BezierPaths/BezierPaths.html). To get a bezier path starting from the views position, call the **bezierPathForAnimation** method. Then add points or curves or lines to it and use it in a chainable property.
+
+```objective-c
+UIBezierPath *path = [view bezierPathForAnimation];
+[path addLineToPoint:CGPointMake(25, 400)];
+[path addLineToPoint:CGPointMake(300, 500)];
+view.moveOnPath(path).animate(1.0);
+```
+Animation effects do not work on path movements.
 
 ###Semantics
 I included a chainable property called **seconds** that is there purely for show. It does however, make the code a little more readable (if you're into that sort of thing).
@@ -485,6 +495,39 @@ view.rotate(360).animate(1.0);
 </td>
 <td>
 view.movePolar(30, 90).animate(1.0);
+</td>
+</tr>
+<tr>
+<td>
+- (JHChainableBezierPath) moveOnPath;
+</td>
+<td>
+(UIBezierPath *path)
+</td>
+<td>
+view.moveOnPath(path).animate(1.0);
+</td>
+</tr>
+<tr>
+<td>
+- (JHChainableBezierPath) moveAndRotateOnPath;
+</td>
+<td>
+(UIBezierPath *path)
+</td>
+<td>
+view.moveAndRotateOnPath(path).animate(1.0);
+</td>
+</tr>
+<tr>
+<td>
+- (JHChainableBezierPath) moveAndReverseRotateOnPath;
+</td>
+<td>
+(UIBezierPath *path)
+</td>
+<td>
+view.moveAndReverseRotateOnPath(path).animate(1.0);
 </td>
 </tr>
 </table>
