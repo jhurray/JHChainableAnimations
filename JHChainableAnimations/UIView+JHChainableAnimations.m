@@ -429,7 +429,8 @@ typedef void (^JHAnimationCompletionAction)(UIView *weakSelf);
         
         [self addAnimationCalculationAction:^(UIView *weakSelf) {
             JHKeyframeAnimation *colorAnimation = [weakSelf basicAnimationForKeyPath:@"borderColor"];
-            colorAnimation.fromValue = (__bridge UIColor*)(weakSelf.layer.borderColor);
+            UIColor *borderColor = (__bridge UIColor*)(weakSelf.layer.borderColor);
+            colorAnimation.fromValue = borderColor;
             colorAnimation.toValue = color;
             [weakSelf addAnimationFromCalculationBlock:colorAnimation];
         }];
