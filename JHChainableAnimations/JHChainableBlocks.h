@@ -6,7 +6,7 @@
 //  Copyright (c) 2015 jhurray. All rights reserved.
 //
 
-@import UIKit;
+#import <UIKit/UIKit.h>
 
 #ifndef JHAnimationKitExample_JHChainableBlocks_h
 #define JHAnimationKitExample_JHChainableBlocks_h
