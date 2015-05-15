@@ -27,6 +27,11 @@
 </tr>
 </table>
 
+![language](https://img.shields.io/badge/Language-Objective--C-8E44AD.svg)
+![Version](https://img.shields.io/badge/Pod-%20v1.1.1%20-96281B.svg)
+![Build Status](https://img.shields.io/badge/build-passing-brightgreen.svg)
+![MIT License](https://img.shields.io/github/license/mashape/apistatus.svg)
+![Platform](https://img.shields.io/badge/platform-%20iOS%20-lightgrey.svg)
 
 ##Whats wrong with animations?
 
@@ -209,7 +214,7 @@ view.makeScale()(2.0).spring().animate()(1.0);
 ```
 [Masonry](https://github.com/SnapKit/Masonry), which uses a similar chainable syntax eventually made [SnapKit](https://github.com/SnapKit/SnapKit) to make get rid of this weirdness. That may be on the horizon. 
 
-[Draveness](https://github.com/Draveness) copied my code into swift and it looks pretty good. [DKAnimationKit](https://github.com/Draveness/DKAnimationKit)
+[Draveness](https://github.com/Draveness) copied my code into swift and it looks pretty good. [DKChainableAnimationKit](https://github.com/Draveness/DKChainableAnimationKit)
 
 
 ##<a name="chainables"></a>Chainable Properties
