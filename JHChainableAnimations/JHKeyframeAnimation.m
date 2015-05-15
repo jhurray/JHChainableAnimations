@@ -6,7 +6,7 @@
 //  Copyright (c) 2015 jhurray. All rights reserved.
 //
 
-@import UIKit;
+#import <UIKit/UIKit.h>
 #import "JHKeyframeAnimation.h"
 
 #define kFPS 60
@@ -48,8 +48,6 @@ static CGPathRef createPathFromXYValues(NSArray *xValues, NSArray *yValues);
         } else if ([self.fromValue isKindOfClass:[UIColor class]] && [self.toValue isKindOfClass:[UIColor class]]) {
             const CGFloat *fromComponents = CGColorGetComponents(((UIColor*)self.fromValue).CGColor);
             const CGFloat *toComponents = CGColorGetComponents(((UIColor*)self.toValue).CGColor);
-            //			NSLog(@"from %0.2f %0.2f %0.2f %0.2f", fromComponents[0], fromComponents[1], fromComponents[2], fromComponents[3]);
-            //			NSLog(@"to %0.2f %0.2f %0.2f %0.2f", toComponents[0], toComponents[1], toComponents[2], toComponents[3]);
             self.values = [self createColorArrayFromRed:
                            [self valueArrayForStartValue:fromComponents[0] endValue:toComponents[0]]
                                                   green:

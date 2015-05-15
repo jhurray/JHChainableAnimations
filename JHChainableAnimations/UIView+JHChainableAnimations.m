@@ -22,19 +22,18 @@ typedef void (^JHAnimationCalculationAction)(UIView *weakSelf);
 typedef void (^JHAnimationCompletionAction)(UIView *weakSelf);
 
 // Arrays of animations to be grouped
-@property (strong, nonatomic) NSMutableArray *animations;
+@property (strong, nonatomic) NSMutableArray *JHAnimations;
 
 // Grouped animations
-@property (strong, nonatomic) NSMutableArray *animationGroups;
+@property (strong, nonatomic) NSMutableArray *JHAnimationGroups;
 
 // Code run at the beginning of an animation link to calculate values
-@property (strong, nonatomic) NSMutableArray *animationCalculationActions;
+@property (strong, nonatomic) NSMutableArray *JHAnimationCalculationActions;
 
 // Code run after animation is completed
-@property (strong, nonatomic) NSMutableArray *animationCompletionActions;
+@property (strong, nonatomic) NSMutableArray *JHAnimationCompletionActions;
 
 // Methods
--(void) setup;
 -(void) clear;
 -(CAAnimationGroup *) basicAnimationGroup;
 -(JHKeyframeAnimation *) basicAnimationForKeyPath:(NSString *) keypath;
@@ -46,10 +45,6 @@ typedef void (^JHAnimationCompletionAction)(UIView *weakSelf);
 -(void) addAnimationCalculationAction:(JHAnimationCalculationAction)action;
 -(void) addAnimationCompletionAction:(JHAnimationCompletionAction)action;
 
-// Swizzled initializers
--(instancetype)swizzled_init;
--(instancetype)swizzled_initWithFrame:(CGRect)frame;
--(instancetype)swizzled_initWithCoder:(NSCoder *)aDecoder;
 
 @end
 
@@ -58,109 +53,76 @@ typedef void (^JHAnimationCompletionAction)(UIView *weakSelf);
 
 // Setters and getters
 
--(void) setAnimations:(NSMutableArray *)animations {
-    objc_setAssociatedObject(self, @selector(animations), animations, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+-(void) setJHAnimations:(NSMutableArray *)animations {
+    objc_setAssociatedObject(self, @selector(JHAnimations), animations, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
 }
 
--(void) setAnimationGroups:(NSMutableArray *)animationGroups {
-    objc_setAssociatedObject(self, @selector(animationGroups), animationGroups, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+-(void) setJHAnimationGroups:(NSMutableArray *)animationGroups {
+    objc_setAssociatedObject(self, @selector(JHAnimationGroups), animationGroups, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
 }
 
--(void) setAnimationCalculationActions:(NSMutableArray *)animationCalculationActions {
-    objc_setAssociatedObject(self, @selector(animationCalculationActions), animationCalculationActions, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+-(void) setJHAnimationCalculationActions:(NSMutableArray *)animationCalculationActions {
+    objc_setAssociatedObject(self, @selector(JHAnimationCalculationActions), animationCalculationActions, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
 }
 
--(void) setAnimationCompletionActions:(NSMutableArray *)animationCompletionActions {
-    objc_setAssociatedObject(self, @selector(animationCompletionActions), animationCompletionActions, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+-(void) setJHAnimationCompletionActions:(NSMutableArray *)animationCompletionActions {
+    objc_setAssociatedObject(self, @selector(JHAnimationCompletionActions), animationCompletionActions, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
 }
 
 -(void) setAnimationCompletion:(JHAnimationCompletion)animationCompletion {
     objc_setAssociatedObject(self, @selector(animationCompletion), animationCompletion, OBJC_ASSOCIATION_COPY_NONATOMIC);
 }
 
--(NSMutableArray *) animations {
-    return objc_getAssociatedObject(self, @selector(animations));
+-(NSMutableArray *) JHAnimations {
+    NSMutableArray *animations = objc_getAssociatedObject(self, @selector(JHAnimations));
+	if (animations == nil) {
+		animations = [NSMutableArray arrayWithObject:[NSMutableArray array]];
+		[self setJHAnimations:animations];
+	}
+	return animations;
 }
 
--(NSMutableArray *) animationGroups {
-    return objc_getAssociatedObject(self, @selector(animationGroups));
+-(NSMutableArray *) JHAnimationGroups {
+    NSMutableArray *animationGroups = objc_getAssociatedObject(self, @selector(JHAnimationGroups));
+	if (animationGroups == nil) {
+		animationGroups = [NSMutableArray arrayWithObject:[self basicAnimationGroup]];
+		[self setJHAnimationGroups:animationGroups];
+	}
+	return animationGroups;
 }
 
--(NSMutableArray *) animationCalculationActions {
-    return objc_getAssociatedObject(self, @selector(animationCalculationActions));
+-(NSMutableArray *) JHAnimationCalculationActions {
+    NSMutableArray *animationCalculationActions = objc_getAssociatedObject(self, @selector(JHAnimationCalculationActions));
+	if (animationCalculationActions == nil) {
+		animationCalculationActions = [NSMutableArray arrayWithObject:[NSMutableArray array]];
+		[self setJHAnimationCalculationActions:animationCalculationActions];
+	}
+	return animationCalculationActions;
 }
 
--(NSMutableArray *) animationCompletionActions {
-    return objc_getAssociatedObject(self, @selector(animationCompletionActions));
+-(NSMutableArray *) JHAnimationCompletionActions {
+    NSMutableArray *animationCompletionActions = objc_getAssociatedObject(self, @selector(JHAnimationCompletionActions));
+	if (animationCompletionActions == nil) {
+		animationCompletionActions = [NSMutableArray arrayWithObject:[NSMutableArray array]];;
+		[self setJHAnimationCompletionActions:animationCompletionActions];
+	}
+	return animationCompletionActions;
 }
 
 -(JHAnimationCompletion) animationCompletion {
     return objc_getAssociatedObject(self, @selector(animationCompletion));
 }
 
-+ (void)load
-{
-    // The "+ load" method is called once, very early in the application life-cycle.
-    // It's called even before the "main" function is called. Beware: there's no
-    // autorelease pool at this point, so avoid Objective-C calls.
-    Method original, swizzle;
-    
-    // Get the "- (instancetype)init" method.
-    original = class_getInstanceMethod(self, @selector(init));
-    // Get the "- (instancetype)swizzled_init" method.
-    swizzle = class_getInstanceMethod(self, @selector(swizzled_init));
-    // Swap their implementations.
-    method_exchangeImplementations(original, swizzle);
-    // Frame
-    original = class_getInstanceMethod(self, @selector(initWithFrame:));
-    swizzle = class_getInstanceMethod(self, @selector(swizzled_initWithFrame:));
-    method_exchangeImplementations(original, swizzle);
-    // Coder
-    original = class_getInstanceMethod(self, @selector(initWithCoder:));
-    swizzle = class_getInstanceMethod(self, @selector(swizzled_initWithCoder:));
-    method_exchangeImplementations(original, swizzle);
-}
-
--(instancetype)swizzled_init {
-    UIView * result = [self swizzled_init];
-    if (result && [result respondsToSelector:@selector(setup)]) {
-        [self setup];
-    }
-    return result;
-}
-
--(instancetype)swizzled_initWithFrame:(CGRect)frame {
-    UIView * result = [self swizzled_initWithFrame:frame];
-    if (result && [result respondsToSelector:@selector(setup)]) {
-        [self setup];
-    }
-    return result;
-}
-
--(instancetype)swizzled_initWithCoder:(NSCoder *)aDecoder {
-    UIView * result = [self swizzled_initWithCoder:aDecoder];
-    if (result && [result respondsToSelector:@selector(setup)]) {
-        [self setup];
-    }
-    return result;
-}
-
--(void) setup {
-    self.animations = [NSMutableArray arrayWithObject:[NSMutableArray array]];
-    self.animationGroups = [NSMutableArray arrayWithObject:[self basicAnimationGroup]];
-    self.animationCompletionActions = [NSMutableArray arrayWithObject:[NSMutableArray array]];
-    self.animationCalculationActions = [NSMutableArray arrayWithObject:[NSMutableArray array]];
-}
 
 -(void) clear {
-    [self.animations removeAllObjects];
-    [self.animationGroups removeAllObjects];
-    [self.animationCompletionActions removeAllObjects];
-    [self.animationCalculationActions removeAllObjects];
-    [self.animations addObject:[NSMutableArray array]];
-    [self.animationCompletionActions addObject:[NSMutableArray array]];
-    [self.animationCalculationActions addObject:[NSMutableArray array]];
-    [self.animationGroups addObject:[self basicAnimationGroup]];
+    [self.JHAnimations removeAllObjects];
+    [self.JHAnimationGroups removeAllObjects];
+    [self.JHAnimationCompletionActions removeAllObjects];
+    [self.JHAnimationCalculationActions removeAllObjects];
+    [self.JHAnimations addObject:[NSMutableArray array]];
+    [self.JHAnimationCompletionActions addObject:[NSMutableArray array]];
+    [self.JHAnimationCalculationActions addObject:[NSMutableArray array]];
+    [self.JHAnimationGroups addObject:[self basicAnimationGroup]];
 }
 
 -(CAAnimationGroup *) basicAnimationGroup {
@@ -176,22 +138,22 @@ typedef void (^JHAnimationCompletionAction)(UIView *weakSelf);
 }
 
 -(void) addAnimationFromCalculationBlock:(JHKeyframeAnimation *) animation {
-    NSMutableArray *animationCluster = [self.animations firstObject];
+    NSMutableArray *animationCluster = [self.JHAnimations firstObject];
     [animationCluster addObject:animation];
 }
 
 -(void) addAnimation:(JHKeyframeAnimation *) animation {
-    NSMutableArray *animationCluster = [self.animations lastObject];
+    NSMutableArray *animationCluster = [self.JHAnimations lastObject];
     [animationCluster addObject:animation];
 }
 
 -(void) addAnimationCalculationAction:(JHAnimationCalculationAction)action {
-    NSMutableArray *actions = [self.animationCalculationActions lastObject];
+    NSMutableArray *actions = [self.JHAnimationCalculationActions lastObject];
     [actions addObject:action];
 }
 
 -(void) addAnimationCompletionAction:(JHAnimationCompletionAction)action {
-    NSMutableArray *actions = [self.animationCompletionActions lastObject];
+    NSMutableArray *actions = [self.JHAnimationCompletionActions lastObject];
     [actions addObject:action];
 }
 
@@ -569,7 +531,7 @@ typedef void (^JHAnimationCompletionAction)(UIView *weakSelf);
         weakSelf.layer.position = position;
         weakSelf.layer.anchorPoint = anchorPoint;
     };
-    NSMutableArray *lastCalculationActions = [self.animationCalculationActions lastObject];
+    NSMutableArray *lastCalculationActions = [self.JHAnimationCalculationActions lastObject];
     [lastCalculationActions insertObject:action atIndex:0];
 }
 
@@ -852,13 +814,13 @@ typedef void (^JHAnimationCompletionAction)(UIView *weakSelf);
     
     JHChainableTimeInterval chainable = JHChainableTimeInterval(t) {
       
-        CAAnimationGroup *group = [self.animationGroups lastObject];
+        CAAnimationGroup *group = [self.JHAnimationGroups lastObject];
         group.duration = t;
         CAAnimationGroup *newGroup = [self basicAnimationGroup];
-        [self.animationGroups addObject:newGroup];
-        [self.animations addObject:[NSMutableArray array]];
-        [self.animationCompletionActions addObject:[NSMutableArray array]];
-        [self.animationCalculationActions addObject:[NSMutableArray array]];
+        [self.JHAnimationGroups addObject:newGroup];
+        [self.JHAnimations addObject:[NSMutableArray array]];
+        [self.JHAnimationCompletionActions addObject:[NSMutableArray array]];
+        [self.JHAnimationCalculationActions addObject:[NSMutableArray array]];
         
         return self;
     };
@@ -870,7 +832,7 @@ typedef void (^JHAnimationCompletionAction)(UIView *weakSelf);
 
 -(void) addAnimationKeyframeCalculation:(NSBKeyframeAnimationFunctionBlock) functionBlock {
     [self addAnimationCalculationAction:^(UIView *weakSelf) {
-        NSMutableArray *animationCluster = [weakSelf.animations firstObject];
+        NSMutableArray *animationCluster = [weakSelf.JHAnimations firstObject];
         JHKeyframeAnimation *animation = [animationCluster lastObject];
         animation.functionBlock = functionBlock;
     }];
@@ -1113,10 +1075,10 @@ typedef void (^JHAnimationCompletionAction)(UIView *weakSelf);
 -(JHChainableTimeInterval)delay {
     JHChainableTimeInterval chainable = JHChainableTimeInterval(t) {
       
-        for (CAAnimation *aGroup in self.animationGroups) {
+        for (CAAnimation *aGroup in self.JHAnimationGroups) {
             t+=aGroup.duration;
         }
-        CAAnimationGroup *group = [self.animationGroups lastObject];
+        CAAnimationGroup *group = [self.JHAnimationGroups lastObject];
         group.beginTime = CACurrentMediaTime() + t;
         
         return self;
@@ -1149,10 +1111,10 @@ typedef void (^JHAnimationCompletionAction)(UIView *weakSelf);
 }
 
 -(void) executeCompletionActions {
-    CAAnimationGroup *group = [self.animationGroups firstObject];
+    CAAnimationGroup *group = [self.JHAnimationGroups firstObject];
     NSTimeInterval delay = MAX(group.beginTime - CACurrentMediaTime(), 0.0);
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(delay * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-        NSMutableArray *actionCluster = [self.animationCompletionActions firstObject];
+        NSMutableArray *actionCluster = [self.JHAnimationCompletionActions firstObject];
         for (JHAnimationCompletionAction action in actionCluster) {
             __weak UIView *weakSelf = self;
             action(weakSelf);
@@ -1161,12 +1123,12 @@ typedef void (^JHAnimationCompletionAction)(UIView *weakSelf);
 }
 
 -(void) chainLinkDidFinishAnimating {
-    [self.animationCompletionActions removeObjectAtIndex:0];
-    [self.animationCalculationActions removeObjectAtIndex:0];
-    [self.animations removeObjectAtIndex:0];
-    [self.animationGroups removeObjectAtIndex:0];
+    [self.JHAnimationCompletionActions removeObjectAtIndex:0];
+    [self.JHAnimationCalculationActions removeObjectAtIndex:0];
+    [self.JHAnimations removeObjectAtIndex:0];
+    [self.JHAnimationGroups removeObjectAtIndex:0];
     [self sanityCheck];
-    if (self.animationGroups.count == 0) {
+    if (self.JHAnimationGroups.count == 0) {
         [self clear];
         if (self.animationCompletion) {
             JHAnimationCompletion completion = self.animationCompletion;
@@ -1181,13 +1143,13 @@ typedef void (^JHAnimationCompletionAction)(UIView *weakSelf);
 
 -(void) animateChainLink {
     [self makeAnchorFromX:0.5 Y:0.5];
-    NSMutableArray *actionCluster = [self.animationCalculationActions firstObject];
+    NSMutableArray *actionCluster = [self.JHAnimationCalculationActions firstObject];
     for (JHAnimationCalculationAction action in actionCluster) {
         __weak UIView *weakSelf = self;
         action(weakSelf);
     }
-    CAAnimationGroup *group = [self.animationGroups firstObject];
-    NSMutableArray *animationCluster = [self.animations firstObject];
+    CAAnimationGroup *group = [self.JHAnimationGroups firstObject];
+    NSMutableArray *animationCluster = [self.JHAnimations firstObject];
     for (JHKeyframeAnimation *animation in animationCluster) {
         animation.duration = group.duration;
         [animation calculate];
@@ -1199,7 +1161,7 @@ typedef void (^JHAnimationCompletionAction)(UIView *weakSelf);
 -(JHChainableAnimation)animate {
     JHChainableAnimation chainable = JHChainableAnimation(duration) {
         
-        CAAnimationGroup *group = [self.animationGroups lastObject];
+        CAAnimationGroup *group = [self.JHAnimationGroups lastObject];
         group.duration = duration;
         [self animateChain];
         
@@ -1211,7 +1173,7 @@ typedef void (^JHAnimationCompletionAction)(UIView *weakSelf);
 -(JHChainableAnimationWithCompletion)animateWithCompletion {
     JHChainableAnimationWithCompletion chainable = JHChainableAnimationWithCompletion(duration, completion) {
         
-        CAAnimationGroup *group = [self.animationGroups lastObject];
+        CAAnimationGroup *group = [self.JHAnimationGroups lastObject];
         group.duration = duration;
         self.animationCompletion = completion;
         [self animateChain];
@@ -1222,9 +1184,9 @@ typedef void (^JHAnimationCompletionAction)(UIView *weakSelf);
 }
 
 -(void) sanityCheck {
-    NSAssert(self.animations.count == self.animationGroups.count, @"FATAL ERROR: ANIMATION GROUPS AND ANIMATIONS ARE OUT OF SYNC");
-    NSAssert(self.animationCalculationActions.count == self.animationCompletionActions.count, @"FATAL ERROR: ANIMATION CALCULATION OBJECTS AND ANIMATION COMPLETION OBJECTS ARE OUT OF SYNC");
-    NSAssert(self.animations.count == self.animationCompletionActions.count, @"FATAL ERROR: ANIMATIONS AND ANIMATION COMPLETION OBJECTS  ARE OUT OF SYNC");
+    NSAssert(self.JHAnimations.count == self.JHAnimationGroups.count, @"FATAL ERROR: ANIMATION GROUPS AND ANIMATIONS ARE OUT OF SYNC");
+    NSAssert(self.JHAnimationCalculationActions.count == self.JHAnimationCompletionActions.count, @"FATAL ERROR: ANIMATION CALCULATION OBJECTS AND ANIMATION COMPLETION OBJECTS ARE OUT OF SYNC");
+    NSAssert(self.JHAnimations.count == self.JHAnimationCompletionActions.count, @"FATAL ERROR: ANIMATIONS AND ANIMATION COMPLETION OBJECTS  ARE OUT OF SYNC");
 }
 
 @end

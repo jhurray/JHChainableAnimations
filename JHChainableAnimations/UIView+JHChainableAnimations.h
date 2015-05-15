@@ -6,7 +6,7 @@
 //  Copyright (c) 2015 jhurray. All rights reserved.
 //
 
-@import QuartzCore;
+#import <QuartzCore/QuartzCore.h>
 #import <UIKit/UIKit.h>
 #import "JHChainableBlocks.h"
 
