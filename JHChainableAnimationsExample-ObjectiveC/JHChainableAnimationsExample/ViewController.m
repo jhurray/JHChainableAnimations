@@ -39,12 +39,13 @@
     sender.userInteractionEnabled = NO;
         
     __weak ViewController *weakSelf = self;
-    self.myView.animationCompletion = JHAnimationCompletion() {
+    self.myView.JHAnimationCompletion = JHAnimationCompletion() {
+		NSLog(@"AnimationCompletion");
         weakSelf.myView.layer.transform = CATransform3DMakeRotation(0, 0, 0, 1);
         weakSelf.myView.frame = CGRectMake(100, 150, 50, 50);
         weakSelf.myView.makeOpacity(1.0).makeBackground([UIColor blueColor]).animate(1.0);
         
-        sender.moveY(-50).easeInOutExpo.animate(1.1).animationCompletion = JHAnimationCompletion(){
+        sender.moveY(-50).easeInOutExpo.animate(1.1).JHAnimationCompletion = JHAnimationCompletion(){
             sender.userInteractionEnabled = YES;
         };
     };

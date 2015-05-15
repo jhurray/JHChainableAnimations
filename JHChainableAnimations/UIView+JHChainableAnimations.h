@@ -78,7 +78,7 @@
 - (JHChainableAnimation) animate;
 - (JHChainableAnimationWithCompletion) animateWithCompletion;
 
-@property (nonatomic, copy) JHAnimationCompletion animationCompletion;
+@property (nonatomic, copy) JHAnimationCompletion JHAnimationCompletion;
 
 #pragma mark - Semantics (Easier to read)
 
