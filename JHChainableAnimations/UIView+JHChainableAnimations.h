@@ -44,6 +44,10 @@
 - (JHChainableDegrees) rotate;
 - (JHChainablePolarCoordinate) movePolar;
 
+// AutoLayout
+- (JHChainableLayoutConstraint) makeConstraint;
+- (JHChainableLayoutConstraint) moveConstraint;
+
 // Bezier Paths
 // Animation effects dont apply
 - (JHChainableBezierPath) moveOnPath;

@@ -677,6 +677,35 @@ typedef void (^JHAnimationCompletionAction)(UIView *weakSelf);
     return chainable;
 }
 
+// AutoLayout
+- (JHChainableLayoutConstraint) makeConstraint {
+    JHChainableLayoutConstraint chainable = JHChainableLayoutConstraint(constraint, f) {
+        [self addAnimationCalculationAction:^(UIView *weakSelf) {
+            if ([weakSelf.constraints containsObject:constraint]) {
+                constraint.constant = f;
+                [weakSelf setNeedsUpdateConstraints];
+            }
+        }];
+        return self;
+    };
+    return chainable;
+}
+
+- (JHChainableLayoutConstraint) moveConstraint {
+    JHChainableLayoutConstraint chainable = JHChainableLayoutConstraint(constraint, f) {
+        [self addAnimationCalculationAction:^(UIView *weakSelf) {
+            if ([weakSelf.constraints containsObject:constraint]) {
+                constraint.constant += f;
+                [weakSelf setNeedsUpdateConstraints];
+            }
+        }];
+        return self;
+    };
+    return chainable;
+}
+
+// Bezier Paths
+
 - (UIBezierPath *) bezierPathForAnimation {
     UIBezierPath *path = [UIBezierPath bezierPath];
     [path moveToPoint:self.layer.position];
@@ -1156,6 +1185,15 @@ typedef void (^JHAnimationCompletionAction)(UIView *weakSelf);
     }
     group.animations = animationCluster;
     [self.layer addAnimation:group forKey:@"AnimationChain"];
+    
+    // For constraints
+    NSTimeInterval delay = MAX(group.beginTime - CACurrentMediaTime(), 0.0);
+    [self.class animateWithDuration:group.duration
+                              delay:delay
+                            options:0
+                         animations:^{
+        [self updateConstraints];
+    } completion:nil];
 }
 
 -(JHChainableAnimation)animate {

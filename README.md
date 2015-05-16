@@ -76,7 +76,7 @@ There are also a lot of really good animation libraries out there such as [RBBAn
 Either clone the repo and manually add the Files in [JHChainableAnimations](./JHChainableAnimations) or add the following to your Podfile
 
 ```
-pod 'JHChainableAnimations', '~> 1.1.2'
+pod 'JHChainableAnimations', '~> 1.2.0'
 ```
 Then just import the following header.
 
@@ -87,6 +87,8 @@ Then just import the following header.
 This is all a UIView category, so these chainables can be used on any UIView in a file where the header is imported.
 
 Notes on using JHChainableAnimations with **Swift** can be found [here](#swift).
+
+Notes on using JHChainableAnimations with **Auto Layout** can be found [here](#autolayout).
 
 ###Animating
 Chainable properties like **moveX(x)** must come between the view and the **animate(t)** function
@@ -216,6 +218,19 @@ view.makeScale()(2.0).spring().animate()(1.0);
 
 [Draveness](https://github.com/Draveness) copied my code into swift and it looks pretty good. [DKChainableAnimationKit](https://github.com/Draveness/DKChainableAnimationKit)
 
+##<a name="autolayout"></a>Using with Auto Layout
+
+Typically frames and autolayout stuff shouldn't mix so use the **makeConstraint** and **moveConstraint** chainable properties with caution (i.e dont try and scale a view when it has a height and width constraint). **These properties should only be used with color, opacity, and corner radius chainable properties** because they dont affect the layers position and therfore won't affect constraints. 
+
+This was only added as a syntactically easy way to animate constraints. The code below will set the constant of **topConstraint** to 50 and then trigger an animated layout pass in the background. 
+
+```objective-c
+// You have a reference to some constraint for myView
+self.topConstraint = [NSLayoutConstraint ...];
+...
+self.myView.makeConstraint(self.topConstraint, 50).animate(1.0);
+```
+This does not support animation effects yet. 
 
 ##<a name="chainables"></a>Chainable Properties
 
