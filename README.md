@@ -203,6 +203,30 @@ view.makeScale(2.0).thenAfter(0.5).seconds.moveX(20).animate(1.0);
 // view.makeScale(2.0).thenAfter(0.5).moveX(20).animate(1.0);
 ```
 
+##<a name="autolayout"></a>Using with Auto Layout
+
+###Transforms
+
+Use the **transform** chainable properties. These are better for views constrained with Autolayout. You should not mix these with other chainable properties 
+
+```objective-c
+viewWithConstraints.transformX(50).transformScale(2).aniamte(1.0);
+```
+
+###Animating Constraints
+
+Typically frames and autolayout stuff shouldn't mix so use the **makeConstraint** and **moveConstraint** chainable properties with caution (i.e dont try and scale a view when it has a height and width constraint). **These properties should only be used with color, opacity, and corner radius chainable properties** because they dont affect the layers position and therfore won't affect constraints. 
+
+This was only added as a syntactically easy way to animate constraints. The code below will set the constant of **topConstraint** to 50 and then trigger an animated layout pass in the background. 
+
+```objective-c
+// You have a reference to some constraint for myView
+self.topConstraint = [NSLayoutConstraint ...];
+...
+self.myView.makeConstraint(self.topConstraint, 50).animate(1.0);
+```
+This does not support animation effects yet. 
+
 ##<a name="swift"></a>Using with Swift
 
 Using JHChainableAnimations with [Swift](https://developer.apple.com/swift/) is a little different. Every chainable property must have ```()``` between the name and the parameters.
@@ -218,19 +242,6 @@ view.makeScale()(2.0).spring().animate()(1.0);
 
 [Draveness](https://github.com/Draveness) copied my code into swift and it looks pretty good. [DKChainableAnimationKit](https://github.com/Draveness/DKChainableAnimationKit)
 
-##<a name="autolayout"></a>Using with Auto Layout
-
-Typically frames and autolayout stuff shouldn't mix so use the **makeConstraint** and **moveConstraint** chainable properties with caution (i.e dont try and scale a view when it has a height and width constraint). **These properties should only be used with color, opacity, and corner radius chainable properties** because they dont affect the layers position and therfore won't affect constraints. 
-
-This was only added as a syntactically easy way to animate constraints. The code below will set the constant of **topConstraint** to 50 and then trigger an animated layout pass in the background. 
-
-```objective-c
-// You have a reference to some constraint for myView
-self.topConstraint = [NSLayoutConstraint ...];
-...
-self.myView.makeConstraint(self.topConstraint, 50).animate(1.0);
-```
-This does not support animation effects yet. 
 
 ##<a name="chainables"></a>Chainable Properties
 
@@ -553,6 +564,105 @@ view.moveAndRotateOnPath(path).animate(1.0);
 view.moveAndReverseRotateOnPath(path).animate(1.0);
 </td>
 </tr>
+<tr>
+<td>
+- (JHChainableFloat) transformX;
+</td>
+<td>
+(CGFloat f)
+</td>
+<td>
+view.transformX(50).animate(1.0);
+</td>
+</tr>
+<tr>
+<td>
+- (JHChainableFloat) transformX;
+</td>
+<td>
+(CGFloat f)
+</td>
+<td>
+view.transformX(50).animate(1.0);
+</td>
+</tr>
+<tr>
+<td>
+- (JHChainableFloat) transformY;
+</td>
+<td>
+(CGFloat f)
+</td>
+<td>
+view.transformY(50).animate(1.0);
+</td>
+</tr>
+<tr>
+<td>
+- (JHChainableFloat) transformZ;
+</td>
+<td>
+(CGFloat f)
+</td>
+<td>
+view.transformZ(50).animate(1.0);
+</td>
+</tr>
+<tr>
+<td>
+- (JHChainablePoint) transformXY;
+</td>
+<td>
+(CGFloat x, CGFloat y)
+</td>
+<td>
+view.transformXY(50, 100).animate(1.0);
+</td>
+</tr>
+<tr>
+<td>
+- (JHChainableFloat) transformScale;
+</td>
+<td>
+(CGFloat f)
+</td>
+<td>
+view.transformScale(50).animate(1.0);
+</td>
+</tr>
+<tr>
+<td>
+- (JHChainableFloat) transformScaleX;
+</td>
+<td>
+(CGFloat f)
+</td>
+<td>
+view.transformScaleX(50).animate(1.0);
+</td>
+</tr>
+<tr>
+<td>
+- (JHChainableFloat) transformScaleY;
+</td>
+<td>
+(CGFloat f)
+</td>
+<td>
+view.transformScaleY(50).animate(1.0);
+</td>
+</tr>
+<tr>
+<td>
+- (UIView *) transformIdentity;
+</td>
+<td>
+Nothing
+</td>
+<td>
+view.transformIdentity.animate(1.0);
+</td>
+</tr>
 </table>
 
 ##<a name="effects"></a>Animation Effects
@@ -578,8 +688,6 @@ Info on anchoring can be found [here](https://developer.apple.com/library/ios/do
 I have gotten a ton of great suggestions of what to do next. If you think this is missing anything please let me know! The following is what I plan on working on in no particular order.
 
 * OSX port
-* Swift Port similar to [SnapKit](http://snapkit.io/)
-* 3D rotations / movement
 
 ##Contact Info && Contributing
 
