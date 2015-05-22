@@ -22,6 +22,11 @@
 - (NSArray*) createRectArrayFromXValues:(NSArray*)xValues yValues:(NSArray*)yValues widths:(NSArray*)widths heights:(NSArray*)heights;
 static CGPathRef createPathFromXYValues(NSArray *xValues, NSArray *yValues);
 - (NSArray*) createColorArrayFromRed:(NSArray*)redValues green:(NSArray*)greenValues blue:(NSArray*)blueValues alpha:(NSArray*)alphaValues;
+- (NSArray*) createTransformArrayFromM11:(NSArray*)m11 M12:(NSArray*)m12 M13:(NSArray*)m13 M14:(NSArray*)m14
+                                     M21:(NSArray*)m21 M22:(NSArray*)m22 M23:(NSArray*)m23 M24:(NSArray*)m24
+                                     M31:(NSArray*)m31 M32:(NSArray*)m32 M33:(NSArray*)m33 M34:(NSArray*)m34
+                                     M41:(NSArray*)m41 M42:(NSArray*)m42 M43:(NSArray*)m43 M44:(NSArray*)m44;
+
 
 @end
 
@@ -77,6 +82,43 @@ static CGPathRef createPathFromXYValues(NSArray *xValues, NSArray *yValues);
                 self.path = path;
                 CGPathRelease(path);
                 
+            } else if ([valueType rangeOfString:@"CATransform3D"].location == 1) {
+                CATransform3D fromTransform = [self.fromValue CATransform3DValue];
+                CATransform3D toTransform = [self.toValue CATransform3DValue];
+
+                self.values = [self createTransformArrayFromM11:
+                               [self valueArrayForStartValue:fromTransform.m11 endValue:toTransform.m11]
+                                                            M12:
+                               [self valueArrayForStartValue:fromTransform.m12 endValue:toTransform.m12]
+                                                            M13:
+                               [self valueArrayForStartValue:fromTransform.m13 endValue:toTransform.m13]
+                                                            M14:
+                               [self valueArrayForStartValue:fromTransform.m14 endValue:toTransform.m14]
+                                                            M21:
+                               [self valueArrayForStartValue:fromTransform.m21 endValue:toTransform.m21]
+                                                            M22:
+                               [self valueArrayForStartValue:fromTransform.m22 endValue:toTransform.m22]
+                                                            M23:
+                               [self valueArrayForStartValue:fromTransform.m23 endValue:toTransform.m23]
+                                                            M24:
+                               [self valueArrayForStartValue:fromTransform.m24 endValue:toTransform.m24]
+                                                            M31:
+                               [self valueArrayForStartValue:fromTransform.m31 endValue:toTransform.m31]
+                                                            M32:
+                               [self valueArrayForStartValue:fromTransform.m32 endValue:toTransform.m32]
+                                                            M33:
+                               [self valueArrayForStartValue:fromTransform.m33 endValue:toTransform.m33]
+                                                            M34:
+                               [self valueArrayForStartValue:fromTransform.m34 endValue:toTransform.m34]
+                                                            M41:
+                               [self valueArrayForStartValue:fromTransform.m41 endValue:toTransform.m41]
+                                                            M42:
+                               [self valueArrayForStartValue:fromTransform.m42 endValue:toTransform.m42]
+                                                            M43:
+                               [self valueArrayForStartValue:fromTransform.m43 endValue:toTransform.m43]
+                                                            M44:
+                               [self valueArrayForStartValue:fromTransform.m44 endValue:toTransform.m44]
+                               ];
             } else if ([valueType rangeOfString:@"CGSize"].location == 1) {
                 CGSize fromSize = [self.fromValue CGSizeValue];
                 CGSize toSize = [self.toValue CGSizeValue];
@@ -168,6 +210,41 @@ static CGPathRef createPathFromXYValues(NSArray *xValues, NSArray *yValues) {
     }
     
     return [NSArray arrayWithArray:valueArray];
+}
+
+- (NSArray*) createTransformArrayFromM11:(NSArray*)m11 M12:(NSArray*)m12 M13:(NSArray*)m13 M14:(NSArray*)m14
+                                     M21:(NSArray*)m21 M22:(NSArray*)m22 M23:(NSArray*)m23 M24:(NSArray*)m24
+                                     M31:(NSArray*)m31 M32:(NSArray*)m32 M33:(NSArray*)m33 M34:(NSArray*)m34
+                                     M41:(NSArray*)m41 M42:(NSArray*)m42 M43:(NSArray*)m43 M44:(NSArray*)m44 {
+    NSUInteger numberOfTransforms = m11.count;
+    NSMutableArray *values = [NSMutableArray arrayWithCapacity:numberOfTransforms];
+    CATransform3D value;
+    
+    for (NSInteger i = 1; i < numberOfTransforms; i++) {
+        value = CATransform3DIdentity;
+        value.m11 = [[m11 objectAtIndex:i] floatValue];
+        value.m12 = [[m12 objectAtIndex:i] floatValue];
+        value.m13 = [[m13 objectAtIndex:i] floatValue];
+        value.m14 = [[m14 objectAtIndex:i] floatValue];
+        
+        value.m21 = [[m21 objectAtIndex:i] floatValue];
+        value.m22 = [[m22 objectAtIndex:i] floatValue];
+        value.m23 = [[m23 objectAtIndex:i] floatValue];
+        value.m24 = [[m24 objectAtIndex:i] floatValue];
+        
+        value.m31 = [[m31 objectAtIndex:i] floatValue];
+        value.m32 = [[m32 objectAtIndex:i] floatValue];
+        value.m33 = [[m33 objectAtIndex:i] floatValue];
+        value.m44 = [[m34 objectAtIndex:i] floatValue];
+        
+        value.m41 = [[m41 objectAtIndex:i] floatValue];
+        value.m42 = [[m42 objectAtIndex:i] floatValue];
+        value.m43 = [[m43 objectAtIndex:i] floatValue];
+        value.m44 = [[m44 objectAtIndex:i] floatValue];
+        
+        [values addObject:[NSValue valueWithCATransform3D:value]];
+    }
+    return values;
 }
 
 @end

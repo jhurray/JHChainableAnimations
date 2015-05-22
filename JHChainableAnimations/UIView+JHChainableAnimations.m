@@ -677,6 +677,163 @@ typedef void (^JHAnimationCompletionAction)(UIView *weakSelf);
     return chainable;
 }
 
+// Transforms
+
+- (UIView *) transformIdentity {
+    [self addAnimationCalculationAction:^(UIView *weakSelf) {
+        JHKeyframeAnimation *transformAnimation = [weakSelf basicAnimationForKeyPath:@"transform"];
+        CATransform3D transform = CATransform3DIdentity;
+        transformAnimation.fromValue = [NSValue valueWithCATransform3D:weakSelf.layer.transform];
+        transformAnimation.toValue = [NSValue valueWithCATransform3D:transform];
+        [weakSelf addAnimationFromCalculationBlock:transformAnimation];
+    }];
+    [self addAnimationCompletionAction:^(UIView *weakSelf) {
+        CATransform3D transform = CATransform3DIdentity;
+        weakSelf.layer.transform = transform;
+    }];
+    return self;
+}
+
+- (JHChainableFloat) transformX {
+    JHChainableFloat chainable = JHChainableFloat(f) {
+        [self addAnimationCalculationAction:^(UIView *weakSelf) {
+            JHKeyframeAnimation *transformAnimation = [weakSelf basicAnimationForKeyPath:@"transform"];
+            CATransform3D transform = weakSelf.layer.transform;
+            transform = CATransform3DTranslate(transform, f, 0, 0);
+            transformAnimation.fromValue = [NSValue valueWithCATransform3D:weakSelf.layer.transform];
+            transformAnimation.toValue = [NSValue valueWithCATransform3D:transform];
+            [weakSelf addAnimationFromCalculationBlock:transformAnimation];
+        }];
+        [self addAnimationCompletionAction:^(UIView *weakSelf) {
+            CATransform3D transform = weakSelf.layer.transform;
+            transform = CATransform3DTranslate(transform, f, 0, 0);
+            weakSelf.layer.transform = transform;
+        }];
+        return self;
+    };
+    return chainable;
+}
+
+- (JHChainableFloat) transformY {
+    JHChainableFloat chainable = JHChainableFloat(f) {
+        [self addAnimationCalculationAction:^(UIView *weakSelf) {
+            JHKeyframeAnimation *transformAnimation = [weakSelf basicAnimationForKeyPath:@"transform"];
+            CATransform3D transform = weakSelf.layer.transform;
+            transform = CATransform3DTranslate(transform, 0, f, 0);
+            transformAnimation.fromValue = [NSValue valueWithCATransform3D:weakSelf.layer.transform];
+            transformAnimation.toValue = [NSValue valueWithCATransform3D:transform];
+            [weakSelf addAnimationFromCalculationBlock:transformAnimation];
+        }];
+        [self addAnimationCompletionAction:^(UIView *weakSelf) {
+            CATransform3D transform = weakSelf.layer.transform;
+            transform = CATransform3DTranslate(transform, 0, f, 0);
+            weakSelf.layer.transform = transform;
+        }];
+        return self;
+    };
+    return chainable;
+}
+
+- (JHChainableFloat) transformZ {
+    JHChainableFloat chainable = JHChainableFloat(f) {
+        [self addAnimationCalculationAction:^(UIView *weakSelf) {
+            JHKeyframeAnimation *transformAnimation = [weakSelf basicAnimationForKeyPath:@"transform"];
+            CATransform3D transform = weakSelf.layer.transform;
+            transform = CATransform3DTranslate(transform, 0, 0, f);
+            transformAnimation.fromValue = [NSValue valueWithCATransform3D:weakSelf.layer.transform];
+            transformAnimation.toValue = [NSValue valueWithCATransform3D:transform];
+            [weakSelf addAnimationFromCalculationBlock:transformAnimation];
+        }];
+        [self addAnimationCompletionAction:^(UIView *weakSelf) {
+            CATransform3D transform = weakSelf.layer.transform;
+            transform = CATransform3DTranslate(transform, 0, 0, f);
+            weakSelf.layer.transform = transform;
+        }];
+        return self;
+    };
+    return chainable;
+}
+
+- (JHChainablePoint) transformXY {
+    JHChainablePoint chainable = JHChainablePoint(x, y) {
+        [self addAnimationCalculationAction:^(UIView *weakSelf) {
+            JHKeyframeAnimation *transformAnimation = [weakSelf basicAnimationForKeyPath:@"transform"];
+            CATransform3D transform = weakSelf.layer.transform;
+            transform = CATransform3DTranslate(transform, x, y, 0);
+            transformAnimation.fromValue = [NSValue valueWithCATransform3D:weakSelf.layer.transform];
+            transformAnimation.toValue = [NSValue valueWithCATransform3D:transform];
+            [weakSelf addAnimationFromCalculationBlock:transformAnimation];
+        }];
+        [self addAnimationCompletionAction:^(UIView *weakSelf) {
+            CATransform3D transform = weakSelf.layer.transform;
+            transform = CATransform3DTranslate(transform, x, y, 0);
+            weakSelf.layer.transform = transform;
+        }];
+        return self;
+    };
+    return chainable;
+}
+
+- (JHChainableFloat) transformScale {
+    JHChainableFloat chainable = JHChainableFloat(f) {
+        [self addAnimationCalculationAction:^(UIView *weakSelf) {
+            JHKeyframeAnimation *transformAnimation = [weakSelf basicAnimationForKeyPath:@"transform"];
+            CATransform3D transform = weakSelf.layer.transform;
+            transform = CATransform3DScale(transform, f, f, 1);
+            transformAnimation.fromValue = [NSValue valueWithCATransform3D:weakSelf.layer.transform];
+            transformAnimation.toValue = [NSValue valueWithCATransform3D:transform];
+            [weakSelf addAnimationFromCalculationBlock:transformAnimation];
+        }];
+        [self addAnimationCompletionAction:^(UIView *weakSelf) {
+            CATransform3D transform = weakSelf.layer.transform;
+            transform = CATransform3DScale(transform, f, f, 1);
+            weakSelf.layer.transform = transform;
+        }];
+        return self;
+    };
+    return chainable;
+}
+
+- (JHChainableFloat) transformScaleX {
+    JHChainableFloat chainable = JHChainableFloat(f) {
+        [self addAnimationCalculationAction:^(UIView *weakSelf) {
+            JHKeyframeAnimation *transformAnimation = [weakSelf basicAnimationForKeyPath:@"transform"];
+            CATransform3D transform = weakSelf.layer.transform;
+            transform = CATransform3DScale(transform, f, 1, 1);
+            transformAnimation.fromValue = [NSValue valueWithCATransform3D:weakSelf.layer.transform];
+            transformAnimation.toValue = [NSValue valueWithCATransform3D:transform];
+            [weakSelf addAnimationFromCalculationBlock:transformAnimation];
+        }];
+        [self addAnimationCompletionAction:^(UIView *weakSelf) {
+            CATransform3D transform = weakSelf.layer.transform;
+            transform = CATransform3DScale(transform, f, 1, 1);
+            weakSelf.layer.transform = transform;
+        }];
+        return self;
+    };
+    return chainable;
+}
+
+- (JHChainableFloat) transformScaleY {
+    JHChainableFloat chainable = JHChainableFloat(f) {
+        [self addAnimationCalculationAction:^(UIView *weakSelf) {
+            JHKeyframeAnimation *transformAnimation = [weakSelf basicAnimationForKeyPath:@"transform"];
+            CATransform3D transform = weakSelf.layer.transform;
+            transform = CATransform3DScale(transform, 1, f, 1);
+            transformAnimation.fromValue = [NSValue valueWithCATransform3D:weakSelf.layer.transform];
+            transformAnimation.toValue = [NSValue valueWithCATransform3D:transform];
+            [weakSelf addAnimationFromCalculationBlock:transformAnimation];
+        }];
+        [self addAnimationCompletionAction:^(UIView *weakSelf) {
+            CATransform3D transform = weakSelf.layer.transform;
+            transform = CATransform3DScale(transform, 1, f, 1);
+            weakSelf.layer.transform = transform;
+        }];
+        return self;
+    };
+    return chainable;
+}
+
 // AutoLayout
 - (JHChainableLayoutConstraint) makeConstraint {
     JHChainableLayoutConstraint chainable = JHChainableLayoutConstraint(constraint, f) {
