@@ -76,7 +76,7 @@ There are also a lot of really good animation libraries out there such as [RBBAn
 Either clone the repo and manually add the Files in [JHChainableAnimations](./JHChainableAnimations) or add the following to your Podfile
 
 ```
-pod 'JHChainableAnimations', '~> 1.2.0'
+pod 'JHChainableAnimations', '~> 1.3.0'
 ```
 Then just import the following header.
 
