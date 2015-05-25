@@ -210,7 +210,7 @@ view.makeScale(2.0).thenAfter(0.5).seconds.moveX(20).animate(1.0);
 Use the **transform** chainable properties. These are better for views constrained with Autolayout. You should not mix these with other chainable properties 
 
 ```objective-c
-viewWithConstraints.transformX(50).transformScale(2).aniamte(1.0);
+viewWithConstraints.transformX(50).transformScale(2).animate(1.0);
 ```
 
 ###Animating Constraints
