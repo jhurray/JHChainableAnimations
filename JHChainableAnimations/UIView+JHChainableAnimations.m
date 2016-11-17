@@ -645,7 +645,53 @@ typedef void (^JHAnimationCompletionAction)(UIView *weakSelf);
     return chainable;
 }
 
--(JHChainableDegrees)rotate {
+-(JHChainableDegrees)rotateX {
+    JHChainableDegrees chainable = JHChainableDegrees(angle) {
+        
+        [self addAnimationCalculationAction:^(UIView *weakSelf) {
+            JHKeyframeAnimation *rotationAnimation = [weakSelf basicAnimationForKeyPath:@"transform.rotation.x"];
+            CATransform3D transform = weakSelf.layer.transform;
+            CGFloat originalRotation = atan2(transform.m23, transform.m22);
+            rotationAnimation.fromValue = @(originalRotation);
+            rotationAnimation.toValue = @(originalRotation+degreesToRadians(angle));
+            [weakSelf addAnimationFromCalculationBlock:rotationAnimation];
+        }];
+        [self addAnimationCompletionAction:^(UIView *weakSelf) {
+            CATransform3D transform = weakSelf.layer.transform;
+            CGFloat originalRotation = atan2(transform.m23, transform.m22);
+            CATransform3D xRotation = CATransform3DMakeRotation(degreesToRadians(angle)+originalRotation, 1.0, 0, 0);
+            weakSelf.layer.transform = xRotation;
+        }];
+        
+        return self;
+    };
+    return chainable;
+}
+
+-(JHChainableDegrees)rotateY {
+    JHChainableDegrees chainable = JHChainableDegrees(angle) {
+        
+        [self addAnimationCalculationAction:^(UIView *weakSelf) {
+            JHKeyframeAnimation *rotationAnimation = [weakSelf basicAnimationForKeyPath:@"transform.rotation.y"];
+            CATransform3D transform = weakSelf.layer.transform;
+            CGFloat originalRotation = atan2(transform.m31, transform.m33);
+            rotationAnimation.fromValue = @(originalRotation);
+            rotationAnimation.toValue = @(originalRotation+degreesToRadians(angle));
+            [weakSelf addAnimationFromCalculationBlock:rotationAnimation];
+        }];
+        [self addAnimationCompletionAction:^(UIView *weakSelf) {
+            CATransform3D transform = weakSelf.layer.transform;
+            CGFloat originalRotation = atan2(transform.m31, transform.m33);
+            CATransform3D yRotation = CATransform3DMakeRotation(degreesToRadians(angle)+originalRotation, 0, 1.0, 0);
+            weakSelf.layer.transform = yRotation;
+        }];
+        
+        return self;
+    };
+    return chainable;
+}
+
+-(JHChainableDegrees)rotateZ {
     JHChainableDegrees chainable = JHChainableDegrees(angle) {
         
         [self addAnimationCalculationAction:^(UIView *weakSelf) {
