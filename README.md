@@ -142,9 +142,9 @@ To anchor your view call an achoring method at some point in an animation chain.
 Below is an example of rotating a view around different anchor points
 
 ```objective-c
-view.rotate(180).anchorTopLeft.thenAfter(1.0).rotate(90).anchorCenter.animate(1.0);
+view.rotateZ(180).anchorTopLeft.thenAfter(1.0).rotateZ(90).anchorCenter.animate(1.0);
 
-// view.rotate(90).anchorTopLeft.anchorCenter == view.rotate(90).anchorCenter
+// view.rotateZ(90).anchorTopLeft.anchorCenter == view.rotateZ(90).anchorCenter
 ```
 
 A full list of anchor properties can be found [here](#anchors)
@@ -511,13 +511,35 @@ view.moveWidth(50).animate(1.0)
 </tr>
 <tr>
 <td>
-- (JHChainableDegrees) rotate;
+- (JHChainableDegrees) rotateX;
 </td>
 <td>
 (CGFloat: angle) #not radians!
 </td>
 <td>
-view.rotate(360).animate(1.0);
+view.rotateX(360).animate(1.0);
+</td>
+</tr>
+<tr>
+<td>
+- (JHChainableDegrees) rotateY;
+</td>
+<td>
+(CGFloat: angle) #not radians!
+</td>
+<td>
+view.rotateY(360).animate(1.0);
+</td>
+</tr>
+<tr>
+<td>
+- (JHChainableDegrees) rotateZ;
+</td>
+<td>
+(CGFloat: angle) #not radians!
+</td>
+<td>
+view.rotateZ(360).animate(1.0);
 </td>
 </tr>
 <tr>

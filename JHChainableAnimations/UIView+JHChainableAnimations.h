@@ -50,7 +50,10 @@
 // These should be used for AutoLayout
 // These should NOT be mixed with properties that affect position and bounds
 - (UIView *) transformIdentity;
-- (JHChainableDegrees) rotate;
+- (JHChainableDegrees) rotate; // Same as rotateZ
+- (JHChainableDegrees) rotateX;
+- (JHChainableDegrees) rotateY;
+- (JHChainableDegrees) rotateZ;
 - (JHChainableFloat) transformX;
 - (JHChainableFloat) transformY;
 - (JHChainableFloat) transformZ;
