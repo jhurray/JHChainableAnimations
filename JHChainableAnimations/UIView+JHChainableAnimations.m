@@ -645,6 +645,10 @@ typedef void (^JHAnimationCompletionAction)(UIView *weakSelf);
     return chainable;
 }
 
+-(JHChainableDegrees)rotate {
+    return [self rotateZ];
+}
+
 -(JHChainableDegrees)rotateX {
     JHChainableDegrees chainable = JHChainableDegrees(angle) {
         
