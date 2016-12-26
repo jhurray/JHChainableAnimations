@@ -15,7 +15,7 @@
 typedef void (^JHAnimationCalculationAction)(__weak UIView *view, __weak JHChainableAnimator *weakSelf);
 typedef void (^JHAnimationCompletionAction)(__weak UIView *view, __weak JHChainableAnimator *weakSelf);
 
-@interface JHAnimationChainLink : NSObject
+@interface JHAnimationChainLink : NSObject <NSCopying>
 
 @property (nonatomic, copy) JHAnimationCalculationAction anchorCalculationAction;
 @property (nonatomic, assign) NSTimeInterval animationDelay;

@@ -12,7 +12,9 @@
 
 @interface ViewController ()
 
-@property (strong, nonatomic) UIView *myView;
+@property (nonatomic, weak) UIView *myView;
+@property (nonatomic, weak) UIButton *pauseButton;
+@property (nonatomic, strong) JHChainableAnimator *animator;
 
 @end
 
@@ -21,9 +23,10 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    self.myView = [[UIView alloc] initWithFrame:CGRectMake(100, 150, 50, 50)];
-    self.myView.backgroundColor = [UIColor blueColor];
-    [self.view addSubview:self.myView];
+    UIView *myView = [[UIView alloc] initWithFrame:CGRectMake(100, 150, 50, 50)];
+    myView.backgroundColor = [UIColor blueColor];
+    [self.view addSubview:myView];
+    self.myView = myView;
     
     UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
     button.frame = CGRectMake(0, self.view.bounds.size.height-50.0, self.view.bounds.size.width, 50.0);
@@ -33,20 +36,44 @@
     [button addTarget:self action:@selector(animateView:) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:button];
     
-}
-
--(void) animateView:(UIButton *)sender
-{
-    
-    sender.userInteractionEnabled = NO;
+    UIButton *pauseButton = [UIButton buttonWithType:UIButtonTypeCustom];
+    pauseButton.frame = CGRectMake(16, 32, 100, 50);
+    pauseButton.backgroundColor = [UIColor blueColor];
+    [pauseButton setTitle:@"Pause" forState:UIControlStateNormal];
+    [pauseButton addTarget:self action:@selector(pause:) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:pauseButton];
+    self.pauseButton = pauseButton;
     
     JHChainableAnimator *animator = [[JHChainableAnimator alloc] initWithView:self.myView];
+    self.animator = animator;
+    
+}
+
+
+- (void)pause:(UIButton *)sender
+{
+    if (!self.animator.isPaused) {
+        [sender setTitle:@"Resume" forState:UIControlStateNormal];
+        [self.animator pause];
+    }
+    else {
+        [sender setTitle:@"Pause" forState:UIControlStateNormal];
+        [self.animator resume];
+    }
+}
+
+- (void)animateView:(UIButton *)sender
+{
+
+    sender.userInteractionEnabled = NO;
+    
     JHChainableAnimator *buttonAnimator = [[JHChainableAnimator alloc] initWithView:sender];
     
-    __weak JHChainableAnimator *weakAnimator = animator;
-    animator.completionBlock = ^{
-        self.myView.layer.transform = CATransform3DIdentity;
-        self.myView.frame = CGRectMake(100, 150, 50, 50);
+    __weak JHChainableAnimator *weakAnimator = self.animator;
+    __weak UIView *weakView = self.myView;
+    self.animator.completionBlock = ^{
+        weakView.layer.transform = CATransform3DIdentity;
+        weakView.frame = CGRectMake(100, 150, 50, 50);
         weakAnimator.transformIdentity.makeOpacity(1.0).makeBackground([UIColor blueColor]).animate(1.0);
         
         buttonAnimator.moveY(-50).easeInOutExpo.animateWithCompletion(1.1, ^{
@@ -54,9 +81,13 @@
         });
     };
     
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.4 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        [self.animator pause];
+    });
+    
     UIColor *purple = [UIColor purpleColor];
-    animator.moveWidth(50).bounce.makeBackground(purple).easeIn.anchorTopLeft.
-    thenAfter(0.8).rotateZ(95).easeBack.wait(0.2).
+    self.animator.moveWidth(30).bounce.makeBackground(purple).easeIn.anchorTopLeft.
+    repeat(0.5, 5).rotateZ(95).easeBack.wait(0.2).
     thenAfter(0.5).moveY(300).easeIn.makeOpacity(0.0).animate(0.4);
     
     buttonAnimator.moveY(50).easeInOutExpo.animate(0.5);

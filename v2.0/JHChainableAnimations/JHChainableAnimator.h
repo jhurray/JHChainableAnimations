@@ -12,10 +12,18 @@
 
 @interface JHChainableAnimator : NSObject <JHViewAnimator>
 
+/// If the animatoris paused, the view will still be animating. animating will only be false if the animation ends or is stopped
 @property (atomic, assign, getter=isAnimating, readonly) BOOL animating;
+@property (atomic, assign, getter=isPaused, readonly) BOOL paused;
 @property (nonatomic, copy) void(^completionBlock)();
 
 - (instancetype)initWithView:(UIView *)view NS_DESIGNATED_INITIALIZER;
-- (UIBezierPath *)bezierPathForAnimation;
+
+/// Will pause animations but retain state. `isAnimating` will remain true.
+- (void)pause;
+/// Will resume animations if the animator is paused and animating
+- (void)resume;
+/// Will stop animations and clear state
+- (void)stop;
 
 @end

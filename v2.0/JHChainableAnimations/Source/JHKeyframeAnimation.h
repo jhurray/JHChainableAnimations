@@ -10,7 +10,7 @@
 
 typedef double(^JHKeyframeAnimationCalculationBlock)(double t, double b, double c, double d);
 
-@interface JHKeyframeAnimation : CAKeyframeAnimation
+@interface JHKeyframeAnimation : CAKeyframeAnimation 
 
 @property (nonatomic, copy) JHKeyframeAnimationCalculationBlock functionBlock;
 

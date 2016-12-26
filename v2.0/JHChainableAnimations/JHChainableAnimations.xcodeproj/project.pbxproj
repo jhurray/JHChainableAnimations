@@ -7,6 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		26BBB9D21E104CC0008ED071 /* JHViewAnimatorProtocol.h in Headers */ = {isa = PBXBuildFile; fileRef = 26BDC8B51E0BB7A600BEFB50 /* JHViewAnimatorProtocol.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		26BBB9D31E104CC0008ED071 /* JHChainableBlocks.h in Headers */ = {isa = PBXBuildFile; fileRef = 26C40FD91E0B911D00767308 /* JHChainableBlocks.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		26BBB9D41E104CC0008ED071 /* JHKeyframeAnimation.h in Headers */ = {isa = PBXBuildFile; fileRef = 26BDC88E1E0B947B00BEFB50 /* JHKeyframeAnimation.h */; };
+		26BBB9D51E104CC0008ED071 /* JHKeyframeAnimationFunctions.h in Headers */ = {isa = PBXBuildFile; fileRef = 26BDC8931E0B9B2B00BEFB50 /* JHKeyframeAnimationFunctions.h */; };
+		26BBB9D61E104CC0008ED071 /* JHChainableAnimator.h in Headers */ = {isa = PBXBuildFile; fileRef = 26BDC8A71E0BAB4C00BEFB50 /* JHChainableAnimator.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		26BBB9D71E104CC0008ED071 /* JHAnimationChainLink.h in Headers */ = {isa = PBXBuildFile; fileRef = 26BDC8AE1E0BB09800BEFB50 /* JHAnimationChainLink.h */; };
 		26BDC88D1E0B91AF00BEFB50 /* JHChainableAnimations.h in Headers */ = {isa = PBXBuildFile; fileRef = 26BDC88B1E0B91AF00BEFB50 /* JHChainableAnimations.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		26BDC8911E0B947B00BEFB50 /* JHKeyframeAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = 26BDC88F1E0B947B00BEFB50 /* JHKeyframeAnimation.m */; };
 		26BDC8941E0B9B2B00BEFB50 /* JHKeyframeAnimationFunctions.c in Sources */ = {isa = PBXBuildFile; fileRef = 26BDC8921E0B9B2B00BEFB50 /* JHKeyframeAnimationFunctions.c */; };
@@ -30,9 +36,9 @@
 		26BDC8D61E0C99D400BEFB50 /* JHChainableAnimator.h in Headers */ = {isa = PBXBuildFile; fileRef = 26BDC8A71E0BAB4C00BEFB50 /* JHChainableAnimator.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		26BDC8D71E0C99F100BEFB50 /* JHViewAnimatorProtocol.h in Headers */ = {isa = PBXBuildFile; fileRef = 26BDC8B51E0BB7A600BEFB50 /* JHViewAnimatorProtocol.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		26BDC8D81E0C99F100BEFB50 /* JHChainableBlocks.h in Headers */ = {isa = PBXBuildFile; fileRef = 26C40FD91E0B911D00767308 /* JHChainableBlocks.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		26BDC8D91E0C99F100BEFB50 /* JHKeyframeAnimation.h in Headers */ = {isa = PBXBuildFile; fileRef = 26BDC88E1E0B947B00BEFB50 /* JHKeyframeAnimation.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		26BDC8DA1E0C99F100BEFB50 /* JHKeyframeAnimationFunctions.h in Headers */ = {isa = PBXBuildFile; fileRef = 26BDC8931E0B9B2B00BEFB50 /* JHKeyframeAnimationFunctions.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		26BDC8DB1E0C99F100BEFB50 /* JHAnimationChainLink.h in Headers */ = {isa = PBXBuildFile; fileRef = 26BDC8AE1E0BB09800BEFB50 /* JHAnimationChainLink.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		26BDC8D91E0C99F100BEFB50 /* JHKeyframeAnimation.h in Headers */ = {isa = PBXBuildFile; fileRef = 26BDC88E1E0B947B00BEFB50 /* JHKeyframeAnimation.h */; };
+		26BDC8DA1E0C99F100BEFB50 /* JHKeyframeAnimationFunctions.h in Headers */ = {isa = PBXBuildFile; fileRef = 26BDC8931E0B9B2B00BEFB50 /* JHKeyframeAnimationFunctions.h */; };
+		26BDC8DB1E0C99F100BEFB50 /* JHAnimationChainLink.h in Headers */ = {isa = PBXBuildFile; fileRef = 26BDC8AE1E0BB09800BEFB50 /* JHAnimationChainLink.h */; };
 		26C40FAB1E0B8ED100767308 /* JHChainableAnimations.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 26C40FA11E0B8ED100767308 /* JHChainableAnimations.framework */; };
 		26C40FB01E0B8ED100767308 /* JHChainableAnimationsTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 26C40FAF1E0B8ED100767308 /* JHChainableAnimationsTests.m */; };
 		26C40FD01E0B8F4600767308 /* JHChainableAnimations.h in Headers */ = {isa = PBXBuildFile; fileRef = 26C40FC21E0B8F4500767308 /* JHChainableAnimations.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -217,9 +223,9 @@
 				26BDC8D61E0C99D400BEFB50 /* JHChainableAnimator.h in Headers */,
 				26BDC8D71E0C99F100BEFB50 /* JHViewAnimatorProtocol.h in Headers */,
 				26BDC8D81E0C99F100BEFB50 /* JHChainableBlocks.h in Headers */,
-				26BDC8D91E0C99F100BEFB50 /* JHKeyframeAnimation.h in Headers */,
-				26BDC8DA1E0C99F100BEFB50 /* JHKeyframeAnimationFunctions.h in Headers */,
 				26BDC8DB1E0C99F100BEFB50 /* JHAnimationChainLink.h in Headers */,
+				26BDC8DA1E0C99F100BEFB50 /* JHKeyframeAnimationFunctions.h in Headers */,
+				26BDC8D91E0C99F100BEFB50 /* JHKeyframeAnimation.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -228,6 +234,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				26C40FD01E0B8F4600767308 /* JHChainableAnimations.h in Headers */,
+				26BBB9D21E104CC0008ED071 /* JHViewAnimatorProtocol.h in Headers */,
+				26BBB9D61E104CC0008ED071 /* JHChainableAnimator.h in Headers */,
+				26BBB9D31E104CC0008ED071 /* JHChainableBlocks.h in Headers */,
+				26BBB9D41E104CC0008ED071 /* JHKeyframeAnimation.h in Headers */,
+				26BBB9D51E104CC0008ED071 /* JHKeyframeAnimationFunctions.h in Headers */,
+				26BBB9D71E104CC0008ED071 /* JHAnimationChainLink.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -662,7 +674,7 @@
 				INFOPLIST_FILE = "JHChainableAnimations-tvOS/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.guaranteed.JHChainableAnimations-tvOS";
+				PRODUCT_BUNDLE_IDENTIFIER = com.guaranteed.JHChainableAnimations;
 				PRODUCT_NAME = JHChainableAnimations;
 				SDKROOT = appletvos;
 				SKIP_INSTALL = YES;
@@ -683,7 +695,7 @@
 				INFOPLIST_FILE = "JHChainableAnimations-tvOS/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.guaranteed.JHChainableAnimations-tvOS";
+				PRODUCT_BUNDLE_IDENTIFIER = com.guaranteed.JHChainableAnimations;
 				PRODUCT_NAME = JHChainableAnimations;
 				SDKROOT = appletvos;
 				SKIP_INSTALL = YES;
@@ -702,6 +714,7 @@
 				26BDC8D21E0C940600BEFB50 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		26C40F9B1E0B8ED100767308 /* Build configuration list for PBXProject "JHChainableAnimations" */ = {
 			isa = XCConfigurationList;

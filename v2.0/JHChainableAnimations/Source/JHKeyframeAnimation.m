@@ -44,6 +44,28 @@
 }
 
 
+- (id)copyWithZone:(nullable NSZone *)zone
+{
+    JHKeyframeAnimation *copy = [[JHKeyframeAnimation allocWithZone:zone] init];
+    copy.functionBlock = [self.functionBlock copy];
+    if ([self.fromValue isKindOfClass:NSObject.class] && [self.fromValue conformsToProtocol:@protocol(NSCopying)]) {
+        NSObject<NSCopying> *fromValue = self.fromValue;
+        copy.fromValue = [fromValue copy];
+    }
+    else {
+        copy.fromValue = self.fromValue;
+    }
+    if ([self.toValue isKindOfClass:NSObject.class] && [self.toValue conformsToProtocol:@protocol(NSCopying)]) {
+        NSObject<NSCopying> *toValue = self.toValue;
+        copy.toValue = [toValue copy];
+    }
+    else {
+        copy.toValue = self.toValue;
+    }
+    return copy;
+}
+
+
 - (void)calculate
 {
     [self createValueArray];

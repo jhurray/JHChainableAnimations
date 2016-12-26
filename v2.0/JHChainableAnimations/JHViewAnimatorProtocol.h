@@ -136,6 +136,7 @@
 - (JHChainableRepeatAnimation)repeat;
 - (JHChainableTimeInterval)thenAfter;
 - (JHChainableAnimation)animate;
+- (JHChainableRepeatAnimation)animateWithRepeat;
 - (JHChainableAnimationWithCompletion)animateWithCompletion;
 
 @end

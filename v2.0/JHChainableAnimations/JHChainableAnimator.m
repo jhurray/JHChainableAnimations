@@ -11,12 +11,20 @@
 #import "JHKeyframeAnimation.h"
 #import "JHKeyframeAnimationFunctions.h"
 
+typedef NS_ENUM(NSInteger, JHChainableAnimatorContinuationMode) {
+    JHChainableAnimatorContinuationModeContinue,
+    JHChainableAnimatorContinuationModePause,
+    JHChainableAnimatorContinuationModeStop,
+};
+
 @interface JHChainableAnimator ()
 
 @property (nonatomic, weak) UIView *view;
 @property (strong, nonatomic) NSMutableArray<JHAnimationChainLink *> *animationChainLinks;
 @property (strong, nonatomic) NSMapTable<JHAnimationChainLink *, NSNumber *> *animationDurationMapping;
 @property (atomic, assign, getter=isAnimating) BOOL animating;
+@property (atomic, assign, getter=isPaused) BOOL paused;
+@property (nonatomic, assign) JHChainableAnimatorContinuationMode continuationMode;
 @property (nonatomic, readonly) JHAnimationChainLink *currentAnimationLink;
 
 @end
@@ -57,6 +65,27 @@
 }
 
 
+- (void)pause
+{
+    self.continuationMode = JHChainableAnimatorContinuationModePause;
+}
+
+
+- (void)resume
+{
+    if (self.continuationMode == JHChainableAnimatorContinuationModePause && self.isAnimating) {
+        self.continuationMode = JHChainableAnimatorContinuationModeContinue;
+        [self animateChain];
+    }
+}
+
+
+- (void)stop
+{
+    self.continuationMode = JHChainableAnimatorContinuationModeStop;
+}
+
+
 - (JHAnimationChainLink *)currentAnimationLink
 {
     return self.animationChainLinks.lastObject;
@@ -65,19 +94,40 @@
 
 - (void)animateChain
 {
-    JHAnimationChainLink *chainLink = self.animationChainLinks.firstObject;
-    if (chainLink != nil) {
-        NSTimeInterval duration = [self.animationDurationMapping objectForKey:chainLink].doubleValue;
-        [chainLink animateWithDuration:duration completion:^{
-            [self.animationChainLinks removeObjectAtIndex:0];
-            [self animateChain];
-        }];
-    }
-    else {
-        void(^completionBlock)() = self.completionBlock ?: ^{};
-        [self clear];
-        completionBlock();
-        self.animating = NO;
+    switch (self.continuationMode) {
+        case JHChainableAnimatorContinuationModeContinue:
+        {
+            self.animating = YES;
+            self.paused = NO;
+            JHAnimationChainLink *chainLink = self.animationChainLinks.firstObject;
+            if (chainLink != nil) {
+                NSTimeInterval duration = [self.animationDurationMapping objectForKey:chainLink].doubleValue;
+                [chainLink animateWithDuration:duration completion:^{
+                    [self.animationChainLinks removeObjectAtIndex:0];
+                    [self animateChain];
+                }];
+            }
+            else {
+                void(^completionBlock)() = self.completionBlock ?: ^{};
+                [self clear];
+                completionBlock();
+                self.animating = NO;
+            }
+            break;
+        }
+        case JHChainableAnimatorContinuationModePause:
+        {
+            self.paused = YES;
+            self.animating = YES;
+            break;
+        }
+        case JHChainableAnimatorContinuationModeStop:
+        {
+            self.paused = NO;
+            self.animating = NO;
+            [self clear];
+            break;
+        }
     }
 }
 
@@ -177,10 +227,19 @@
         @synchronized (self) {
             for (NSInteger i = 0; i < count; ++i) {
                 JHAnimationChainLink *previousChainLink = self.animationChainLinks.lastObject;
+                NSParameterAssert(previousChainLink != nil);
                 if (previousChainLink != nil) {
                     [self.animationDurationMapping setObject:@(t) forKey:previousChainLink];
                 }
-                JHAnimationChainLink *newChainLink = [[JHAnimationChainLink alloc] initWithView:self.view animator:self];
+                
+                JHAnimationChainLink *newChainLink;
+                BOOL isRepeatedChainLink = (i + 1 < count);
+                if (isRepeatedChainLink) {
+                    newChainLink = [previousChainLink copy];
+                }
+                else {
+                    newChainLink = [[JHAnimationChainLink alloc] initWithView:self.view animator:self];
+                }
                 [self.animationChainLinks addObject:newChainLink];
             }
             
@@ -213,12 +272,41 @@
     
     return chainable;
 }
+
+
+- (JHChainableRepeatAnimation)animateWithRepeat
+{
+    JHChainableRepeatAnimation chainable = JHChainableRepeatAnimation(t, count) {
+        @synchronized (self) {
+            for (NSInteger i = 0; i < count; ++i) {
+                JHAnimationChainLink *previousChainLink = self.animationChainLinks.lastObject;
+                NSParameterAssert(previousChainLink != nil);
+                if (previousChainLink != nil) {
+                    [self.animationDurationMapping setObject:@(t) forKey:previousChainLink];
+                }
+                
+                BOOL isRepeatedChainLink = (i + 1 < count);
+                if (isRepeatedChainLink) {
+                    JHAnimationChainLink *newChainLink = [previousChainLink copy];
+                    [self.animationChainLinks addObject:newChainLink];
+                }
+                else {
+                    [self animateChain];
+                }
+            }
+            
+            return self;
+        }
+    };
+    return chainable;
+}
+
+
 - (JHChainableAnimationWithCompletion)animateWithCompletion
 {
     JHChainableAnimationWithCompletion chainable = JHChainableAnimationWithCompletion(t, completion) {
         
         @synchronized (self) {
-            self.animating = YES;
             self.completionBlock = completion;
             JHAnimationChainLink *previousChainLink = self.animationChainLinks.lastObject;
             if (previousChainLink != nil) {
@@ -994,7 +1082,7 @@
 - (JHChainableBlock)animationBlock
 {
     JHChainableBlock chainable = JHChainableBlock(block) {
-        [self addAnimationCalculationAction:^(UIView *__weak view, JHChainableAnimator *__weak weakSelf) {
+]        [self addAnimationCalculationAction:^(UIView *__weak view, JHChainableAnimator *__weak weakSelf) {
             if (block != nil) {
                 block();
             }
@@ -1016,14 +1104,6 @@
         return self;
     };
     return chainable;
-}
-
-
-- (UIBezierPath *)bezierPathForAnimation
-{
-    UIBezierPath *path = [UIBezierPath bezierPath];
-    [path moveToPoint:self.view.layer.position];
-    return path;
 }
 
 
@@ -1474,9 +1554,7 @@
 - (JHChainableCustomKeyframeAnimationCalculation)customAnimationFunction
 {
     JHChainableCustomKeyframeAnimationCalculation chainable = JHChainableCustomKeyframeAnimationCalculation(block) {
-        [self addAnimationKeyframeCalculation:^double(double t, double b, double c, double d) {
-            return block(t, b, c, d);
-        }];
+        [self addAnimationKeyframeCalculation:block];
         return self;
     };
     return chainable;

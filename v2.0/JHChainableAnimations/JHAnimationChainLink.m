@@ -53,6 +53,20 @@ static NSString * const kJHAnimationGroupKey = @"kJHAnimationGroupKey";
 }
 
 
+- (id)copyWithZone:(nullable NSZone *)zone
+{
+    JHAnimationChainLink *copy = [[JHAnimationChainLink allocWithZone:zone] initWithView:self.view animator:self.animator];
+    copy.anchorCalculationAction = [self.anchorCalculationAction copy];
+    copy.animationDelay = self.animationDelay;
+    copy.animations = [self.animations mutableCopy];
+    copy.animationGroup = [self.animationGroup copy];
+    copy.animationCalculationActions = [self.animationCalculationActions mutableCopy];
+    copy.animationCompletionActions = [self.animationCompletionActions mutableCopy];
+    copy.preAnimationBlocks = [self.preAnimationBlocks mutableCopy];
+    return copy;
+}
+
+
 - (JHKeyframeAnimation *)basicAnimationForKeyPath:(NSString *)keypath
 {
     JHKeyframeAnimation * animation = [JHKeyframeAnimation animationWithKeyPath:keypath];
