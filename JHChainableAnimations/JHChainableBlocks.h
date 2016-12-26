@@ -1,59 +1,54 @@
 //
 //  JHChainableBlocks.h
-//  JHAnimationKitExample
+//  JHChainableAnimations
 //
-//  Created by Jeff Hurray on 4/29/15.
-//  Copyright (c) 2015 jhurray. All rights reserved.
+//  Created by Jeff Hurray on 12/21/16.
+//  Copyright © 2016 jhurray. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
+@class JHChainableAnimator;
 
-#ifndef JHAnimationKitExample_JHChainableBlocks_h
-#define JHAnimationKitExample_JHChainableBlocks_h
+typedef JHChainableAnimator * (^JHChainable)();
+#define JHChainable() ^JHChainableAnimator * ()
 
-#pragma mark - Chainable Block Types + Declarations
+typedef JHChainableAnimator * (^JHChainableTimeInterval)(NSTimeInterval t);
+#define JHChainableTimeInterval(t) ^JHChainableAnimator * (NSTimeInterval t)
 
-typedef UIView* (^JHChainable)();
-#define JHChainable() ^UIView* ()
+typedef JHChainableAnimator * (^JHChainableRect)(CGRect rect);
+#define JHChainableRect(rect) ^JHChainableAnimator * (CGRect rect)
 
-typedef UIView* (^JHChainableTimeInterval)(NSTimeInterval t);
-#define JHChainableTimeInterval(t) ^UIView* (NSTimeInterval t)
+typedef JHChainableAnimator * (^JHChainableSize)(CGFloat width, CGFloat height);
+#define JHChainableSize(width,height) ^JHChainableAnimator * (CGFloat width, CGFloat height)
 
-typedef UIView* (^JHChainableRect)(CGRect rect);
-#define JHChainableRect(rect) ^UIView* (CGRect rect)
+typedef JHChainableAnimator * (^JHChainablePoint)(CGFloat x, CGFloat y);
+#define JHChainablePoint(x,y) ^JHChainableAnimator * (CGFloat x, CGFloat y)
 
-typedef UIView* (^JHChainableSize)(CGFloat width, CGFloat height);
-#define JHChainableSize(width,height) ^UIView* (CGFloat width, CGFloat height)
+typedef JHChainableAnimator * (^JHChainableFloat)(CGFloat f);
+#define JHChainableFloat(f) ^JHChainableAnimator * (CGFloat f)
 
-typedef UIView* (^JHChainablePoint)(CGFloat x, CGFloat y);
-#define JHChainablePoint(x,y) ^UIView* (CGFloat x, CGFloat y)
+typedef JHChainableAnimator * (^JHChainableDegrees)(CGFloat angle);
+#define JHChainableDegrees(angle) ^JHChainableAnimator * (CGFloat angle)
 
-typedef UIView* (^JHChainableFloat)(CGFloat f);
-#define JHChainableFloat(f) ^UIView* (CGFloat f)
+typedef JHChainableAnimator * (^JHChainablePolarCoordinate)(CGFloat radius, CGFloat angle);
+#define JHChainablePolarCoordinate(radius,angle) ^JHChainableAnimator * (CGFloat radius, CGFloat angle)
 
-typedef UIView* (^JHChainableDegrees)(CGFloat angle);
-#define JHChainableDegrees(angle) ^UIView* (CGFloat angle)
+typedef JHChainableAnimator * (^JHChainableColor)(UIColor *color);
+#define JHChainableColor(color) ^JHChainableAnimator * (UIColor *color)
 
-typedef UIView* (^JHChainablePolarCoordinate)(CGFloat radius, CGFloat angle);
-#define JHChainablePolarCoordinate(radius,angle) ^UIView* (CGFloat radius, CGFloat angle)
+typedef JHChainableAnimator * (^JHChainableBlock)(void(^)());
+#define JHChainableBlock(block) ^JHChainableAnimator * (void(^block)())
 
-typedef UIView* (^JHChainableColor)(UIColor *color);
-#define JHChainableColor(color) ^UIView* (UIColor *color)
+typedef JHChainableAnimator * (^JHChainableBezierPath)(UIBezierPath *path);
+#define JHChainableBezierPath(path) ^JHChainableAnimator * (UIBezierPath *path)
 
-typedef UIView* (^JHChainableLayoutConstraint)(NSLayoutConstraint *constraint, CGFloat f);
-#define JHChainableLayoutConstraint(constraint,f) ^UIView* (NSLayoutConstraint *constraint, CGFloat f)
+typedef JHChainableAnimator * (^JHChainableCustomKeyframeAnimationCalculation)(double(^keyframeAnimationCalculationBlock)(double t, double b, double c, double d));
+#define JHChainableCustomKeyframeAnimationCalculation(block) ^JHChainableAnimator * (double(^block)(double t, double b, double c, double d))
 
-typedef UIView* (^JHChainableBezierPath)(UIBezierPath *path);
-#define JHChainableBezierPath(path) ^UIView* (UIBezierPath *path)
+typedef JHChainableAnimator * (^JHChainableAnimation)(NSTimeInterval duration);
+#define JHChainableAnimation(duration) ^JHChainableAnimator * (NSTimeInterval duration)
 
-typedef void    (^JHAnimationCompletion)();
-#define JHAnimationCompletion() ^void ()
+typedef JHChainableAnimator * (^JHChainableAnimationWithCompletion)(NSTimeInterval duration, void(^completion)());
+#define JHChainableAnimationWithCompletion(duration,completion) ^JHChainableAnimator * (NSTimeInterval duration, void(^completion)())
 
-typedef UIView* (^JHChainableAnimation)(NSTimeInterval duration);
-#define JHChainableAnimation(duration) ^UIView* (NSTimeInterval duration)
-
-typedef UIView* (^JHChainableAnimationWithCompletion)(NSTimeInterval duration, JHAnimationCompletion completion);
-#define JHChainableAnimationWithCompletion(duration,completion) ^UIView* (NSTimeInterval duration, JHAnimationCompletion completion)
-
-
-#endif
+typedef JHChainableAnimator * (^JHChainableRepeatAnimation)(NSTimeInterval t, NSInteger count);
+#define JHChainableRepeatAnimation(t, count) ^JHChainableAnimator * (NSTimeInterval t, NSInteger count)
