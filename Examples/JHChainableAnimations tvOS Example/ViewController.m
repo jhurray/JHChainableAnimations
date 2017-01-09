@@ -80,10 +80,6 @@
         });
     };
     
-    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.4 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-        [self.animator pause];
-    });
-    
     UIColor *purple = [UIColor purpleColor];
     self.animator.moveWidth(30).bounce.makeBackground(purple).easeIn.anchorTopLeft.
     repeat(0.5, 5).rotateZ(95).easeBack.wait(0.2).

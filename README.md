@@ -64,10 +64,11 @@ Say I want to move myView 50 pixels to the right with spring and then change the
 
 Thats pretty gross huh... With JHChainableAnimations it is one line of code. 
 
-###The New Way (JHChainableAnimations!!!)
+###Using JHChainableAniamtions
 
 ```objective-c
-self.myView.moveX(50).spring.thenAfter(1.0).makeBackground([UIColor purpleColor]).easeIn.animate(0.5);
+JHChainableAnimator *animator = [[JHChainableAnimator alloc] initWithView:self.myView];
+animator.moveX(50).spring.thenAfter(1.0).makeBackground([UIColor purpleColor]).easeIn.animate(0.5);
 ```
 
 There are also a lot of really good animation libraries out there such as [RBBAnimation](https://github.com/robb/RBBAnimation), [DCAnimationKit](https://github.com/daltoniam/DCAnimationKit), and [PMTween](https://github.com/poetmountain/PMTween),  but they still fall short of having powerful chainable animations AND easy to read/write syntax. 
@@ -76,12 +77,12 @@ There are also a lot of really good animation libraries out there such as [RBBAn
 Either clone the repo and manually add the Files in [JHChainableAnimations](./JHChainableAnimations) or add the following to your Podfile
 
 ```
-pod 'JHChainableAnimations', '~> 1.3.0'
+pod 'JHChainableAnimations', '~> 2.0.0'
 ```
-Then just import the following header.
+Then just add the following:
 
 ```objective-c
-#import "JHChainableAnimations.h"
+@import JHChainableAnimations;
 ```
 
 This is all a UIView category, so these chainables can be used on any UIView in a file where the header is imported.

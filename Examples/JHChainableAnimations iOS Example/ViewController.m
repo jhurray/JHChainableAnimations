@@ -80,33 +80,29 @@
             sender.userInteractionEnabled = YES;
         });
     };
-    
-    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.4 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-        [self.animator pause];
-    });
+
+    buttonAnimator.moveY(50).easeInOutExpo.animate(0.5);
     
     UIColor *purple = [UIColor purpleColor];
     self.animator.moveWidth(30).bounce.makeBackground(purple).easeIn.anchorTopLeft.
-    repeat(0.5, 5).rotateZ(95).easeBack.wait(0.2).
+    repeat(0.5, 3).rotateZ(95).easeBack.wait(0.2).
     thenAfter(0.5).moveY(300).easeIn.makeOpacity(0.0).animate(0.4);
     
-    buttonAnimator.moveY(50).easeInOutExpo.animate(0.5);
     
+    /* OTHER COOL EFFECTS TO TRY: Animate on a bezier path  */
+//        UIBezierPath *path = [UIBezierPath bezierPath];
+//        [path moveToPoint:self.myView.center];
+//        [path addCurveToPoint:CGPointMake(250, 200) controlPoint1:CGPointMake(150, 100) controlPoint2:CGPointMake(200, 250)];
+//        [path addLineToPoint:CGPointMake(25, 400)];
+//        [path addLineToPoint:CGPointMake(300, 500)];
+//    
+//        self.animator.moveOnPath(path).easeIn.rotate(360).bounce.animate(2.0);
     
-    /* OTHER COOL SHIT TO TRY: Animate on a bezier path  */
-    //    UIBezierPath *path = [UIBezierPath bezierPath];
-    //    [path moveToPoint:self.myView.center];
-    //    [path addCurveToPoint:CGPointMake(250, 200) controlPoint1:CGPointMake(150, 100) controlPoint2:CGPointMake(200, 250)];
-    //    [path addLineToPoint:CGPointMake(25, 400)];
-    //    [path addLineToPoint:CGPointMake(300, 500)];
-    //
-    //    self.myView.moveOnPath(path).easeIn.rotate(360).bounce.animate(2.0);
-    
-    /* OTHER COOL SHIT TO TRY: Bounce around 4 corners  */
-    //    self.myView.makeOrigin(0, 0).bounce.
-    //        thenAfter(0.5).makeY(self.view.bounds.size.height-100).bounce.
-    //        thenAfter(0.5).makeX(self.view.bounds.size.width-50).bounce.
-    //        thenAfter(0.5).makeY(0).bounce.animate(0.5);
+    /* OTHER COOL EFFECTS TO TRY: Bounce around 4 corners  */
+//        self.animator.makeOrigin(0, 0).bounce.
+//            thenAfter(1.0).makeY(self.view.bounds.size.height-50).bounce.
+//            thenAfter(1.0).makeX(self.view.bounds.size.width-50).bounce.
+//            thenAfter(1.0).makeY(0).bounce.animate(0.5);
     
 }
 

@@ -884,7 +884,7 @@ typedef NS_ENUM(NSInteger, JHChainableAnimatorContinuationMode) {
 
 // Transforms
 
-- (id<JHViewAnimator>)transformIdentity
+- (JHChainableAnimator *)transformIdentity
 {
     [self addAnimationCalculationAction:^(__weak UIView *view, __weak JHChainableAnimator *weakSelf) {
         JHKeyframeAnimation *transformAnimation = [weakSelf basicAnimationForKeyPath:@"transform"];
@@ -1165,34 +1165,34 @@ typedef NS_ENUM(NSInteger, JHChainableAnimatorContinuationMode) {
 }
 
 
-- (id<JHViewAnimator>)anchorDefault
+- (JHChainableAnimator *)anchorDefault
 {
     return self.anchorCenter;
 }
 
 
-- (id<JHViewAnimator>)anchorCenter
+- (JHChainableAnimator *)anchorCenter
 {
     [self makeAnchorFromX:0.5 Y:0.5];
     return self;
 }
 
 
-- (id<JHViewAnimator>)anchorTopLeft
+- (JHChainableAnimator *)anchorTopLeft
 {
     [self makeAnchorFromX:0.0 Y:0.0];
     return self;
 }
 
 
-- (id<JHViewAnimator>)anchorTopRight
+- (JHChainableAnimator *)anchorTopRight
 {
     [self makeAnchorFromX:1.0 Y:0.0];
     return self;
 }
 
 
-- (id<JHViewAnimator>)anchorBottomLeft
+- (JHChainableAnimator *)anchorBottomLeft
 {
     
     [self makeAnchorFromX:0.0 Y:1.0];
@@ -1201,35 +1201,35 @@ typedef NS_ENUM(NSInteger, JHChainableAnimatorContinuationMode) {
 }
 
 
-- (id<JHViewAnimator>)anchorBottomRight
+- (JHChainableAnimator *)anchorBottomRight
 {
     [self makeAnchorFromX:1.0 Y:1.0];
     return self;
 }
 
 
-- (id<JHViewAnimator>)anchorTop
+- (JHChainableAnimator *)anchorTop
 {
     [self makeAnchorFromX:0.5 Y:0.0];
     return self;
 }
 
 
-- (id<JHViewAnimator>)anchorBottom
+- (JHChainableAnimator *)anchorBottom
 {
     [self makeAnchorFromX:0.5 Y:1.0];
     return self;
 }
 
 
-- (id<JHViewAnimator>)anchorLeft
+- (JHChainableAnimator *)anchorLeft
 {
     [self makeAnchorFromX:0.0 Y:0.5];
     return self;
 }
 
 
-- (id<JHViewAnimator>)anchorRight
+- (JHChainableAnimator *)anchorRight
 {
     [self makeAnchorFromX:1.0 Y:0.5];
     return self;
@@ -1245,43 +1245,43 @@ typedef NS_ENUM(NSInteger, JHChainableAnimatorContinuationMode) {
 }
 
 
-- (id<JHViewAnimator>)easeIn
+- (JHChainableAnimator *)easeIn
 {
     return self.easeInQuad;
 }
 
 
-- (id<JHViewAnimator>)easeOut
+- (JHChainableAnimator *)easeOut
 {
     return self.easeOutQuad;
 }
 
 
-- (id<JHViewAnimator>)easeInOut
+- (JHChainableAnimator *)easeInOut
 {
     return self.easeInOutQuad;
 }
 
 
-- (id<JHViewAnimator>)easeBack
+- (JHChainableAnimator *)easeBack
 {
     return self.easeOutBack;
 }
 
 
-- (id<JHViewAnimator>)spring
+- (JHChainableAnimator *)spring
 {
     return self.easeOutElastic;
 }
 
 
-- (id<JHViewAnimator>)bounce
+- (JHChainableAnimator *)bounce
 {
     return self.easeOutBounce;
 }
 
 
-- (id<JHViewAnimator>)easeInQuad
+- (JHChainableAnimator *)easeInQuad
 {
     [self addAnimationKeyframeCalculation:^double(double t, double b, double c, double d) {
         return JHKeyframeAnimationFunctionEaseInQuad(t, b, c, d);
@@ -1290,7 +1290,7 @@ typedef NS_ENUM(NSInteger, JHChainableAnimatorContinuationMode) {
 }
 
 
-- (id<JHViewAnimator>)easeOutQuad
+- (JHChainableAnimator *)easeOutQuad
 {
     [self addAnimationKeyframeCalculation:^double(double t, double b, double c, double d) {
         return JHKeyframeAnimationFunctionEaseOutQuad(t, b, c, d);
@@ -1299,7 +1299,7 @@ typedef NS_ENUM(NSInteger, JHChainableAnimatorContinuationMode) {
 }
 
 
-- (id<JHViewAnimator>)easeInOutQuad
+- (JHChainableAnimator *)easeInOutQuad
 {
     [self addAnimationKeyframeCalculation:^double(double t, double b, double c, double d) {
         return JHKeyframeAnimationFunctionEaseInOutQuad(t, b, c, d);
@@ -1308,7 +1308,7 @@ typedef NS_ENUM(NSInteger, JHChainableAnimatorContinuationMode) {
 }
 
 
-- (id<JHViewAnimator>)easeInCubic
+- (JHChainableAnimator *)easeInCubic
 {
     [self addAnimationKeyframeCalculation:^double(double t, double b, double c, double d) {
         return JHKeyframeAnimationFunctionEaseInCubic(t, b, c, d);
@@ -1317,7 +1317,7 @@ typedef NS_ENUM(NSInteger, JHChainableAnimatorContinuationMode) {
 }
 
 
-- (id<JHViewAnimator>)easeOutCubic
+- (JHChainableAnimator *)easeOutCubic
 {
     [self addAnimationKeyframeCalculation:^double(double t, double b, double c, double d) {
         return JHKeyframeAnimationFunctionEaseOutCubic(t, b, c, d);
@@ -1326,7 +1326,7 @@ typedef NS_ENUM(NSInteger, JHChainableAnimatorContinuationMode) {
 }
 
 
-- (id<JHViewAnimator>)easeInOutCubic
+- (JHChainableAnimator *)easeInOutCubic
 {
     [self addAnimationKeyframeCalculation:^double(double t, double b, double c, double d) {
         return JHKeyframeAnimationFunctionEaseInOutCubic(t, b, c, d);
@@ -1335,7 +1335,7 @@ typedef NS_ENUM(NSInteger, JHChainableAnimatorContinuationMode) {
 }
 
 
-- (id<JHViewAnimator>)easeInQuart
+- (JHChainableAnimator *)easeInQuart
 {
     [self addAnimationKeyframeCalculation:^double(double t, double b, double c, double d) {
         return JHKeyframeAnimationFunctionEaseInQuart(t, b, c, d);
@@ -1344,7 +1344,7 @@ typedef NS_ENUM(NSInteger, JHChainableAnimatorContinuationMode) {
 }
 
 
-- (id<JHViewAnimator>)easeOutQuart
+- (JHChainableAnimator *)easeOutQuart
 {
     [self addAnimationKeyframeCalculation:^double(double t, double b, double c, double d) {
         return JHKeyframeAnimationFunctionEaseOutQuart(t, b, c, d);
@@ -1353,7 +1353,7 @@ typedef NS_ENUM(NSInteger, JHChainableAnimatorContinuationMode) {
 }
 
 
-- (id<JHViewAnimator>)easeInOutQuart
+- (JHChainableAnimator *)easeInOutQuart
 {
     [self addAnimationKeyframeCalculation:^double(double t, double b, double c, double d) {
         return JHKeyframeAnimationFunctionEaseInOutQuart(t, b, c, d);
@@ -1362,7 +1362,7 @@ typedef NS_ENUM(NSInteger, JHChainableAnimatorContinuationMode) {
 }
 
 
-- (id<JHViewAnimator>)easeInQuint
+- (JHChainableAnimator *)easeInQuint
 {
     [self addAnimationKeyframeCalculation:^double(double t, double b, double c, double d) {
         return JHKeyframeAnimationFunctionEaseInQuint(t, b, c, d);
@@ -1371,7 +1371,7 @@ typedef NS_ENUM(NSInteger, JHChainableAnimatorContinuationMode) {
 }
 
 
-- (id<JHViewAnimator>)easeOutQuint
+- (JHChainableAnimator *)easeOutQuint
 {
     [self addAnimationKeyframeCalculation:^double(double t, double b, double c, double d) {
         return JHKeyframeAnimationFunctionEaseOutQuint(t, b, c, d);
@@ -1380,7 +1380,7 @@ typedef NS_ENUM(NSInteger, JHChainableAnimatorContinuationMode) {
 }
 
 
-- (id<JHViewAnimator>)easeInOutQuint
+- (JHChainableAnimator *)easeInOutQuint
 {
     [self addAnimationKeyframeCalculation:^double(double t, double b, double c, double d) {
         return JHKeyframeAnimationFunctionEaseInOutQuint(t, b, c, d);
@@ -1389,7 +1389,7 @@ typedef NS_ENUM(NSInteger, JHChainableAnimatorContinuationMode) {
 }
 
 
-- (id<JHViewAnimator>)easeInSine
+- (JHChainableAnimator *)easeInSine
 {
     [self addAnimationKeyframeCalculation:^double(double t, double b, double c, double d) {
         return JHKeyframeAnimationFunctionEaseInSine(t, b, c, d);
@@ -1398,7 +1398,7 @@ typedef NS_ENUM(NSInteger, JHChainableAnimatorContinuationMode) {
 }
 
 
-- (id<JHViewAnimator>)easeOutSine
+- (JHChainableAnimator *)easeOutSine
 {
     [self addAnimationKeyframeCalculation:^double(double t, double b, double c, double d) {
         return JHKeyframeAnimationFunctionEaseOutSine(t, b, c, d);
@@ -1407,7 +1407,7 @@ typedef NS_ENUM(NSInteger, JHChainableAnimatorContinuationMode) {
 }
 
 
-- (id<JHViewAnimator>)easeInOutSine
+- (JHChainableAnimator *)easeInOutSine
 {
     [self addAnimationKeyframeCalculation:^double(double t, double b, double c, double d) {
         return JHKeyframeAnimationFunctionEaseInOutSine(t, b, c, d);
@@ -1416,7 +1416,7 @@ typedef NS_ENUM(NSInteger, JHChainableAnimatorContinuationMode) {
 }
 
 
-- (id<JHViewAnimator>)easeInExpo
+- (JHChainableAnimator *)easeInExpo
 {
     [self addAnimationKeyframeCalculation:^double(double t, double b, double c, double d) {
         return JHKeyframeAnimationFunctionEaseInExpo(t, b, c, d);
@@ -1425,7 +1425,7 @@ typedef NS_ENUM(NSInteger, JHChainableAnimatorContinuationMode) {
 }
 
 
-- (id<JHViewAnimator>)easeOutExpo
+- (JHChainableAnimator *)easeOutExpo
 {
     [self addAnimationKeyframeCalculation:^double(double t, double b, double c, double d) {
         return JHKeyframeAnimationFunctionEaseOutExpo(t, b, c, d);
@@ -1434,7 +1434,7 @@ typedef NS_ENUM(NSInteger, JHChainableAnimatorContinuationMode) {
 }
 
 
-- (id<JHViewAnimator>)easeInOutExpo
+- (JHChainableAnimator *)easeInOutExpo
 {
     [self addAnimationKeyframeCalculation:^double(double t, double b, double c, double d) {
         return JHKeyframeAnimationFunctionEaseInOutExpo(t, b, c, d);
@@ -1443,7 +1443,7 @@ typedef NS_ENUM(NSInteger, JHChainableAnimatorContinuationMode) {
 }
 
 
-- (id<JHViewAnimator>)easeInCirc
+- (JHChainableAnimator *)easeInCirc
 {
     [self addAnimationKeyframeCalculation:^double(double t, double b, double c, double d) {
         return JHKeyframeAnimationFunctionEaseInCirc(t, b, c, d);
@@ -1452,7 +1452,7 @@ typedef NS_ENUM(NSInteger, JHChainableAnimatorContinuationMode) {
 }
 
 
-- (id<JHViewAnimator>)easeOutCirc
+- (JHChainableAnimator *)easeOutCirc
 {
     [self addAnimationKeyframeCalculation:^double(double t, double b, double c, double d) {
         return JHKeyframeAnimationFunctionEaseOutCirc(t, b, c, d);
@@ -1461,7 +1461,7 @@ typedef NS_ENUM(NSInteger, JHChainableAnimatorContinuationMode) {
 }
 
 
-- (id<JHViewAnimator>)easeInOutCirc
+- (JHChainableAnimator *)easeInOutCirc
 {
     [self addAnimationKeyframeCalculation:^double(double t, double b, double c, double d) {
         return JHKeyframeAnimationFunctionEaseInOutCirc(t, b, c, d);
@@ -1470,7 +1470,7 @@ typedef NS_ENUM(NSInteger, JHChainableAnimatorContinuationMode) {
 }
 
 
-- (id<JHViewAnimator>)easeInElastic
+- (JHChainableAnimator *)easeInElastic
 {
     [self addAnimationKeyframeCalculation:^double(double t, double b, double c, double d) {
         return JHKeyframeAnimationFunctionEaseInElastic(t, b, c, d);
@@ -1479,7 +1479,7 @@ typedef NS_ENUM(NSInteger, JHChainableAnimatorContinuationMode) {
 }
 
 
-- (id<JHViewAnimator>)easeOutElastic
+- (JHChainableAnimator *)easeOutElastic
 {
     [self addAnimationKeyframeCalculation:^double(double t, double b, double c, double d) {
         return JHKeyframeAnimationFunctionEaseOutElastic(t, b, c, d);
@@ -1488,7 +1488,7 @@ typedef NS_ENUM(NSInteger, JHChainableAnimatorContinuationMode) {
 }
 
 
-- (id<JHViewAnimator>)easeInOutElastic
+- (JHChainableAnimator *)easeInOutElastic
 {
     [self addAnimationKeyframeCalculation:^double(double t, double b, double c, double d) {
         return JHKeyframeAnimationFunctionEaseInOutElastic(t, b, c, d);
@@ -1497,7 +1497,7 @@ typedef NS_ENUM(NSInteger, JHChainableAnimatorContinuationMode) {
 }
 
 
-- (id<JHViewAnimator>)easeInBack
+- (JHChainableAnimator *)easeInBack
 {
     [self addAnimationKeyframeCalculation:^double(double t, double b, double c, double d) {
         return JHKeyframeAnimationFunctionEaseInBack(t, b, c, d);
@@ -1506,7 +1506,7 @@ typedef NS_ENUM(NSInteger, JHChainableAnimatorContinuationMode) {
 }
 
 
-- (id<JHViewAnimator>)easeOutBack
+- (JHChainableAnimator *)easeOutBack
 {
     [self addAnimationKeyframeCalculation:^double(double t, double b, double c, double d) {
         return JHKeyframeAnimationFunctionEaseOutBack(t, b, c, d);
@@ -1515,7 +1515,7 @@ typedef NS_ENUM(NSInteger, JHChainableAnimatorContinuationMode) {
 }
 
 
-- (id<JHViewAnimator>)easeInOutBack
+- (JHChainableAnimator *)easeInOutBack
 {
     [self addAnimationKeyframeCalculation:^double(double t, double b, double c, double d) {
         return JHKeyframeAnimationFunctionEaseInOutBack(t, b, c, d);
@@ -1524,7 +1524,7 @@ typedef NS_ENUM(NSInteger, JHChainableAnimatorContinuationMode) {
 }
 
 
-- (id<JHViewAnimator>)easeInBounce
+- (JHChainableAnimator *)easeInBounce
 {
     [self addAnimationKeyframeCalculation:^double(double t, double b, double c, double d) {
         return JHKeyframeAnimationFunctionEaseInBounce(t, b, c, d);
@@ -1533,7 +1533,7 @@ typedef NS_ENUM(NSInteger, JHChainableAnimatorContinuationMode) {
 }
 
 
-- (id<JHViewAnimator>)easeOutBounce
+- (JHChainableAnimator *)easeOutBounce
 {
     [self addAnimationKeyframeCalculation:^double(double t, double b, double c, double d) {
         return JHKeyframeAnimationFunctionEaseOutBounce(t, b, c, d);
@@ -1542,7 +1542,7 @@ typedef NS_ENUM(NSInteger, JHChainableAnimatorContinuationMode) {
 }
 
 
-- (id<JHViewAnimator>)easeInOutBounce
+- (JHChainableAnimator *)easeInOutBounce
 {
     [self addAnimationKeyframeCalculation:^double(double t, double b, double c, double d) {
         return JHKeyframeAnimationFunctionEaseInOutBounce(t, b, c, d);

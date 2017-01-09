@@ -8,7 +8,6 @@
 
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
-#import "JHViewAnimatorProtocol.h"
 #import "JHKeyframeAnimation.h"
 
 @class JHChainableAnimator;
