@@ -19,6 +19,8 @@
 @property (atomic, assign, getter=isAnimating, readonly) BOOL animating;
 @property (atomic, assign, getter=isPaused, readonly) BOOL paused;
 
+@property (nonatomic, weak, readonly) UIView *view;
+
 - (instancetype)initWithView:(UIView *)view NS_DESIGNATED_INITIALIZER;
 
 /// Will pause animations but retain state. `isAnimating` will remain true.

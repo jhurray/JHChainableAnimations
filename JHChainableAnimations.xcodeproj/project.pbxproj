@@ -46,16 +46,6 @@
 		26F3E98C1E1184F300E56D44 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 26F3E95B1E11829E00E56D44 /* Info.plist */; };
 /* End PBXBuildFile section */
 
-/* Begin PBXContainerItemProxy section */
-		26C40FAC1E0B8ED100767308 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 26C40F981E0B8ED100767308 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 26C40FA01E0B8ED100767308;
-			remoteInfo = JHChainableAnimations;
-		};
-/* End PBXContainerItemProxy section */
-
 /* Begin PBXFileReference section */
 		26850C361E117DB6006F926A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = Frameworks/Info.plist; sourceTree = SOURCE_ROOT; };
 		26850C371E117DB6006F926A /* JHChainableAnimations.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JHChainableAnimations.h; path = Frameworks/JHChainableAnimations.h; sourceTree = SOURCE_ROOT; };
@@ -359,7 +349,6 @@
 			buildRules = (
 			);
 			dependencies = (
-				26C40FAD1E0B8ED100767308 /* PBXTargetDependency */,
 			);
 			name = JHChainableAnimationsTests;
 			productName = JHChainableAnimationsTests;
@@ -540,14 +529,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		26C40FAD1E0B8ED100767308 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 26C40FA01E0B8ED100767308 /* JHChainableAnimations-iOS */;
-			targetProxy = 26C40FAC1E0B8ED100767308 /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		26F3E9571E11829E00E56D44 /* LaunchScreen.storyboard */ = {

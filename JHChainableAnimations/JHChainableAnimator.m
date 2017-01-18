@@ -29,7 +29,6 @@ typedef NS_ENUM(NSInteger, JHChainableAnimatorContinuationMode) {
 
 @end
 
-
 #define JHDegreesToRadians( degrees )( ( degrees )/ 180.0 * M_PI )
 #define JHRadiansToDegrees( radians )( ( radians )* ( 180.0 / M_PI ))
 
@@ -62,6 +61,7 @@ typedef NS_ENUM(NSInteger, JHChainableAnimatorContinuationMode) {
     self.animationDurationMapping = [NSMapTable weakToStrongObjectsMapTable];
     JHAnimationChainLink *chainLink = [[JHAnimationChainLink alloc] initWithView:self.view animator:self];
     self.animationChainLinks = [NSMutableArray arrayWithObject:chainLink];
+    self.continuationMode = JHChainableAnimatorContinuationModeContinue;
 }
 
 

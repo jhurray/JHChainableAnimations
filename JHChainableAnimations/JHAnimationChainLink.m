@@ -153,7 +153,7 @@ static NSString * const kJHAnimationGroupKey = @"kJHAnimationGroupKey";
 {
     NSTimeInterval delay = MAX(self.animationGroup.beginTime - CACurrentMediaTime(), 0.0);
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(delay * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-        for (JHAnimationCompletionAction action in self.animationCompletionActions){
+        for (JHAnimationCompletionAction action in self.animationCompletionActions) {
             action(self.view, self.animator);
         }
     });
