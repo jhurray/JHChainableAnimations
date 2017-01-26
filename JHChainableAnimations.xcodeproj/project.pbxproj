@@ -7,11 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		26850C381E117DB6006F926A /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 26850C361E117DB6006F926A /* Info.plist */; };
-		26850C391E117DB6006F926A /* JHChainableAnimations.h in Headers */ = {isa = PBXBuildFile; fileRef = 26850C371E117DB6006F926A /* JHChainableAnimations.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		26850C3A1E117E01006F926A /* JHChainableAnimations.h in Headers */ = {isa = PBXBuildFile; fileRef = 26850C371E117DB6006F926A /* JHChainableAnimations.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		26850C3B1E117F76006F926A /* JHChainableAnimations.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 26C40FC01E0B8F4500767308 /* JHChainableAnimations.framework */; };
-		26850C3C1E117FA3006F926A /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 26850C361E117DB6006F926A /* Info.plist */; };
 		26BBB9F11E117841008ED071 /* JHAnimationChainLink.h in Headers */ = {isa = PBXBuildFile; fileRef = 26BBB9E71E117841008ED071 /* JHAnimationChainLink.h */; };
 		26BBB9F21E117841008ED071 /* JHAnimationChainLink.m in Sources */ = {isa = PBXBuildFile; fileRef = 26BBB9E81E117841008ED071 /* JHAnimationChainLink.m */; };
 		26BBB9F31E117841008ED071 /* JHChainableAnimator.h in Headers */ = {isa = PBXBuildFile; fileRef = 26BBB9E91E117841008ED071 /* JHChainableAnimator.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -44,8 +40,6 @@
 		26F3E98A1E11845100E56D44 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 26F3E9571E11829E00E56D44 /* LaunchScreen.storyboard */; };
 		26F3E98B1E11845100E56D44 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 26F3E9591E11829E00E56D44 /* Main.storyboard */; };
 		26F3E98C1E1184F300E56D44 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 26F3E95B1E11829E00E56D44 /* Info.plist */; };
-		26F54F6F1E2F371E00461D35 /* ChainableAnimations.h in Headers */ = {isa = PBXBuildFile; fileRef = 26F54F631E2F34F900461D35 /* ChainableAnimations.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		26F54F701E2F37C200461D35 /* ChainableAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26F54F6C1E2F358F00461D35 /* ChainableAnimator.swift */; };
 		26F54F721E2F38D800461D35 /* JHAnimationChainLink.m in Sources */ = {isa = PBXBuildFile; fileRef = 26BBB9E81E117841008ED071 /* JHAnimationChainLink.m */; };
 		26F54F731E2F38D800461D35 /* JHChainableAnimator.m in Sources */ = {isa = PBXBuildFile; fileRef = 26BBB9EA1E117841008ED071 /* JHChainableAnimator.m */; };
 		26F54F741E2F38D800461D35 /* JHKeyframeAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = 26BBB9ED1E117841008ED071 /* JHKeyframeAnimation.m */; };
@@ -55,32 +49,33 @@
 		26F54F781E2F38F300461D35 /* JHChainableBlocks.h in Headers */ = {isa = PBXBuildFile; fileRef = 26BBB9EB1E117841008ED071 /* JHChainableBlocks.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		26F54F791E2F38F300461D35 /* JHKeyframeAnimation.h in Headers */ = {isa = PBXBuildFile; fileRef = 26BBB9EC1E117841008ED071 /* JHKeyframeAnimation.h */; };
 		26F54F7A1E2F38F300461D35 /* JHKeyframeAnimationFunctions.h in Headers */ = {isa = PBXBuildFile; fileRef = 26BBB9EF1E117841008ED071 /* JHKeyframeAnimationFunctions.h */; };
-		26F54F821E356AC600461D35 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26F54F811E356AC600461D35 /* AppDelegate.swift */; };
-		26F54F841E356AC600461D35 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26F54F831E356AC600461D35 /* ViewController.swift */; };
-		26F54F871E356AC600461D35 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 26F54F851E356AC600461D35 /* Main.storyboard */; };
-		26F54F891E356AC600461D35 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 26F54F881E356AC600461D35 /* Assets.xcassets */; };
-		26F54F8C1E356AC600461D35 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 26F54F8A1E356AC600461D35 /* LaunchScreen.storyboard */; };
 		26F54F921E356DC200461D35 /* ChainableAnimations.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 26F54F611E2F34F900461D35 /* ChainableAnimations.framework */; };
 		26F54F9F1E357A4400461D35 /* ChainableAnimations.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 26F54F981E357A4400461D35 /* ChainableAnimations.framework */; };
 		26F54FA01E357A4400461D35 /* ChainableAnimations.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 26F54F981E357A4400461D35 /* ChainableAnimations.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		26F54FA51E357A5400461D35 /* ChainableAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26F54F6C1E2F358F00461D35 /* ChainableAnimator.swift */; };
 		26F54FA61E357A5400461D35 /* JHAnimationChainLink.m in Sources */ = {isa = PBXBuildFile; fileRef = 26BBB9E81E117841008ED071 /* JHAnimationChainLink.m */; };
 		26F54FA71E357A5400461D35 /* JHChainableAnimator.m in Sources */ = {isa = PBXBuildFile; fileRef = 26BBB9EA1E117841008ED071 /* JHChainableAnimator.m */; };
 		26F54FA81E357A5400461D35 /* JHKeyframeAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = 26BBB9ED1E117841008ED071 /* JHKeyframeAnimation.m */; };
 		26F54FA91E357A5400461D35 /* JHKeyframeAnimationFunctions.c in Sources */ = {isa = PBXBuildFile; fileRef = 26BBB9EE1E117841008ED071 /* JHKeyframeAnimationFunctions.c */; };
 		26F54FAA1E357A6B00461D35 /* JHChainableAnimator.h in Headers */ = {isa = PBXBuildFile; fileRef = 26BBB9E91E117841008ED071 /* JHChainableAnimator.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		26F54FAB1E357A6B00461D35 /* JHChainableBlocks.h in Headers */ = {isa = PBXBuildFile; fileRef = 26BBB9EB1E117841008ED071 /* JHChainableBlocks.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		26F54FAC1E357A6B00461D35 /* ChainableAnimations.h in Headers */ = {isa = PBXBuildFile; fileRef = 26F54F631E2F34F900461D35 /* ChainableAnimations.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		26F54FAD1E357A7700461D35 /* JHAnimationChainLink.h in Headers */ = {isa = PBXBuildFile; fileRef = 26BBB9E71E117841008ED071 /* JHAnimationChainLink.h */; };
 		26F54FAE1E357A7700461D35 /* JHKeyframeAnimation.h in Headers */ = {isa = PBXBuildFile; fileRef = 26BBB9EC1E117841008ED071 /* JHKeyframeAnimation.h */; };
 		26F54FAF1E357A7700461D35 /* JHKeyframeAnimationFunctions.h in Headers */ = {isa = PBXBuildFile; fileRef = 26BBB9EF1E117841008ED071 /* JHKeyframeAnimationFunctions.h */; };
-		26F54FB01E357AF200461D35 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 26F54F641E2F34F900461D35 /* Info.plist */; };
-		26F54FB11E357AF700461D35 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 26F54F641E2F34F900461D35 /* Info.plist */; };
-		26F54FB91E357B1E00461D35 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26F54FB81E357B1E00461D35 /* AppDelegate.swift */; };
-		26F54FBB1E357B1E00461D35 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26F54FBA1E357B1E00461D35 /* ViewController.swift */; };
-		26F54FBE1E357B1E00461D35 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 26F54FBC1E357B1E00461D35 /* Main.storyboard */; };
-		26F54FC01E357B1E00461D35 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 26F54FBF1E357B1E00461D35 /* Assets.xcassets */; };
 		26F54FC51E357B3D00461D35 /* ChainableAnimations.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 26F54F981E357A4400461D35 /* ChainableAnimations.framework */; };
+		26F54FCF1E39AB8C00461D35 /* JHChainableAnimations.h in Headers */ = {isa = PBXBuildFile; fileRef = 26F54FCD1E39AB8C00461D35 /* JHChainableAnimations.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		26F54FEB1E39ACE400461D35 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26F54FD81E39ABAC00461D35 /* ViewController.swift */; };
+		26F54FEC1E39ACEB00461D35 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26F54FE51E39ABC400461D35 /* ViewController.swift */; };
+		26F54FED1E39ACF500461D35 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26F54FD01E39ABAC00461D35 /* AppDelegate.swift */; };
+		26F54FEE1E39AD0100461D35 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26F54FDF1E39ABC400461D35 /* AppDelegate.swift */; };
+		26F54FEF1E39AD4000461D35 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 26F54FCC1E39AB8C00461D35 /* Info.plist */; };
+		26F54FF01E39AD5A00461D35 /* ChainableAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26F54FC61E39AB5E00461D35 /* ChainableAnimator.swift */; };
+		26F54FF11E39AD6400461D35 /* ChainableAnimations.h in Headers */ = {isa = PBXBuildFile; fileRef = 26F54FC81E39AB7700461D35 /* ChainableAnimations.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		26F54FF21E39AD8300461D35 /* JHChainableAnimations.h in Headers */ = {isa = PBXBuildFile; fileRef = 26F54FCD1E39AB8C00461D35 /* JHChainableAnimations.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		26F54FF31E39AD9F00461D35 /* ChainableAnimations.h in Headers */ = {isa = PBXBuildFile; fileRef = 26F54FC81E39AB7700461D35 /* ChainableAnimations.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		26F54FF41E39ADA500461D35 /* ChainableAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26F54FC61E39AB5E00461D35 /* ChainableAnimator.swift */; };
+		26F54FF51E39ADAA00461D35 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 26F54FC91E39AB7700461D35 /* Info.plist */; };
+		26F54FF61E39ADB000461D35 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 26F54FC91E39AB7700461D35 /* Info.plist */; };
+		26F54FF71E39ADBA00461D35 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 26F54FCC1E39AB8C00461D35 /* Info.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -108,8 +103,6 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		26850C361E117DB6006F926A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = Frameworks/Info.plist; sourceTree = SOURCE_ROOT; };
-		26850C371E117DB6006F926A /* JHChainableAnimations.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JHChainableAnimations.h; path = Frameworks/JHChainableAnimations.h; sourceTree = SOURCE_ROOT; };
 		26BBB9E71E117841008ED071 /* JHAnimationChainLink.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JHAnimationChainLink.h; path = JHChainableAnimations/JHAnimationChainLink.h; sourceTree = "<group>"; };
 		26BBB9E81E117841008ED071 /* JHAnimationChainLink.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = JHAnimationChainLink.m; path = JHChainableAnimations/JHAnimationChainLink.m; sourceTree = "<group>"; };
 		26BBB9E91E117841008ED071 /* JHChainableAnimator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JHChainableAnimator.h; path = JHChainableAnimations/JHChainableAnimator.h; sourceTree = "<group>"; };
@@ -146,23 +139,25 @@
 		26F3E9701E1182B000E56D44 /* ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ViewController.h; path = "Examples/JHChainableAnimations tvOS Example/ViewController.h"; sourceTree = SOURCE_ROOT; };
 		26F3E9711E1182B000E56D44 /* ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ViewController.m; path = "Examples/JHChainableAnimations tvOS Example/ViewController.m"; sourceTree = SOURCE_ROOT; };
 		26F54F611E2F34F900461D35 /* ChainableAnimations.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = ChainableAnimations.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		26F54F631E2F34F900461D35 /* ChainableAnimations.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ChainableAnimations.h; sourceTree = "<group>"; };
-		26F54F641E2F34F900461D35 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		26F54F6C1E2F358F00461D35 /* ChainableAnimator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChainableAnimator.swift; sourceTree = "<group>"; };
 		26F54F7F1E356AC600461D35 /* JHChainableAnimations iOS Swift Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "JHChainableAnimations iOS Swift Example.app"; sourceTree = BUILT_PRODUCTS_DIR; };
-		26F54F811E356AC600461D35 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		26F54F831E356AC600461D35 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		26F54F861E356AC600461D35 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		26F54F881E356AC600461D35 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		26F54F8B1E356AC600461D35 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		26F54F8D1E356AC600461D35 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		26F54F981E357A4400461D35 /* ChainableAnimations.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = ChainableAnimations.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		26F54FB61E357B1E00461D35 /* JHChainableAnimations tvOS Swift Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "JHChainableAnimations tvOS Swift Example.app"; sourceTree = BUILT_PRODUCTS_DIR; };
-		26F54FB81E357B1E00461D35 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		26F54FBA1E357B1E00461D35 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		26F54FBD1E357B1E00461D35 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		26F54FBF1E357B1E00461D35 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		26F54FC11E357B1E00461D35 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		26F54FC61E39AB5E00461D35 /* ChainableAnimator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ChainableAnimator.swift; path = JHChainableAnimations/ChainableAnimator.swift; sourceTree = "<group>"; };
+		26F54FC81E39AB7700461D35 /* ChainableAnimations.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ChainableAnimations.h; path = "Frameworks-Swift/ChainableAnimations.h"; sourceTree = SOURCE_ROOT; };
+		26F54FC91E39AB7700461D35 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = "Frameworks-Swift/Info.plist"; sourceTree = SOURCE_ROOT; };
+		26F54FCC1E39AB8C00461D35 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = "Frameworks-iOS/Info.plist"; sourceTree = SOURCE_ROOT; };
+		26F54FCD1E39AB8C00461D35 /* JHChainableAnimations.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JHChainableAnimations.h; path = "Frameworks-iOS/JHChainableAnimations.h"; sourceTree = SOURCE_ROOT; };
+		26F54FD01E39ABAC00461D35 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AppDelegate.swift; path = "Examples/JHChainableAnimations iOS Swift Example/AppDelegate.swift"; sourceTree = SOURCE_ROOT; };
+		26F54FD11E39ABAC00461D35 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = "Examples/JHChainableAnimations iOS Swift Example/Assets.xcassets"; sourceTree = SOURCE_ROOT; };
+		26F54FD41E39ABAC00461D35 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
+		26F54FD61E39ABAC00461D35 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Main.storyboard; sourceTree = "<group>"; };
+		26F54FD71E39ABAC00461D35 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = "Examples/JHChainableAnimations iOS Swift Example/Info.plist"; sourceTree = SOURCE_ROOT; };
+		26F54FD81E39ABAC00461D35 /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ViewController.swift; path = "Examples/JHChainableAnimations iOS Swift Example/ViewController.swift"; sourceTree = SOURCE_ROOT; };
+		26F54FDF1E39ABC400461D35 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AppDelegate.swift; path = "Examples/JHChainableAnimations tvOS Swift Example/AppDelegate.swift"; sourceTree = SOURCE_ROOT; };
+		26F54FE01E39ABC400461D35 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = "Examples/JHChainableAnimations tvOS Swift Example/Assets.xcassets"; sourceTree = SOURCE_ROOT; };
+		26F54FE31E39ABC400461D35 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Main.storyboard; sourceTree = "<group>"; };
+		26F54FE41E39ABC400461D35 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = "Examples/JHChainableAnimations tvOS Swift Example/Info.plist"; sourceTree = SOURCE_ROOT; };
+		26F54FE51E39ABC400461D35 /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ViewController.swift; path = "Examples/JHChainableAnimations tvOS Swift Example/ViewController.swift"; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -321,8 +316,8 @@
 		26C40FA31E0B8ED100767308 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				26850C361E117DB6006F926A /* Info.plist */,
-				26850C371E117DB6006F926A /* JHChainableAnimations.h */,
+				26F54FCC1E39AB8C00461D35 /* Info.plist */,
+				26F54FCD1E39AB8C00461D35 /* JHChainableAnimations.h */,
 			);
 			name = Frameworks;
 			path = JHChainableAnimations;
@@ -375,7 +370,7 @@
 		26F54F5B1E2F346F00461D35 /* Source Swift */ = {
 			isa = PBXGroup;
 			children = (
-				26F54F6C1E2F358F00461D35 /* ChainableAnimator.swift */,
+				26F54FC61E39AB5E00461D35 /* ChainableAnimator.swift */,
 			);
 			name = "Source Swift";
 			sourceTree = "<group>";
@@ -383,8 +378,8 @@
 		26F54F621E2F34F900461D35 /* Swift Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				26F54F631E2F34F900461D35 /* ChainableAnimations.h */,
-				26F54F641E2F34F900461D35 /* Info.plist */,
+				26F54FC81E39AB7700461D35 /* ChainableAnimations.h */,
+				26F54FC91E39AB7700461D35 /* Info.plist */,
 			);
 			name = "Swift Frameworks";
 			path = "JHChainableAnimations-iOS-Swift";
@@ -393,12 +388,11 @@
 		26F54F801E356AC600461D35 /* JHChainableAnimations iOS Swift Example */ = {
 			isa = PBXGroup;
 			children = (
-				26F54F811E356AC600461D35 /* AppDelegate.swift */,
-				26F54F831E356AC600461D35 /* ViewController.swift */,
-				26F54F851E356AC600461D35 /* Main.storyboard */,
-				26F54F881E356AC600461D35 /* Assets.xcassets */,
-				26F54F8A1E356AC600461D35 /* LaunchScreen.storyboard */,
-				26F54F8D1E356AC600461D35 /* Info.plist */,
+				26F54FD01E39ABAC00461D35 /* AppDelegate.swift */,
+				26F54FD11E39ABAC00461D35 /* Assets.xcassets */,
+				26F54FD21E39ABAC00461D35 /* Base.lproj */,
+				26F54FD71E39ABAC00461D35 /* Info.plist */,
+				26F54FD81E39ABAC00461D35 /* ViewController.swift */,
 			);
 			path = "JHChainableAnimations iOS Swift Example";
 			sourceTree = "<group>";
@@ -406,14 +400,33 @@
 		26F54FB71E357B1E00461D35 /* JHChainableAnimations tvOS Swift Example */ = {
 			isa = PBXGroup;
 			children = (
-				26F54FB81E357B1E00461D35 /* AppDelegate.swift */,
-				26F54FBA1E357B1E00461D35 /* ViewController.swift */,
-				26F54FBC1E357B1E00461D35 /* Main.storyboard */,
-				26F54FBF1E357B1E00461D35 /* Assets.xcassets */,
-				26F54FC11E357B1E00461D35 /* Info.plist */,
+				26F54FDF1E39ABC400461D35 /* AppDelegate.swift */,
+				26F54FE01E39ABC400461D35 /* Assets.xcassets */,
+				26F54FE11E39ABC400461D35 /* Base.lproj */,
+				26F54FE41E39ABC400461D35 /* Info.plist */,
+				26F54FE51E39ABC400461D35 /* ViewController.swift */,
 			);
 			path = "JHChainableAnimations tvOS Swift Example";
 			sourceTree = "<group>";
+		};
+		26F54FD21E39ABAC00461D35 /* Base.lproj */ = {
+			isa = PBXGroup;
+			children = (
+				26F54FD31E39ABAC00461D35 /* LaunchScreen.storyboard */,
+				26F54FD51E39ABAC00461D35 /* Main.storyboard */,
+			);
+			name = Base.lproj;
+			path = "Examples/JHChainableAnimations iOS Swift Example/Base.lproj";
+			sourceTree = SOURCE_ROOT;
+		};
+		26F54FE11E39ABC400461D35 /* Base.lproj */ = {
+			isa = PBXGroup;
+			children = (
+				26F54FE21E39ABC400461D35 /* Main.storyboard */,
+			);
+			name = Base.lproj;
+			path = "Examples/JHChainableAnimations tvOS Swift Example/Base.lproj";
+			sourceTree = SOURCE_ROOT;
 		};
 /* End PBXGroup section */
 
@@ -423,8 +436,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				26BBB9F31E117841008ED071 /* JHChainableAnimator.h in Headers */,
-				26850C391E117DB6006F926A /* JHChainableAnimations.h in Headers */,
 				26BBB9F51E117841008ED071 /* JHChainableBlocks.h in Headers */,
+				26F54FCF1E39AB8C00461D35 /* JHChainableAnimations.h in Headers */,
 				26BBB9F61E117841008ED071 /* JHKeyframeAnimation.h in Headers */,
 				26BBB9F11E117841008ED071 /* JHAnimationChainLink.h in Headers */,
 				26BBB9F91E117841008ED071 /* JHKeyframeAnimationFunctions.h in Headers */,
@@ -435,9 +448,9 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				26850C3A1E117E01006F926A /* JHChainableAnimations.h in Headers */,
 				26BBB9FC1E117870008ED071 /* JHChainableAnimator.h in Headers */,
 				26BBB9FD1E117870008ED071 /* JHChainableBlocks.h in Headers */,
+				26F54FF21E39AD8300461D35 /* JHChainableAnimations.h in Headers */,
 				26BBB9FB1E117870008ED071 /* JHAnimationChainLink.h in Headers */,
 				26BBB9FE1E117870008ED071 /* JHKeyframeAnimation.h in Headers */,
 				26BBB9FF1E117870008ED071 /* JHKeyframeAnimationFunctions.h in Headers */,
@@ -448,9 +461,9 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				26F54F6F1E2F371E00461D35 /* ChainableAnimations.h in Headers */,
 				26F54F771E2F38F300461D35 /* JHChainableAnimator.h in Headers */,
 				26F54F781E2F38F300461D35 /* JHChainableBlocks.h in Headers */,
+				26F54FF11E39AD6400461D35 /* ChainableAnimations.h in Headers */,
 				26F54F761E2F38F300461D35 /* JHAnimationChainLink.h in Headers */,
 				26F54F791E2F38F300461D35 /* JHKeyframeAnimation.h in Headers */,
 				26F54F7A1E2F38F300461D35 /* JHKeyframeAnimationFunctions.h in Headers */,
@@ -463,7 +476,7 @@
 			files = (
 				26F54FAA1E357A6B00461D35 /* JHChainableAnimator.h in Headers */,
 				26F54FAB1E357A6B00461D35 /* JHChainableBlocks.h in Headers */,
-				26F54FAC1E357A6B00461D35 /* ChainableAnimations.h in Headers */,
+				26F54FF31E39AD9F00461D35 /* ChainableAnimations.h in Headers */,
 				26F54FAD1E357A7700461D35 /* JHAnimationChainLink.h in Headers */,
 				26F54FAE1E357A7700461D35 /* JHKeyframeAnimation.h in Headers */,
 				26F54FAF1E357A7700461D35 /* JHKeyframeAnimationFunctions.h in Headers */,
@@ -656,6 +669,7 @@
 					26C40FA01E0B8ED100767308 = {
 						CreatedOnToolsVersion = 8.2;
 						DevelopmentTeam = 43LEM8BQ2H;
+						LastSwiftMigration = 0820;
 						ProvisioningStyle = Automatic;
 					};
 					26C40FA91E0B8ED100767308 = {
@@ -740,7 +754,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				26850C381E117DB6006F926A /* Info.plist in Resources */,
+				26F54FEF1E39AD4000461D35 /* Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -755,7 +769,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				26850C3C1E117FA3006F926A /* Info.plist in Resources */,
+				26F54FF71E39ADBA00461D35 /* Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -763,7 +777,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				26F54FB01E357AF200461D35 /* Info.plist in Resources */,
+				26F54FF61E39ADB000461D35 /* Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -771,9 +785,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				26F54F8C1E356AC600461D35 /* LaunchScreen.storyboard in Resources */,
-				26F54F891E356AC600461D35 /* Assets.xcassets in Resources */,
-				26F54F871E356AC600461D35 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -781,7 +792,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				26F54FB11E357AF700461D35 /* Info.plist in Resources */,
+				26F54FF51E39ADAA00461D35 /* Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -789,8 +800,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				26F54FC01E357B1E00461D35 /* Assets.xcassets in Resources */,
-				26F54FBE1E357B1E00461D35 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -851,11 +860,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				26F54FF01E39AD5A00461D35 /* ChainableAnimator.swift in Sources */,
 				26F54F721E2F38D800461D35 /* JHAnimationChainLink.m in Sources */,
 				26F54F731E2F38D800461D35 /* JHChainableAnimator.m in Sources */,
 				26F54F741E2F38D800461D35 /* JHKeyframeAnimation.m in Sources */,
 				26F54F751E2F38D800461D35 /* JHKeyframeAnimationFunctions.c in Sources */,
-				26F54F701E2F37C200461D35 /* ChainableAnimator.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -863,8 +872,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				26F54F841E356AC600461D35 /* ViewController.swift in Sources */,
-				26F54F821E356AC600461D35 /* AppDelegate.swift in Sources */,
+				26F54FED1E39ACF500461D35 /* AppDelegate.swift in Sources */,
+				26F54FEB1E39ACE400461D35 /* ViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -872,7 +881,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				26F54FA51E357A5400461D35 /* ChainableAnimator.swift in Sources */,
+				26F54FF41E39ADA500461D35 /* ChainableAnimator.swift in Sources */,
 				26F54FA61E357A5400461D35 /* JHAnimationChainLink.m in Sources */,
 				26F54FA71E357A5400461D35 /* JHChainableAnimator.m in Sources */,
 				26F54FA81E357A5400461D35 /* JHKeyframeAnimation.m in Sources */,
@@ -884,8 +893,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				26F54FBB1E357B1E00461D35 /* ViewController.swift in Sources */,
-				26F54FB91E357B1E00461D35 /* AppDelegate.swift in Sources */,
+				26F54FEE1E39AD0100461D35 /* AppDelegate.swift in Sources */,
+				26F54FEC1E39ACEB00461D35 /* ViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -924,26 +933,26 @@
 			name = Main.storyboard;
 			sourceTree = "<group>";
 		};
-		26F54F851E356AC600461D35 /* Main.storyboard */ = {
+		26F54FD31E39ABAC00461D35 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				26F54F861E356AC600461D35 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-		26F54F8A1E356AC600461D35 /* LaunchScreen.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				26F54F8B1E356AC600461D35 /* Base */,
+				26F54FD41E39ABAC00461D35 /* Base */,
 			);
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
 		};
-		26F54FBC1E357B1E00461D35 /* Main.storyboard */ = {
+		26F54FD51E39ABAC00461D35 /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				26F54FBD1E357B1E00461D35 /* Base */,
+				26F54FD61E39ABAC00461D35 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		26F54FE21E39ABC400461D35 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				26F54FE31E39ABC400461D35 /* Base */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
@@ -1118,19 +1127,22 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = 43LEM8BQ2H;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = Frameworks/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/Frameworks-iOS/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.guaranteed.JHChainableAnimations;
 				PRODUCT_NAME = JHChainableAnimations;
 				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -1139,19 +1151,21 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = 43LEM8BQ2H;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = Frameworks/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/Frameworks-iOS/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.guaranteed.JHChainableAnimations;
 				PRODUCT_NAME = JHChainableAnimations;
 				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
@@ -1189,7 +1203,7 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = Frameworks/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/Frameworks-iOS/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.guaranteed.JHChainableAnimations;
@@ -1212,7 +1226,7 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = Frameworks/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/Frameworks-iOS/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.guaranteed.JHChainableAnimations;
@@ -1233,7 +1247,7 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = "JHChainableAnimations-iOS-Swift/Info.plist";
+				INFOPLIST_FILE = "$(SRCROOT)/Frameworks-Swift/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
@@ -1256,7 +1270,7 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = "JHChainableAnimations-iOS-Swift/Info.plist";
+				INFOPLIST_FILE = "$(SRCROOT)/Frameworks-Swift/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
@@ -1274,7 +1288,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 43LEM8BQ2H;
-				INFOPLIST_FILE = "JHChainableAnimations iOS Swift Example/Info.plist";
+				INFOPLIST_FILE = "$(SRCROOT)/Examples/JHChainableAnimations iOS Swift Example/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.guaranteed.JHChainableAnimations-iOS-Swift-Example";
@@ -1290,7 +1304,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 43LEM8BQ2H;
-				INFOPLIST_FILE = "JHChainableAnimations iOS Swift Example/Info.plist";
+				INFOPLIST_FILE = "$(SRCROOT)/Examples/JHChainableAnimations iOS Swift Example/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.guaranteed.JHChainableAnimations-iOS-Swift-Example";
@@ -1309,7 +1323,7 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = "$(SRCROOT)/JHChainableAnimations-iOS-Swift/Info.plist";
+				INFOPLIST_FILE = "$(SRCROOT)/Frameworks-Swift/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.guaranteed.JHChainableAnimations;
@@ -1333,7 +1347,7 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = "$(SRCROOT)/JHChainableAnimations-iOS-Swift/Info.plist";
+				INFOPLIST_FILE = "$(SRCROOT)/Frameworks-Swift/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.guaranteed.JHChainableAnimations;
@@ -1353,7 +1367,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = "App Icon & Top Shelf Image";
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				DEVELOPMENT_TEAM = 43LEM8BQ2H;
-				INFOPLIST_FILE = "JHChainableAnimations tvOS Swift Example/Info.plist";
+				INFOPLIST_FILE = "$(SRCROOT)/Examples/JHChainableAnimations tvOS Swift Example/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.guaranteed.JHChainableAnimations-tvOS-Swift-Example";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -1372,7 +1386,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = "App Icon & Top Shelf Image";
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				DEVELOPMENT_TEAM = 43LEM8BQ2H;
-				INFOPLIST_FILE = "JHChainableAnimations tvOS Swift Example/Info.plist";
+				INFOPLIST_FILE = "$(SRCROOT)/Examples/JHChainableAnimations tvOS Swift Example/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.guaranteed.JHChainableAnimations-tvOS-Swift-Example";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -1448,6 +1462,7 @@
 				26F54F681E2F34F900461D35 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		26F54F8E1E356AC600461D35 /* Build configuration list for PBXNativeTarget "JHChainableAnimations iOS Swift Example" */ = {
 			isa = XCConfigurationList;
@@ -1456,6 +1471,7 @@
 				26F54F901E356AC600461D35 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		26F54FA11E357A4400461D35 /* Build configuration list for PBXNativeTarget "JHChainableAnimations-tvOS-Swift" */ = {
 			isa = XCConfigurationList;
@@ -1464,6 +1480,7 @@
 				26F54FA31E357A4400461D35 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		26F54FC21E357B1E00461D35 /* Build configuration list for PBXNativeTarget "JHChainableAnimations tvOS Swift Example" */ = {
 			isa = XCConfigurationList;
@@ -1472,6 +1489,7 @@
 				26F54FC41E357B1E00461D35 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
