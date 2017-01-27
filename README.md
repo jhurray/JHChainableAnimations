@@ -90,7 +90,7 @@ There are a few ways you can add this framework to your project. The Objective-C
 #####Objective-C
 
 ```ruby
-pod 'JHChainableAnimations', '~> 2.0.0'
+pod 'JHChainableAnimations', '~> 2.0'
 ```
 Then add the following:
 
@@ -101,7 +101,7 @@ Then add the following:
 
 #####Swift
 ```ruby
-pod 'ChainableAnimations', '~> 2.0.0'
+pod 'ChainableAnimations', '~> 2.0'
 ```
 Then add the following:
 
@@ -113,7 +113,7 @@ import ChainableAnimations
 Add the following to your `Cartfile`
 
 ```ruby
-github "jhurray/JHChainableAnimations" ~> 2.0.0
+github "jhurray/JHChainableAnimations" ~> 2.0
 ```
 #####Objective-C
 Add the `JHChainableAnimations` framework to your project.
