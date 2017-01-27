@@ -45,6 +45,13 @@
     self.pauseButton = pauseButton;
     
     JHChainableAnimator *animator = [[JHChainableAnimator alloc] initWithView:self.myView];
+    animator.moveWidth(50).bounce.makeBackground(UIColor.purpleColor).easeIn.anchorTopLeft.
+    thenAfter(0.8).rotateZ(95).easeBack.wait(0.2).
+    thenAfter(0.5).moveY(300).easeIn.makeOpacity(0.0).animate(0.4);
+    
+    
+    animator.moveX(30).thenAfter(1).makeScale(2.0).spring.animate(1);
+    
     self.animator = animator;
     
 }
