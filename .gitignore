@@ -25,6 +25,8 @@ DerivedData
 #
 #Pods/
 
+Carthage/
 
 #Random Shit
 *.DS_Store
+
