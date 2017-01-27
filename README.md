@@ -136,7 +136,9 @@ To create an instance of `JHChainableAnimator` you must call the `initWithView:`
 JHChainableAnimator *animator = [[JHChainableAnimator alloc] initWithView:self.myView];
 ```
 
-Chainable properties like **moveX(x)** must come between the view and the **animate(t)** function
+###Animating
+
+Chainable properties like `moveX(x)` must come between the view and the `animate(t)` function
 
 Below is an example of how to double an objects size over the course of one second. 
 
@@ -157,7 +159,7 @@ A full list of chainable properties can be found [here](#chainables)
 
 ###Chaining Animations
 
-To chain animations seperate the chains with the **thenAfter(t)** function.
+To chain animations seperate the chains with the `thenAfter(t)` function.
 
 Below is an example of how to scale and object for 0.5 seconds, and then move it for 1 second when that is done.
 
@@ -198,7 +200,7 @@ animator.rotateZ(180).anchorTopLeft.thenAfter(1.0).rotateZ(90).anchorCenter.anim
 A full list of anchor properties can be found [here](#anchors)
 
 ###Delays
-To delay an animation call the **wait(t)** or **delay(t)** chainable property.
+To delay an animation call the `wait(t)` or `delay(t)` chainable property.
 
 Below is an example of moving a view after a delay of 0.5 seconds
 
@@ -208,7 +210,7 @@ animator.moveXY(100, 50).wait(0.5).animate(1.0);
 ```
 
 ###Completion
-To run code after an animation finishes set the **animationCompletion** property of your animator or call the **animateWithCompletion(t, completion)** function.
+To run code after an animation finishes set the `completionBlock` property of your animator or call the `animateWithCompletion(t, completion)*`function.
 
 ```objective-c
 animator.makeX(0).animateWithCompletion(1.0, ^{
@@ -219,7 +221,7 @@ animator.makeX(0).animateWithCompletion(1.0, ^{
 Is the same as: 
 
 ```objective-c
-animator.animationCompletion = ^{
+animator.completionBlock = ^{
 	NSLog(@"Animation Done");
 };
 animator.makeX(0).animate(1.0);
@@ -268,10 +270,11 @@ animator.moveX(10).preAnimationBlock(^{
 
 
 ###Bezier Paths
-You can also animate a view along a [UIBezierPath](https://developer.apple.com/library/ios/documentation/2DDrawing/Conceptual/DrawingPrintingiOS/BezierPaths/BezierPaths.html). To get a bezier path starting from the views position, call the **bezierPathForAnimation** method. Then add points or curves or lines to it and use it in a chainable property.
+You can also animate a view along a [UIBezierPath](https://developer.apple.com/library/ios/documentation/2DDrawing/Conceptual/DrawingPrintingiOS/BezierPaths/BezierPaths.html). Create a `UIBezierPath *` instance, then add points or curves or lines to it and use it in a chainable property.
 
 ```objective-c
-UIBezierPath *path = [view bezierPathForAnimation];
+UIBezierPath *path = [UIBezierPath bezierPath];
+[path moveToPoint:self.myView.center];
 [path addLineToPoint:CGPointMake(25, 400)];
 [path addLineToPoint:CGPointMake(300, 500)];
 animator.moveOnPath(path).animate(1.0);
