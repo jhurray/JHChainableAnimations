@@ -1,23 +1,22 @@
 //
 //  JHKeyframeAnimation.h
-//  JHAnimationKitExample
+//  JHChainableAnimations
 //
-//  Created by Jeff Hurray on 5/5/15.
-//  Copyright (c) 2015 jhurray. All rights reserved.
+//  Created by Jeff Hurray on 12/21/16.
+//  Copyright © 2016 jhurray. All rights reserved.
 //
 
 #import <QuartzCore/QuartzCore.h>
-#import "NSBKeyframeAnimationFunctions.h"
 
-@interface JHKeyframeAnimation : CAKeyframeAnimation
+typedef double(^JHKeyframeAnimationCalculationBlock)(double t, double b, double c, double d);
 
-// From https://github.com/NachoSoto/NSBKeyframeAnimation
-typedef double(^NSBKeyframeAnimationFunctionBlock)(double t, double b, double c, double d);
-@property (nonatomic, copy) NSBKeyframeAnimationFunctionBlock functionBlock;
+@interface JHKeyframeAnimation : CAKeyframeAnimation 
 
-@property(strong, nonatomic) id fromValue;
-@property(strong, nonatomic) id toValue;
+@property (nonatomic, copy) JHKeyframeAnimationCalculationBlock functionBlock;
 
--(void) calculate;
+@property (nonatomic, strong) id fromValue;
+@property (nonatomic, strong) id toValue;
+
+- (void)calculate;
 
 @end

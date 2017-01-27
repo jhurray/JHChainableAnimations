@@ -3,7 +3,7 @@
 <table>
 <tr>
 <td width=75%">
-<img src="./img/JHChainableAnimationsExample1.png" width="70%" ></img>
+<img src="./img/JHChainableAnimationsExample1.png" width="100%" ></img>
 </td>
 <td width=25%">
 <img src="./Gifs/JHChainableAnimationsExample1.gif"></img>
@@ -11,7 +11,7 @@
 </tr>
 <tr>
 <td width="75%">
-<img src="./img/JHChainableAnimationsExample2.png" width="93%" ></img>
+<img src="./img/JHChainableAnimationsExample2.png" width="100%" ></img>
 </td>
 <td width="25%">
 <img src="./Gifs/JHChainableAnimationsExample2.gif"></img>
@@ -28,10 +28,19 @@
 </table>
 
 ![language](https://img.shields.io/badge/Language-Objective--C-8E44AD.svg)
-![Version](https://img.shields.io/badge/Pod-%20v1.1.1%20-96281B.svg)
+![language](https://img.shields.io/badge/Language-Swift-8E44AD.svg)
+![Version](https://img.shields.io/badge/Pod-%20v2.0.0%20-96281B.svg)
 ![Build Status](https://img.shields.io/badge/build-passing-brightgreen.svg)
 ![MIT License](https://img.shields.io/github/license/mashape/apistatus.svg)
 ![Platform](https://img.shields.io/badge/platform-%20iOS%20-lightgrey.svg)
+![Platform](https://img.shields.io/badge/platform-%20tvOS%20-lightgrey.svg)
+
+##Whats new in version 2.x?
+* Re-architected from the ground up, no more hacking UIView 🛠
+* Added pre-animation and post-animation hooks for each animation step ⛓
+* Added pause and resume functionality ⏯
+* Added repeat animation functionality 🔂
+* Added friendly Swift interface in separate framework 🔥🕊
 
 ##Whats wrong with animations?
 
@@ -49,74 +58,115 @@ Say I want to move myView 50 pixels to the right with spring and then change the
          usingSpringWithDamping:0.8
           initialSpringVelocity:1.0
                         options:0 animations:^{
-                            CGPoint newPosition = self.myView.frame.origin;
+                            CGPoint newPosition = self.myanimator.frame.origin;
                             newPosition.x += 50;
-                            self.myView.frame.origin = newPosition;
+                            self.myanimator.frame.origin = newPosition;
     } completion:^(BOOL finished) {
         [UIView animateWithDuration:0.5
                               delay:0.0
                             options:UIViewAnimationOptionCurveEaseIn
                          animations:^{
-            self.myView.backgroundColor = [UIColor purpleColor];
+            self.myanimator.backgroundColor = [UIColor purpleColor];
         } completion:nil];
     }];
 ```
 
 Thats pretty gross huh... With JHChainableAnimations it is one line of code. 
 
-###The New Way (JHChainableAnimations!!!)
+###Using JHChainableAnimations
 
 ```objective-c
-self.myView.moveX(50).spring.thenAfter(1.0).makeBackground([UIColor purpleColor]).easeIn.animate(0.5);
+JHChainableAnimator *animator = [[JHChainableAnimator alloc] initWithView:self.myView];
+animator.moveX(50).spring.thenAfter(1.0).makeBackground([UIColor purpleColor]).easeIn.animate(0.5);
 ```
 
 There are also a lot of really good animation libraries out there such as [RBBAnimation](https://github.com/robb/RBBAnimation), [DCAnimationKit](https://github.com/daltoniam/DCAnimationKit), and [PMTween](https://github.com/poetmountain/PMTween),  but they still fall short of having powerful chainable animations AND easy to read/write syntax. 
 
-##Usage
-Either clone the repo and manually add the Files in [JHChainableAnimations](./JHChainableAnimations) or add the following to your Podfile
+##Installation
+There are a few ways you can add this framework to your project. The Objective-C frameowrk will be called `JHChainableAnimations` and the Swift framework will be called `ChainableAnimations`. More notes on Swift usage can be found [here](#swift)
 
+###Cocoapods
+
+#####Objective-C
+
+```ruby
+pod 'JHChainableAnimations', '~> 2.0.0'
 ```
-pod 'JHChainableAnimations', '~> 1.3.0'
-```
-Then just import the following header.
+Then add the following:
 
 ```objective-c
-#import "JHChainableAnimations.h"
+@import JHChainableAnimations;
 ```
 
-This is all a UIView category, so these chainables can be used on any UIView in a file where the header is imported.
 
-Notes on using JHChainableAnimations with **Swift** can be found [here](#swift).
+#####Swift
+```ruby
+pod 'ChainableAnimations', '~> 2.0.0'
+```
+Then add the following:
 
-Notes on using JHChainableAnimations with **Auto Layout** can be found [here](#autolayout).
+```swift
+import ChainableAnimations
+```
+
+###Carthage
+Add the following to your `Cartfile`
+
+```ruby
+github "jhurray/JHChainableAnimations" ~> 2.0.0
+```
+#####Objective-C
+Add the `JHChainableAnimations` framework to your project.
+
+#####Swift
+Add the `ChainableAnimations` framework to your project.
+
+
+###Add to project Manually
+Either clone the repo and manually add the Files in [JHChainableAnimations](./JHChainableAnimations)
+
+
+##Usage
+
+###Creating an Animator
+
+To create an instance of `JHChainableAnimator` you must call the `initWithView:` method.
+
+```objective-c
+JHChainableAnimator *animator = [[JHChainableAnimator alloc] initWithView:self.myView];
+```
 
 ###Animating
-Chainable properties like **moveX(x)** must come between the view and the **animate(t)** function
+
+Chainable properties like `moveX(x)` must come between the view and the `animate(t)` function
 
 Below is an example of how to double an objects size over the course of one second. 
 
 ```objective-c
-view.makeScale(2.0).animate(1.0);
+animator.makeScale(2.0).animate(1.0);
 ```
+
+###Combining Animations
 
 If you want to move the view while you scale it, add another chainable property. Order is not important
 
 ```objective-c
-view.makeScale(2.0).moveXY(100, 50).animate(1.0);
-// the same as view.moveXY(100, 50).makeScale(2.0).animate(1.0);
+animator.makeScale(2.0).moveXY(100, 50).animate(1.0);
+// the same as animator.moveXY(100, 50).makeScale(2.0).animate(1.0);
 ```
 
 A full list of chainable properties can be found [here](#chainables)
 
 ###Chaining Animations
 
-To chain animations seperate the chains with the **thenAfter(t)** function.
+To chain animations seperate the chains with the `thenAfter(t)` function.
 
 Below is an example of how to scale and object for 0.5 seconds, and then move it for 1 second when that is done.
 
 ```objective-c
-view.makeScale(2.0).thenAfter(0.5).moveXY(100, 50).animate(1.0);
+animator.makeScale(2.0).thenAfter(0.5).moveXY(100, 50).animate(1.0);
 ```
+
 ###Animation Effects
 
 To add an animation effect, call the effect method after the chainable property you want it to apply to.
@@ -124,14 +174,14 @@ To add an animation effect, call the effect method after the chainable property 
 Below is an example of scaling a view with a spring effect.
 
 ```objective-c
-view.makeScale(2.0).spring.animate(1.0);
+animator.makeScale(2.0).spring.animate(1.0);
 ```
 
 If you add 2 to the same chainable property the second will cancel the first out. 
 
 ```objective-c
-view.makeScale(2.0).bounce.spring.animate(1.0);
-// The same as view.makeScale(2.0).spring.animate(1.0);
+animator.makeScale(2.0).bounce.spring.animate(1.0);
+// The same as animator.makeScale(2.0).spring.animate(1.0);
 ```
 
 A full list of animation effect properties can be found [here](#effects)
@@ -142,27 +192,28 @@ To anchor your view call an achoring method at some point in an animation chain.
 Below is an example of rotating a view around different anchor points
 
 ```objective-c
-view.rotateZ(180).anchorTopLeft.thenAfter(1.0).rotateZ(90).anchorCenter.animate(1.0);
+animator.rotateZ(180).anchorTopLeft.thenAfter(1.0).rotateZ(90).anchorCenter.animate(1.0);
 
-// view.rotateZ(90).anchorTopLeft.anchorCenter == view.rotateZ(90).anchorCenter
+// animator.rotateZ(90).anchorTopLeft.anchorCenter == animator.rotateZ(90).anchorCenter
 ```
 
 A full list of anchor properties can be found [here](#anchors)
 
 ###Delays
-To delay an animation call the **wait(t)** or **delay(t)** chainable property.
+To delay an animation call the `wait(t)` or `delay(t)` chainable property.
 
 Below is an example of moving a view after a delay of 0.5 seconds
 
 ```objective-c
-view.moveXY(100, 50).wait(0.5).animate(1.0);
-// The same as view.moveXY(100, 50).delay(0.5).animate(1.0);
+animator.moveXY(100, 50).wait(0.5).animate(1.0);
+// The same as animator.moveXY(100, 50).delay(0.5).animate(1.0);
 ```
+
 ###Completion
-To run code after an animation finishes set the **animationCompletion** property of your UIView or call the **animateWithCompletion(t, completion)** function.
+To run code after an animation finishes set the `completionBlock` property of your animator or call the `animateWithCompletion(t, completion)*`function.
 
 ```objective-c
-view.makeX(0).animateWithCompletion(1.0, JHAnimationCompletion(){
+animator.makeX(0).animateWithCompletion(1.0, ^{
 	NSLog(@"Animation Done");
 });
 ```
@@ -170,38 +221,66 @@ view.makeX(0).animateWithCompletion(1.0, JHAnimationCompletion(){
 Is the same as: 
 
 ```objective-c
-view.animationCompletion = JHAnimationCompletion(){
+animator.completionBlock = ^{
 	NSLog(@"Animation Done");
 };
-view.makeX(0).animate(1.0);
+animator.makeX(0).animate(1.0);
 ```
 
-Is the same as:
+###Repeating Animations
+You can repeat an animation by replacing the `thenAfter(time)` method with the `repeat(time, count)` method. This will repeat the previously defined animations. 
 
 ```objective-c
-view.makeX(0).animate(1.0).animationCompletion = JHAnimationCompletion(){
-	NSLog(@"Animation Done");
-};
+// The animator will double its scale 3 times for 0.5 seconds each before it calls `moveXY` and finishes the animation
+animator.makeScale(2.0).repeat(0.5, 3).moveXY(100, 50).animate(1.0);
 ```
+
+You can repeat the last part of an animation by calling `animateWithRepeat(time, count)`.
+
+```objective-c
+// The animator will double its scale then rotate by 90 degrees 3 times for 1 second each.
+animator.makeScale(2.0).thenAfter(0.5).rotate(90). animateWithRepeat(1.0, 3);
+```
+
+###Pausing and Cancelling
+To Pause the animation, call the `pause` method on the animator. When you call pause, the current animation in the chain will complete but nothing beyod that will be executed. You can use the `isPaused` and `isAnimating` readonly properties to inspect state. If an animation is paused but not stopped, it will still evaluate as `animating`.
+
+To resume in a paused state, call the `resume` method on the animator.
+
+To stop animation and clear state, call the `stop` method on the animator.
+
+```objective-c
+// In this case the `moveX` animation will execute but the `moveY` will not
+// If `resume` is called `moveY` will be executed
+// If `stop` is called, nothing will be executed and the animator will get a fresh state
+animator.moveX(10).thenAfter(0.5).moveY(10).animate(0.5);
+[animator pause];
+```
+
+###Callbacks
+You can hook into the different steps of the animation process by calling the `preAnimationBlock(block)`, `animationBlock(block)`, and `postAnimationBlock(block)` methods. All take a simple block `void(^)()` as an argument. Order of calling these in the animation chain does not matter.
+
+```objective-c
+animator.moveX(10).preAnimationBlock(^{ 
+	NSLog(@"before the first animation");
+ }).thenAfter(1.0).postAnimationBlock(^{
+ 	NSLog(@"After the second animation");
+ }).moveY(10).animate(1.0);
+```
+
 
 ###Bezier Paths
-You can also animate a view along a [UIBezierPath](https://developer.apple.com/library/ios/documentation/2DDrawing/Conceptual/DrawingPrintingiOS/BezierPaths/BezierPaths.html). To get a bezier path starting from the views position, call the **bezierPathForAnimation** method. Then add points or curves or lines to it and use it in a chainable property.
+You can also animate a view along a [UIBezierPath](https://developer.apple.com/library/ios/documentation/2DDrawing/Conceptual/DrawingPrintingiOS/BezierPaths/BezierPaths.html). Create a `UIBezierPath *` instance, then add points or curves or lines to it and use it in a chainable property.
 
 ```objective-c
-UIBezierPath *path = [view bezierPathForAnimation];
+UIBezierPath *path = [UIBezierPath bezierPath];
+[path moveToPoint:self.myView.center];
 [path addLineToPoint:CGPointMake(25, 400)];
 [path addLineToPoint:CGPointMake(300, 500)];
-view.moveOnPath(path).animate(1.0);
+animator.moveOnPath(path).animate(1.0);
 ```
 Animation effects do not work on path movements.
 
-###Semantics
-I included a chainable property called **seconds** that is there purely for show. It does however, make the code a little more readable (if you're into that sort of thing).
-
-```objective-c
-view.makeScale(2.0).thenAfter(0.5).seconds.moveX(20).animate(1.0);
-// view.makeScale(2.0).thenAfter(0.5).moveX(20).animate(1.0);
-```
 
 ##<a name="autolayout"></a>Using with Auto Layout
 
@@ -210,38 +289,18 @@ view.makeScale(2.0).thenAfter(0.5).seconds.moveX(20).animate(1.0);
 Use the **transform** chainable properties. These are better for views constrained with Autolayout. You should not mix these with other chainable properties 
 
 ```objective-c
-viewWithConstraints.transformX(50).transformScale(2).animate(1.0);
+animatorForViewWithConstraints.transformX(50).transformScale(2).animate(1.0);
 ```
-
-###Animating Constraints
-
-Typically frames and autolayout stuff shouldn't mix so use the **makeConstraint** and **moveConstraint** chainable properties with caution (i.e dont try and scale a view when it has a height and width constraint). **These properties should only be used with color, opacity, and corner radius chainable properties** because they dont affect the layers position and therfore won't affect constraints. 
-
-This was only added as a syntactically easy way to animate constraints. The code below will set the constant of **topConstraint** to 50 and then trigger an animated layout pass in the background. 
-
-```objective-c
-// You have a reference to some constraint for myView
-self.topConstraint = [NSLayoutConstraint ...];
-...
-self.myView.makeConstraint(self.topConstraint, 50).animate(1.0);
-```
-This does not support animation effects yet. 
 
 ##<a name="swift"></a>Using with Swift
 
-Using JHChainableAnimations with [Swift](https://developer.apple.com/swift/) is a little different. Every chainable property must have ```()``` between the name and the parameters.
+Using JHChainableAnimations with [Swift](https://developer.apple.com/swift/) is now a little more readable in version `2.x`. I created a separate framework for swift that provides a class called `ChainableAnimator`. This is a thin wrapper over `JHChainableAnimator` that has a slightly more readable syntax.
 
 ```swift
-// swift code
-view.makeScale()(2.0).spring().animate()(1.0);
-// is the same as 
-// view.makeScale(2.0).spring.animate(1.0);
-// in Objective-C
+let animator = ChainableAniamtor(view: myView)
+animator.moveX(x: 50).thenAfter(t: 1.0).rotate(angle: 360).bounce.animate(t:1.0)
 ```
-[Masonry](https://github.com/SnapKit/Masonry), which uses a similar chainable syntax eventually made [SnapKit](https://github.com/SnapKit/SnapKit) to make get rid of this weirdness. That may be on the horizon. 
-
-[Draveness](https://github.com/Draveness) copied my code into swift and it looks pretty good. [DKChainableAnimationKit](https://github.com/Draveness/DKChainableAnimationKit)
-
+All Objective-C methods map to a swift method.
 
 ##<a name="chainables"></a>Chainable Properties
 
@@ -265,7 +324,7 @@ Usage
 CGRect
 </td>
 <td>
-view.makeFrame(rect).animate(1.0);
+animator.makeFrame(rect).animate(1.0);
 </td>
 </tr>
 <tr>
@@ -276,7 +335,7 @@ view.makeFrame(rect).animate(1.0);
 CGRect
 </td>
 <td>
-view.makeBounds(rect).animate(1.0);
+animator.makeBounds(rect).animate(1.0);
 </td>
 </tr>
 <tr>
@@ -287,7 +346,7 @@ view.makeBounds(rect).animate(1.0);
 (CGFloat: width, CGFloat: height)
 </td>
 <td>
-view.makeSize(10, 20).animate(1.0);
+animator.makeSize(10, 20).animate(1.0);
 </td>
 </tr>
 <tr>
@@ -298,7 +357,7 @@ view.makeSize(10, 20).animate(1.0);
 (CGFloat: x, CGFloat: y)
 </td>
 <td>
-view.makeOrigin(10, 20).animate(1.0);
+animator.makeOrigin(10, 20).animate(1.0);
 </td>
 </tr>
 <tr>
@@ -309,7 +368,7 @@ view.makeOrigin(10, 20).animate(1.0);
 (CGFloat: x, CGFloat: y)
 </td>
 <td>
-view.makeCenter(10, 20).animate(1.0);
+animator.makeCenter(10, 20).animate(1.0);
 </td>
 </tr>
 <tr>
@@ -320,7 +379,7 @@ view.makeCenter(10, 20).animate(1.0);
 (CGFloat: f)
 </td>
 <td>
-view.makeX(10).animate(1.0);
+animator.makeX(10).animate(1.0);
 </td>
 </tr>
 <tr>
@@ -331,7 +390,7 @@ view.makeX(10).animate(1.0);
 (CGFloat: f)
 </td>
 <td>
-view.makeY(10).animate(1.0);
+animator.makeY(10).animate(1.0);
 </td>
 </tr>
 <tr>
@@ -342,7 +401,7 @@ view.makeY(10).animate(1.0);
 (CGFloat: f)
 </td>
 <td>
-view.makeWidth(10).animate(1.0);
+animator.makeWidth(10).animate(1.0);
 </td>
 </tr>
 <tr>
@@ -353,7 +412,7 @@ view.makeWidth(10).animate(1.0);
 (CGFloat: f)
 </td>
 <td>
-view.makeHeight(10).animate(1.0);
+animator.makeHeight(10).animate(1.0);
 </td>
 </tr>
 <tr>
@@ -364,7 +423,7 @@ view.makeHeight(10).animate(1.0);
 (CGFloat: f)
 </td>
 <td>
-view.makeOpacity(10).animate(1.0);
+animator.makeOpacity(10).animate(1.0);
 </td>
 </tr>
 <tr>
@@ -375,7 +434,7 @@ view.makeOpacity(10).animate(1.0);
 (UIColor: color)
 </td>
 <td>
-view.makeBackground(color).animate(1.0);
+animator.makeBackground(color).animate(1.0);
 </td>
 </tr>
 <tr>
@@ -386,7 +445,7 @@ view.makeBackground(color).animate(1.0);
 (UIColor: color)
 </td>
 <td>
-view.makeBorderColor(color).animate(1.0);
+animator.makeBorderColor(color).animate(1.0);
 </td></tr>
 <tr>
 <td>
@@ -396,7 +455,7 @@ view.makeBorderColor(color).animate(1.0);
 (CGFloat: f)
 </td>
 <td>
-view.makeBorderWidth(3.0).animate(1.0);
+animator.makeBorderWidth(3.0).animate(1.0);
 </td>
 </tr>
 <tr>
@@ -407,7 +466,7 @@ view.makeBorderWidth(3.0).animate(1.0);
 (CGFloat: f)
 </td>
 <td>
-view.makeCornerRadius(3.0).animate(1.0);
+animator.makeCornerRadius(3.0).animate(1.0);
 </td>
 </tr>
 <tr>
@@ -418,7 +477,7 @@ view.makeCornerRadius(3.0).animate(1.0);
 (CGFloat: f)
 </td>
 <td>
-view.makeScale(2.0).animate(1.0);
+animator.makeScale(2.0).animate(1.0);
 </td>
 </tr>
 <tr>
@@ -429,7 +488,7 @@ view.makeScale(2.0).animate(1.0);
 (CGFloat: f)
 </td>
 <td>
-view.makeScaleX(2.0).animate(1.0);
+animator.makeScaleX(2.0).animate(1.0);
 </td>
 </tr>
 <tr>
@@ -440,7 +499,7 @@ view.makeScaleX(2.0).animate(1.0);
 (CGFloat: f)
 </td>
 <td>
-view.makeScaleY(2.0).animate(1.0);
+animator.makeScaleY(2.0).animate(1.0);
 </td>
 </tr>
 <tr>
@@ -451,7 +510,7 @@ view.makeScaleY(2.0).animate(1.0);
 (CGFloat: x, CGFloat: y)
 </td>
 <td>
-view.makeAnchor(0.5, 0.5).animate(1.0);
+animator.makeAnchor(0.5, 0.5).animate(1.0);
 </td>
 </tr>
 <tr>
@@ -462,7 +521,7 @@ view.makeAnchor(0.5, 0.5).animate(1.0);
 (CGFloat: f)
 </td>
 <td>
-view.moveX(50).animate(1.0)
+animator.moveX(50).animate(1.0)
 </td>
 </tr>
 <tr>
@@ -473,7 +532,7 @@ view.moveX(50).animate(1.0)
 (CGFloat: f)
 </td>
 <td>
-view.moveY(50).animate(1.0)
+animator.moveY(50).animate(1.0)
 </td>
 </tr>
 <tr>
@@ -484,7 +543,7 @@ view.moveY(50).animate(1.0)
 (CGFloat: x, CGFloat: y)
 </td>
 <td>
-view.moveXY(100, 50).animate(1.0)
+animator.moveXY(100, 50).animate(1.0)
 </td>
 </tr>
 <tr>
@@ -495,7 +554,7 @@ view.moveXY(100, 50).animate(1.0)
 (CGFloat: f)
 </td>
 <td>
-view.moveHeight(50).animate(1.0)
+animator.moveHeight(50).animate(1.0)
 </td>
 </tr>
 <tr>
@@ -506,7 +565,7 @@ view.moveHeight(50).animate(1.0)
 (CGFloat: f)
 </td>
 <td>
-view.moveWidth(50).animate(1.0)
+animator.moveWidth(50).animate(1.0)
 </td>
 </tr>
 <tr>
@@ -517,7 +576,7 @@ view.moveWidth(50).animate(1.0)
 (CGFloat: angle) #not radians!
 </td>
 <td>
-view.rotateX(360).animate(1.0);
+animator.rotateX(360).animate(1.0);
 </td>
 </tr>
 <tr>
@@ -528,7 +587,7 @@ view.rotateX(360).animate(1.0);
 (CGFloat: angle) #not radians!
 </td>
 <td>
-view.rotateY(360).animate(1.0);
+animator.rotateY(360).animate(1.0);
 </td>
 </tr>
 <tr>
@@ -539,7 +598,7 @@ view.rotateY(360).animate(1.0);
 (CGFloat: angle) #not radians!
 </td>
 <td>
-view.rotateZ(360).animate(1.0);
+animator.rotateZ(360).animate(1.0);
 </td>
 </tr>
 <tr>
@@ -550,7 +609,7 @@ view.rotateZ(360).animate(1.0);
 (CGFloat: radius, CGFloat: angle)
 </td>
 <td>
-view.movePolar(30, 90).animate(1.0);
+animator.movePolar(30, 90).animate(1.0);
 </td>
 </tr>
 <tr>
@@ -561,7 +620,7 @@ view.movePolar(30, 90).animate(1.0);
 (UIBezierPath *path)
 </td>
 <td>
-view.moveOnPath(path).animate(1.0);
+animator.moveOnPath(path).animate(1.0);
 </td>
 </tr>
 <tr>
@@ -572,7 +631,7 @@ view.moveOnPath(path).animate(1.0);
 (UIBezierPath *path)
 </td>
 <td>
-view.moveAndRotateOnPath(path).animate(1.0);
+animator.moveAndRotateOnPath(path).animate(1.0);
 </td>
 </tr>
 <tr>
@@ -583,7 +642,7 @@ view.moveAndRotateOnPath(path).animate(1.0);
 (UIBezierPath *path)
 </td>
 <td>
-view.moveAndReverseRotateOnPath(path).animate(1.0);
+animator.moveAndReverseRotateOnPath(path).animate(1.0);
 </td>
 </tr>
 <tr>
@@ -594,7 +653,7 @@ view.moveAndReverseRotateOnPath(path).animate(1.0);
 (CGFloat f)
 </td>
 <td>
-view.transformX(50).animate(1.0);
+animator.transformX(50).animate(1.0);
 </td>
 </tr>
 <tr>
@@ -605,7 +664,7 @@ view.transformX(50).animate(1.0);
 (CGFloat f)
 </td>
 <td>
-view.transformX(50).animate(1.0);
+animator.transformX(50).animate(1.0);
 </td>
 </tr>
 <tr>
@@ -616,7 +675,7 @@ view.transformX(50).animate(1.0);
 (CGFloat f)
 </td>
 <td>
-view.transformY(50).animate(1.0);
+animator.transformY(50).animate(1.0);
 </td>
 </tr>
 <tr>
@@ -627,7 +686,7 @@ view.transformY(50).animate(1.0);
 (CGFloat f)
 </td>
 <td>
-view.transformZ(50).animate(1.0);
+animator.transformZ(50).animate(1.0);
 </td>
 </tr>
 <tr>
@@ -638,7 +697,7 @@ view.transformZ(50).animate(1.0);
 (CGFloat x, CGFloat y)
 </td>
 <td>
-view.transformXY(50, 100).animate(1.0);
+animator.transformXY(50, 100).animate(1.0);
 </td>
 </tr>
 <tr>
@@ -649,7 +708,7 @@ view.transformXY(50, 100).animate(1.0);
 (CGFloat f)
 </td>
 <td>
-view.transformScale(50).animate(1.0);
+animator.transformScale(50).animate(1.0);
 </td>
 </tr>
 <tr>
@@ -660,7 +719,7 @@ view.transformScale(50).animate(1.0);
 (CGFloat f)
 </td>
 <td>
-view.transformScaleX(50).animate(1.0);
+animator.transformScaleX(50).animate(1.0);
 </td>
 </tr>
 <tr>
@@ -671,23 +730,26 @@ view.transformScaleX(50).animate(1.0);
 (CGFloat f)
 </td>
 <td>
-view.transformScaleY(50).animate(1.0);
+animator.transformScaleY(50).animate(1.0);
 </td>
 </tr>
 <tr>
 <td>
-- (UIView *) transformIdentity;
+- (JHChainableAnimator *) transformIdentity;
 </td>
 <td>
 Nothing
 </td>
 <td>
-view.transformIdentity.animate(1.0);
+animator.transformIdentity.animate(1.0);
 </td>
 </tr>
 </table>
 
 ##<a name="effects"></a>Animation Effects
+
+<img src="./img/JHChainableAnimationsEffects.png" width="95%">
+<img src="./img/JHChainableAnimationsEasing.png" width="95%" height="500px">
 
 A quick look at these funcs can be found [here](http://easings.net/)
 
@@ -695,27 +757,21 @@ These animation functions were taken from a cool keyframe animation library that
 
 They are based off of JQuery easing functions that can be found [here](http://gsgd.co.uk/sandbox/jquery/easing/jquery.easing.1.3.js)
 
-<img src="./img/JHChainableAnimationsEffects.png" width="35%">
-<img src="./img/JHChainableAnimationsEasing.png" width="49%" height="500px">
-
-
 ##<a name="anchors"></a>Anchoring
 
-Info on anchoring can be found [here](https://developer.apple.com/library/ios/documentation/Cocoa/Conceptual/CoreAnimation_guide/CoreAnimationBasics/CoreAnimationBasics.html#//apple_ref/doc/uid/TP40004514-CH2-SW3)
-
 <img src="./img/JHChainableAnimationsAnchors.png" height="200px">
+
+Info on anchoring can be found [here](https://developer.apple.com/library/ios/documentation/Cocoa/Conceptual/CoreAnimation_guide/CoreAnimationBasics/CoreAnimationBasics.html#//apple_ref/doc/uid/TP40004514-CH2-SW3)
 
 
 ##To Do
 I have gotten a ton of great suggestions of what to do next. If you think this is missing anything please let me know! The following is what I plan on working on in no particular order.
 
 * OSX port
+* Constraint animator
 
 ##Contact Info && Contributing
 
 Feel free to email me at [jhurray33@gmail.com](mailto:jhurray33@gmail.com?subject=JHChainableAnimations). I'd love to hear your thoughts on this, or see examples where this has been used.
 
 [MIT License](./LICENSE)
-
-
-
