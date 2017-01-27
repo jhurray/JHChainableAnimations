@@ -95,7 +95,7 @@ pod 'JHChainableAnimations', '~> 2.0'
 Then add the following:
 
 ```objective-c
-@import JHChainableAnimations;
+#import <JHChainableAnimations/JHChainableAnimations.h>
 ```
 
 
