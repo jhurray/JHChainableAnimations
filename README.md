@@ -58,15 +58,15 @@ Say I want to move myView 50 pixels to the right with spring and then change the
          usingSpringWithDamping:0.8
           initialSpringVelocity:1.0
                         options:0 animations:^{
-                            CGPoint newPosition = self.myanimator.frame.origin;
+                            CGPoint newPosition = self.myView.frame.origin;
                             newPosition.x += 50;
-                            self.myanimator.frame.origin = newPosition;
+                            self.myView.frame.origin = newPosition;
     } completion:^(BOOL finished) {
         [UIView animateWithDuration:0.5
                               delay:0.0
                             options:UIViewAnimationOptionCurveEaseIn
                          animations:^{
-            self.myanimator.backgroundColor = [UIColor purpleColor];
+            self.myView.backgroundColor = [UIColor purpleColor];
         } completion:nil];
     }];
 ```
