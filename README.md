@@ -83,7 +83,7 @@ animator.moveX(50).spring.thenAfter(1.0).makeBackground([UIColor purpleColor]).e
 There are also a lot of really good animation libraries out there such as [RBBAnimation](https://github.com/robb/RBBAnimation), [DCAnimationKit](https://github.com/daltoniam/DCAnimationKit), and [PMTween](https://github.com/poetmountain/PMTween),  but they still fall short of having powerful chainable animations AND easy to read/write syntax. 
 
 ##Installation
-There are a few ways you can add this framework to your project. The Objective-C frameowrk will be called `JHChainableAnimations` and the Swift framework will be called `ChainableAnimations`. More notes on Swift usage can be found [here](#swift)
+There are a few ways you can add this framework to your project. The Objective-C framework is called `JHChainableAnimations` and the Swift framework is called `ChainableAnimations`. More notes on Swift usage can be found [here](#swift)
 
 ###Cocoapods
 
