@@ -66,16 +66,16 @@ class ViewController: UIViewController {
             self.myView.layer.transform = CATransform3DIdentity
             self.myView.frame = CGRect(x: 100, y: 150, width: 50, height: 50)
             self.animator?.transformIdentity.makeOpacity(alpha: 1).makeBackground(color: .blue).animate(t: 1.0)
-            buttonAnimator.moveY(y: -50).easeInOutExpo.animateWithCompletion(t: 1.1, completion: {
+            buttonAnimator.moveY(-50).easeInOutExpo.animate(t: 1.1, completion: {
                 self.button.isUserInteractionEnabled = true
             })
         }
         
-        buttonAnimator.moveY(y: 50).easeInOutExpo.animate(t: 0.5)
+        buttonAnimator.moveY(50).easeInOutExpo.animate(t: 0.5)
         
-        animator.moveWidth(width: 30).bounce.makeBackground(color: .purple).easeIn.anchorTopLeft
+        animator.moveWidth(30).bounce.makeBackground(color: .purple).easeIn.anchorTopLeft
             .repeatAnimation(t: 0.5, count: 3).rotateZ(angle: 95).easeBack.wait(t: 0.2)
-            .thenAfter(t: 0.5).moveY(y: 300).easeIn.makeOpacity(alpha: 0.0).animate(t: 0.4);
+            .thenAfter(t: 0.5).moveY(300).easeIn.makeOpacity(alpha: 0.0).animate(t: 0.4);
         
     }
 }

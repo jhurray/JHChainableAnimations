@@ -62,12 +62,12 @@ public final class ChainableAnimator {
 
 public extension ChainableAnimator {
     
-    public func makeFrame(frame: CGRect) -> Self {
+    public func makeFrame(_ frame: CGRect) -> Self {
         animator.makeFrame()(frame)
         return self;
     }
     
-    public func makeBounds(bounds: CGRect) -> Self {
+    public func makeBounds(_ bounds: CGRect) -> Self {
         animator.makeBounds()(bounds)
         return self
     }
@@ -87,22 +87,22 @@ public extension ChainableAnimator {
         return self
     }
     
-    public func makeX(x: Float) -> Self {
+    public func makeX(_ x: Float) -> Self {
         animator.makeX()(x.toCG)
         return self
     }
     
-    public func makeY(y: Float) -> Self {
+    public func makeY(_ y: Float) -> Self {
         animator.makeY()(y.toCG)
         return self
     }
     
-    public func makeWidth(width: Float) -> Self {
+    public func makeWidth(_ width: Float) -> Self {
         animator.makeWidth()(width.toCG)
         return self
     }
     
-    public func makeHeight(height: Float) -> Self {
+    public func makeHeight(_ height: Float) -> Self {
         animator.makeHeight()(height.toCG)
         return self
     }
@@ -117,32 +117,32 @@ public extension ChainableAnimator {
         return self
     }
     
-    public func makeBorderColor(color: UIColor) -> Self {
+    public func makeBorderColor(_ color: UIColor) -> Self {
         animator.makeBorderColor()(color)
         return self
     }
     
-    public func makeBorderWidth(width: Float) -> Self {
+    public func makeBorderWidth(_ width: Float) -> Self {
         animator.makeBorderWidth()(width.toCG)
         return self
     }
     
-    public func makeCornerRadius(cornerRadius: Float) -> Self {
+    public func makeCornerRadius(_ cornerRadius: Float) -> Self {
         animator.makeCornerRadius()(cornerRadius.toCG)
         return self
     }
     
-    public func makeScale(scale: Float) -> Self {
+    public func makeScale(_ scale: Float) -> Self {
         animator.makeScale()(scale.toCG)
         return self
     }
     
-    public func makeScaleY(scaleY: Float) -> Self {
+    public func makeScaleY(_ scaleY: Float) -> Self {
         animator.makeScaleY()(scaleY.toCG)
         return self
     }
     
-    public func makeScaleX(scaleX: Float) -> Self {
+    public func makeScaleX(_ scaleX: Float) -> Self {
         animator.makeScaleX()(scaleX.toCG)
         return self
     }
@@ -152,12 +152,12 @@ public extension ChainableAnimator {
         return self
     }
     
-    public func moveX(x: Float) -> Self {
+    public func moveX(_ x: Float) -> Self {
         animator.moveX()(x.toCG)
         return self
     }
     
-    public func moveY(y: Float) -> Self {
+    public func moveY(_ y: Float) -> Self {
         animator.moveY()(y.toCG)
         return self
     }
@@ -167,12 +167,12 @@ public extension ChainableAnimator {
         return self
     }
     
-    public func moveWidth(width: Float) -> Self {
+    public func moveWidth(_ width: Float) -> Self {
         animator.moveWidth()(width.toCG)
         return self
     }
     
-    public func moveHeight(height: Float) -> Self {
+    public func moveHeight(_ height: Float) -> Self {
         animator.moveHeight()(height.toCG)
         return self
     }
@@ -207,12 +207,12 @@ public extension ChainableAnimator {
         return self
     }
     
-    public func transformX(x: Float) -> Self {
+    public func transformX(_ x: Float) -> Self {
         animator.transformX()(x.toCG)
         return self
     }
     
-    public func transformY(x: Float) -> Self {
+    public func transformY(_ x: Float) -> Self {
         animator.transformY()(x.toCG)
         return self
     }
@@ -222,32 +222,32 @@ public extension ChainableAnimator {
         return self
     }
     
-    public func transformScale(scale: Float) -> Self {
+    public func transformScale(_ scale: Float) -> Self {
         animator.transformScale()(scale.toCG)
         return self
     }
     
-    public func transformScaleX(scaleX: Float) -> Self {
+    public func transformScaleX(_ scaleX: Float) -> Self {
         animator.transformScaleX()(scaleX.toCG)
         return self
     }
     
-    public func transformScaleY(scaleY: Float) -> Self {
+    public func transformScaleY(_ scaleY: Float) -> Self {
         animator.transformScaleY()(scaleY.toCG)
         return self
     }
     
-    public func moveOnPath(path: UIBezierPath) -> Self {
+    public func moveOnPath(_ path: UIBezierPath) -> Self {
         animator.moveOnPath()(path)
         return self
     }
     
-    public func moveAndRotateOnPath(path: UIBezierPath) -> Self {
+    public func moveAndRotateOnPath(_ path: UIBezierPath) -> Self {
         animator.moveAndRotateOnPath()(path)
         return self
     }
     
-    public func moveAndReverseRotateOnPath(path: UIBezierPath) -> Self {
+    public func moveAndReverseRotateOnPath(_ path: UIBezierPath) -> Self {
         animator.moveAndReverseRotateOnPath()(path)
         return self
     }
@@ -492,22 +492,22 @@ public extension ChainableAnimator {
         return self
     }
     
-    public func customAnimationFunction(function: @escaping (Double, Double, Double, Double) -> (Double)) -> Self {
+    public func customAnimationFunction(_ function: @escaping (Double, Double, Double, Double) -> (Double)) -> Self {
         animator.customAnimationFunction()(function)
         return self
     }
     
-    public func preAnimationBlock(block: @escaping (Void) -> Void) -> Self {
+    public func preAnimationBlock(_ block: @escaping (Void) -> Void) -> Self {
         animator.preAnimationBlock()(block)
         return self
     }
     
-    public func animationBlock(block: @escaping (Void) -> Void) -> Self {
+    public func animationBlock(_ block: @escaping (Void) -> Void) -> Self {
         animator.animationBlock()(block)
         return self
     }
     
-    public func postAnimationBlock(block: @escaping (Void) -> Void) -> Self {
+    public func postAnimationBlock(_ block: @escaping (Void) -> Void) -> Self {
         animator.postAnimationBlock()(block)
         return self
     }
@@ -526,11 +526,11 @@ public extension ChainableAnimator {
         animator.animate()(t)
     }
     
-    public func animateWithRepeat(t: TimeInterval, count: Int) {
-        animator.animateWithRepeat()(t, count)
+    public func animate(t: TimeInterval, repeatCount: Int) {
+        animator.animateWithRepeat()(t, repeatCount)
     }
     
-    public func animateWithCompletion(t: TimeInterval, completion: @escaping (Void) -> Void) {
+    public func animate(t: TimeInterval, completion: @escaping (Void) -> Void) {
         animator.animateWithCompletion()(t, completion)
     }
 }
