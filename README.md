@@ -35,14 +35,14 @@
 ![Platform](https://img.shields.io/badge/platform-%20iOS%20-lightgrey.svg)
 ![Platform](https://img.shields.io/badge/platform-%20tvOS%20-lightgrey.svg)
 
-##Whats new in version 2.x?
+## Whats new in version 2.x?
 * Re-architected from the ground up, no more hacking UIView 🛠
 * Added pre-animation and post-animation hooks for each animation step ⛓
 * Added pause and resume functionality ⏯
 * Added repeat animation functionality 🔂
 * Added friendly Swift interface in separate framework 🔥🕊
 
-##Whats wrong with animations?
+## Whats wrong with animations?
 
 CAAnimations and UIView animations are extremely powerful, but it is difficult to chain multiple animations together, especially while changing anchor points. 
 
@@ -50,7 +50,7 @@ Furthermore, complicated animations are difficult to read.
 
 Say I want to move myView 50 pixels to the right with spring and then change the background color with inward easing when the movement has finished:
 
-###The Old Way
+### The Old Way
 
 ```objective-c
     [UIView animateWithDuration:1.0
@@ -73,7 +73,7 @@ Say I want to move myView 50 pixels to the right with spring and then change the
 
 Thats pretty gross huh... With JHChainableAnimations it is one line of code. 
 
-###Using JHChainableAnimations
+### Using JHChainableAnimations
 
 ```objective-c
 JHChainableAnimator *animator = [[JHChainableAnimator alloc] initWithView:self.myView];
@@ -82,12 +82,12 @@ animator.moveX(50).spring.thenAfter(1.0).makeBackground([UIColor purpleColor]).e
 
 There are also a lot of really good animation libraries out there such as [RBBAnimation](https://github.com/robb/RBBAnimation), [DCAnimationKit](https://github.com/daltoniam/DCAnimationKit), and [PMTween](https://github.com/poetmountain/PMTween),  but they still fall short of having powerful chainable animations AND easy to read/write syntax. 
 
-##Installation
+## Installation
 There are a few ways you can add this framework to your project. The Objective-C framework is called `JHChainableAnimations` and the Swift framework is called `ChainableAnimations`. More notes on Swift usage can be found [here](#swift)
 
-###Cocoapods
+### Cocoapods
 
-#####Objective-C
+##### Objective-C
 
 ```ruby
 pod 'JHChainableAnimations', '~> 2.0'
@@ -99,7 +99,7 @@ Then add the following:
 ```
 
 
-#####Swift
+##### Swift
 ```ruby
 pod 'ChainableAnimations', '~> 2.0'
 ```
@@ -109,26 +109,26 @@ Then add the following:
 import ChainableAnimations
 ```
 
-###Carthage
+### Carthage
 Add the following to your `Cartfile`
 
 ```ruby
 github "jhurray/JHChainableAnimations" ~> 2.0
 ```
-#####Objective-C
+##### Objective-C
 Add the `JHChainableAnimations` framework to your project.
 
-#####Swift
+##### Swift
 Add the `ChainableAnimations` framework to your project.
 
 
-###Add to project Manually
+### Add to project Manually
 Either clone the repo and manually add the Files in [JHChainableAnimations](./JHChainableAnimations)
 
 
-##Usage
+## Usage
 
-###Creating an Animator
+### Creating an Animator
 
 To create an instance of `JHChainableAnimator` you must call the `initWithView:` method.
 
@@ -136,7 +136,7 @@ To create an instance of `JHChainableAnimator` you must call the `initWithView:`
 JHChainableAnimator *animator = [[JHChainableAnimator alloc] initWithView:self.myView];
 ```
 
-###Animating
+### Animating
 
 Chainable properties like `moveX(x)` must come between the view and the `animate(t)` function
 
@@ -146,7 +146,7 @@ Below is an example of how to double an objects size over the course of one seco
 animator.makeScale(2.0).animate(1.0);
 ```
 
-###Combining Animations
+### Combining Animations
 
 If you want to move the view while you scale it, add another chainable property. Order is not important
 
@@ -157,7 +157,7 @@ animator.makeScale(2.0).moveXY(100, 50).animate(1.0);
 
 A full list of chainable properties can be found [here](#chainables)
 
-###Chaining Animations
+### Chaining Animations
 
 To chain animations seperate the chains with the `thenAfter(t)` function.
 
@@ -167,7 +167,7 @@ Below is an example of how to scale and object for 0.5 seconds, and then move it
 animator.makeScale(2.0).thenAfter(0.5).moveXY(100, 50).animate(1.0);
 ```
 
-###Animation Effects
+### Animation Effects
 
 To add an animation effect, call the effect method after the chainable property you want it to apply to.
 
@@ -186,7 +186,7 @@ animator.makeScale(2.0).bounce.spring.animate(1.0);
 
 A full list of animation effect properties can be found [here](#effects)
 
-###Anchoring
+### Anchoring
 To anchor your view call an achoring method at some point in an animation chain. Like effects, calling one after another in the same chain will cancel the first out. 
 
 Below is an example of rotating a view around different anchor points
@@ -199,7 +199,7 @@ animator.rotateZ(180).anchorTopLeft.thenAfter(1.0).rotateZ(90).anchorCenter.anim
 
 A full list of anchor properties can be found [here](#anchors)
 
-###Delays
+### Delays
 To delay an animation call the `wait(t)` or `delay(t)` chainable property.
 
 Below is an example of moving a view after a delay of 0.5 seconds
@@ -209,7 +209,7 @@ animator.moveXY(100, 50).wait(0.5).animate(1.0);
 // The same as animator.moveXY(100, 50).delay(0.5).animate(1.0);
 ```
 
-###Completion
+### Completion
 To run code after an animation finishes set the `completionBlock` property of your animator or call the `animateWithCompletion(t, completion)*`function.
 
 ```objective-c
@@ -227,7 +227,7 @@ animator.completionBlock = ^{
 animator.makeX(0).animate(1.0);
 ```
 
-###Repeating Animations
+### Repeating Animations
 You can repeat an animation by replacing the `thenAfter(time)` method with the `repeat(time, count)` method. This will repeat the previously defined animations. 
 
 ```objective-c
@@ -242,7 +242,7 @@ You can repeat the last part of an animation by calling `animateWithRepeat(time,
 animator.makeScale(2.0).thenAfter(0.5).rotate(90). animateWithRepeat(1.0, 3);
 ```
 
-###Pausing and Cancelling
+### Pausing and Cancelling
 To Pause the animation, call the `pause` method on the animator. When you call pause, the current animation in the chain will complete but nothing beyod that will be executed. You can use the `isPaused` and `isAnimating` readonly properties to inspect state. If an animation is paused but not stopped, it will still evaluate as `animating`.
 
 To resume in a paused state, call the `resume` method on the animator.
@@ -257,7 +257,7 @@ animator.moveX(10).thenAfter(0.5).moveY(10).animate(0.5);
 [animator pause];
 ```
 
-###Callbacks
+### Callbacks
 You can hook into the different steps of the animation process by calling the `preAnimationBlock(block)`, `animationBlock(block)`, and `postAnimationBlock(block)` methods. All take a simple block `void(^)()` as an argument. Order of calling these in the animation chain does not matter.
 
 ```objective-c
@@ -269,7 +269,7 @@ animator.moveX(10).preAnimationBlock(^{
 ```
 
 
-###Bezier Paths
+### Bezier Paths
 You can also animate a view along a [UIBezierPath](https://developer.apple.com/library/ios/documentation/2DDrawing/Conceptual/DrawingPrintingiOS/BezierPaths/BezierPaths.html). Create a `UIBezierPath *` instance, then add points or curves or lines to it and use it in a chainable property.
 
 ```objective-c
@@ -282,9 +282,9 @@ animator.moveOnPath(path).animate(1.0);
 Animation effects do not work on path movements.
 
 
-##<a name="autolayout"></a>Using with Auto Layout
+## <a name="autolayout"></a>Using with Auto Layout
 
-###Transforms
+### Transforms
 
 Use the **transform** chainable properties. These are better for views constrained with Autolayout. You should not mix these with other chainable properties 
 
@@ -292,7 +292,7 @@ Use the **transform** chainable properties. These are better for views constrain
 animatorForViewWithConstraints.transformX(50).transformScale(2).animate(1.0);
 ```
 
-##<a name="swift"></a>Using with Swift
+## <a name="swift"></a>Using with Swift
 
 Using JHChainableAnimations with [Swift](https://developer.apple.com/swift/) is now a little more readable in version `2.x`. I created a separate framework for swift that provides a class called `ChainableAnimator`. This is a thin wrapper over `JHChainableAnimator` that has a slightly more readable syntax.
 
@@ -302,7 +302,7 @@ animator.moveX(x: 50).thenAfter(t: 1.0).rotate(angle: 360).bounce.animate(t:1.0)
 ```
 All Objective-C methods map to a swift method.
 
-##<a name="chainables"></a>Chainable Properties
+## <a name="chainables"></a>Chainable Properties
 
 <table>
 <tr>
@@ -746,7 +746,7 @@ animator.transformIdentity.animate(1.0);
 </tr>
 </table>
 
-##<a name="effects"></a>Animation Effects
+## <a name="effects"></a>Animation Effects
 
 <img src="./img/JHChainableAnimationsEffects.png" width="95%">
 <img src="./img/JHChainableAnimationsEasing.png" width="95%" height="500px">
@@ -757,20 +757,20 @@ These animation functions were taken from a cool keyframe animation library that
 
 They are based off of JQuery easing functions that can be found [here](http://gsgd.co.uk/sandbox/jquery/easing/jquery.easing.1.3.js)
 
-##<a name="anchors"></a>Anchoring
+## <a name="anchors"></a>Anchoring
 
 <img src="./img/JHChainableAnimationsAnchors.png" height="200px">
 
 Info on anchoring can be found [here](https://developer.apple.com/library/ios/documentation/Cocoa/Conceptual/CoreAnimation_guide/CoreAnimationBasics/CoreAnimationBasics.html#//apple_ref/doc/uid/TP40004514-CH2-SW3)
 
 
-##To Do
+## To Do
 I have gotten a ton of great suggestions of what to do next. If you think this is missing anything please let me know! The following is what I plan on working on in no particular order.
 
 * OSX port
 * Constraint animator
 
-##Contact Info && Contributing
+## Contact Info && Contributing
 
 Feel free to email me at [jhurray33@gmail.com](mailto:jhurray33@gmail.com?subject=JHChainableAnimations). I'd love to hear your thoughts on this, or see examples where this has been used.
 
