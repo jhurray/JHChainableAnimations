@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name     = 'ChainableAnimations'
-  s.version  = '2.0.1'
+  s.version  = '2.0.2'
   s.author   = { 'Jeff Hurray' => 'jhurray33@gmail.com' }
   s.homepage = 'https://github.com/jhurray/JHChainableAnimations'
   s.summary  = 'Easy to read and write chainable Animations in Swift'
