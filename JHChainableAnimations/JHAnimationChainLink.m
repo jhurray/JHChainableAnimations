@@ -112,6 +112,7 @@ static NSString * const kJHAnimationGroupKey = @"kJHAnimationGroupKey";
     [CATransaction setDisableActions:YES];
     [CATransaction setCompletionBlock:^{
         [self.view.layer removeAnimationForKey:kJHAnimationGroupKey];
+        [self executeCompletionActions];
         if (completion != nil) {
             completion();
         }
@@ -121,8 +122,6 @@ static NSString * const kJHAnimationGroupKey = @"kJHAnimationGroupKey";
     [self beginExecution];
     
     [CATransaction commit];
-    
-    [self executeCompletionActions];
 }
 
 
