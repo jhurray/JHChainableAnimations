@@ -489,11 +489,6 @@ public extension ChainableAnimator {
         return self
     }
     
-    public func animationBlock(block: @escaping () -> ()) -> Self {
-        animator.animationBlock()(block)
-        return self
-    }
-    
     public func postAnimationBlock(block: @escaping () -> ()) -> Self {
         animator.postAnimationBlock()(block)
         return self

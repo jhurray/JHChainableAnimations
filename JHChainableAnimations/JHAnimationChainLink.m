@@ -112,6 +112,7 @@ static NSString * const kJHAnimationGroupKey = @"kJHAnimationGroupKey";
     [CATransaction setDisableActions:YES];
     [CATransaction setCompletionBlock:^{
         [self.view.layer removeAnimationForKey:kJHAnimationGroupKey];
+        [self executeCompletionActions];
         if (completion != nil) {
             completion();
         }
@@ -121,8 +122,6 @@ static NSString * const kJHAnimationGroupKey = @"kJHAnimationGroupKey";
     [self beginExecution];
     
     [CATransaction commit];
-    
-    [self executeCompletionActions];
 }
 
 
@@ -151,12 +150,9 @@ static NSString * const kJHAnimationGroupKey = @"kJHAnimationGroupKey";
 
 - (void)executeCompletionActions
 {
-    NSTimeInterval delay = MAX(self.animationGroup.beginTime - CACurrentMediaTime(), 0.0);
-    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(delay * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-        for (JHAnimationCompletionAction action in self.animationCompletionActions) {
-            action(self.view, self.animator);
-        }
-    });
+    for (JHAnimationCompletionAction action in self.animationCompletionActions) {
+        action(self.view, self.animator);
+    }
 }
 
 @end

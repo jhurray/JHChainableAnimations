@@ -76,6 +76,8 @@
 		26F54FF51E39ADAA00461D35 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 26F54FC91E39AB7700461D35 /* Info.plist */; };
 		26F54FF61E39ADB000461D35 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 26F54FC91E39AB7700461D35 /* Info.plist */; };
 		26F54FF71E39ADBA00461D35 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 26F54FCC1E39AB8C00461D35 /* Info.plist */; };
+		792558361F96E97B006EC6CC /* UIView+ChainableAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 792558341F96E954006EC6CC /* UIView+ChainableAnimator.swift */; };
+		792558371F96E983006EC6CC /* UIView+ChainableAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 792558341F96E954006EC6CC /* UIView+ChainableAnimator.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -158,6 +160,7 @@
 		26F54FE31E39ABC400461D35 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Main.storyboard; sourceTree = "<group>"; };
 		26F54FE41E39ABC400461D35 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = "Examples/JHChainableAnimations tvOS Swift Example/Info.plist"; sourceTree = SOURCE_ROOT; };
 		26F54FE51E39ABC400461D35 /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ViewController.swift; path = "Examples/JHChainableAnimations tvOS Swift Example/ViewController.swift"; sourceTree = SOURCE_ROOT; };
+		792558341F96E954006EC6CC /* UIView+ChainableAnimator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+ChainableAnimator.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -371,6 +374,7 @@
 			isa = PBXGroup;
 			children = (
 				26F54FC61E39AB5E00461D35 /* ChainableAnimator.swift */,
+				792558341F96E954006EC6CC /* UIView+ChainableAnimator.swift */,
 			);
 			name = "Source Swift";
 			sourceTree = "<group>";
@@ -669,7 +673,7 @@
 					26C40FA01E0B8ED100767308 = {
 						CreatedOnToolsVersion = 8.2;
 						DevelopmentTeam = 43LEM8BQ2H;
-						LastSwiftMigration = 0820;
+						LastSwiftMigration = 0900;
 						ProvisioningStyle = Automatic;
 					};
 					26C40FA91E0B8ED100767308 = {
@@ -863,6 +867,7 @@
 				26F54FF01E39AD5A00461D35 /* ChainableAnimator.swift in Sources */,
 				26F54F721E2F38D800461D35 /* JHAnimationChainLink.m in Sources */,
 				26F54F731E2F38D800461D35 /* JHChainableAnimator.m in Sources */,
+				792558361F96E97B006EC6CC /* UIView+ChainableAnimator.swift in Sources */,
 				26F54F741E2F38D800461D35 /* JHKeyframeAnimation.m in Sources */,
 				26F54F751E2F38D800461D35 /* JHKeyframeAnimationFunctions.c in Sources */,
 			);
@@ -884,6 +889,7 @@
 				26F54FF41E39ADA500461D35 /* ChainableAnimator.swift in Sources */,
 				26F54FA61E357A5400461D35 /* JHAnimationChainLink.m in Sources */,
 				26F54FA71E357A5400461D35 /* JHChainableAnimator.m in Sources */,
+				792558371F96E983006EC6CC /* UIView+ChainableAnimator.swift in Sources */,
 				26F54FA81E357A5400461D35 /* JHKeyframeAnimation.m in Sources */,
 				26F54FA91E357A5400461D35 /* JHKeyframeAnimationFunctions.c in Sources */,
 			);

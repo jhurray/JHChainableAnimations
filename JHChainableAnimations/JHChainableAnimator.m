@@ -1079,20 +1079,6 @@ typedef NS_ENUM(NSInteger, JHChainableAnimatorContinuationMode) {
 }
 
 
-- (JHChainableBlock)animationBlock
-{
-    JHChainableBlock chainable = JHChainableBlock(block) {
-        [self addAnimationCalculationAction:^(UIView *__weak view, JHChainableAnimator *__weak weakSelf) {
-            if (block != nil) {
-                block();
-            }
-        }];
-        return self;
-    };
-    return chainable;
-}
-
-
 - (JHChainableBlock)postAnimationBlock
 {
     JHChainableBlock chainable = JHChainableBlock(block) {
