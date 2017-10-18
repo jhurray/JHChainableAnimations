@@ -29,11 +29,15 @@
 
 ![language](https://img.shields.io/badge/Language-Objective--C-8E44AD.svg)
 ![language](https://img.shields.io/badge/Language-Swift-8E44AD.svg)
-![Version](https://img.shields.io/badge/Pod-%20v2.0.1%20-96281B.svg)
+![Version](https://img.shields.io/badge/Pod-%20v3.0.0%20-96281B.svg)
 ![Build Status](https://img.shields.io/badge/build-passing-brightgreen.svg)
 ![MIT License](https://img.shields.io/github/license/mashape/apistatus.svg)
 ![Platform](https://img.shields.io/badge/platform-%20iOS%20-lightgrey.svg)
 ![Platform](https://img.shields.io/badge/platform-%20tvOS%20-lightgrey.svg)
+
+## Whats new in version 3.x?
+* Swiftier syntax
+* Bug fixes and improvements
 
 ## Whats new in version 2.x?
 * Re-architected from the ground up, no more hacking UIView 🛠
@@ -90,7 +94,7 @@ There are a few ways you can add this framework to your project. The Objective-C
 ##### Objective-C
 
 ```ruby
-pod 'JHChainableAnimations', '~> 2.0'
+pod 'JHChainableAnimations', '~> 3.0'
 ```
 Then add the following:
 
@@ -101,7 +105,7 @@ Then add the following:
 
 ##### Swift
 ```ruby
-pod 'ChainableAnimations', '~> 2.0'
+pod 'ChainableAnimations', '~> 3.0'
 ```
 Then add the following:
 
@@ -113,7 +117,7 @@ import ChainableAnimations
 Add the following to your `Cartfile`
 
 ```ruby
-github "jhurray/JHChainableAnimations" ~> 2.0
+github "jhurray/JHChainableAnimations" ~> 3.0
 ```
 ##### Objective-C
 Add the `JHChainableAnimations` framework to your project.

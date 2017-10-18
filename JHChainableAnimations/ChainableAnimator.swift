@@ -62,17 +62,17 @@ public final class ChainableAnimator {
 
 public extension ChainableAnimator {
     
-    public func makeFrame(frame: CGRect) -> Self {
+    public func make(frame: CGRect) -> Self {
         animator.makeFrame()(frame)
         return self;
     }
     
-    public func makeBounds(bounds: CGRect) -> Self {
+    public func make(bounds: CGRect) -> Self {
         animator.makeBounds()(bounds)
         return self
     }
     
-    public func makeSize(height: Float, width: Float) -> Self {
+    public func make(height: Float, width: Float) -> Self {
         animator.makeSize()(height.toCG, width.toCG)
         return self
     }
@@ -87,62 +87,62 @@ public extension ChainableAnimator {
         return self
     }
     
-    public func makeX(x: Float) -> Self {
+    public func make(x: Float) -> Self {
         animator.makeX()(x.toCG)
         return self
     }
     
-    public func makeY(y: Float) -> Self {
+    public func make(y: Float) -> Self {
         animator.makeY()(y.toCG)
         return self
     }
     
-    public func makeWidth(width: Float) -> Self {
+    public func make(width: Float) -> Self {
         animator.makeWidth()(width.toCG)
         return self
     }
     
-    public func makeHeight(height: Float) -> Self {
+    public func make(height: Float) -> Self {
         animator.makeHeight()(height.toCG)
         return self
     }
     
-    public func makeOpacity(alpha: Float) -> Self {
+    public func make(alpha: Float) -> Self {
         animator.makeOpacity()(alpha.toCG)
         return self
     }
     
-    public func makeBackground(color: UIColor) -> Self {
+    public func make(backgroundColor color: UIColor) -> Self {
         animator.makeBackground()(color)
         return self
     }
     
-    public func makeBorderColor(color: UIColor) -> Self {
+    public func make(borderColor color: UIColor) -> Self {
         animator.makeBorderColor()(color)
         return self
     }
     
-    public func makeBorderWidth(width: Float) -> Self {
+    public func make(borderWidth width: Float) -> Self {
         animator.makeBorderWidth()(width.toCG)
         return self
     }
     
-    public func makeCornerRadius(cornerRadius: Float) -> Self {
+    public func make(cornerRadius: Float) -> Self {
         animator.makeCornerRadius()(cornerRadius.toCG)
         return self
     }
     
-    public func makeScale(scale: Float) -> Self {
+    public func make(scale: Float) -> Self {
         animator.makeScale()(scale.toCG)
         return self
     }
     
-    public func makeScaleY(scaleY: Float) -> Self {
+    public func make(scaleY: Float) -> Self {
         animator.makeScaleY()(scaleY.toCG)
         return self
     }
     
-    public func makeScaleX(scaleX: Float) -> Self {
+    public func make(scaleX: Float) -> Self {
         animator.makeScaleX()(scaleX.toCG)
         return self
     }
@@ -152,27 +152,27 @@ public extension ChainableAnimator {
         return self
     }
     
-    public func moveX(x: Float) -> Self {
+    public func move(x: Float) -> Self {
         animator.moveX()(x.toCG)
         return self
     }
     
-    public func moveY(y: Float) -> Self {
+    public func move(y: Float) -> Self {
         animator.moveY()(y.toCG)
         return self
     }
     
-    public func moveXY(x: Float, y: Float) -> Self {
+    public func move(x: Float, y: Float) -> Self {
         animator.moveXY()(x.toCG, y.toCG)
         return self
     }
     
-    public func moveWidth(width: Float) -> Self {
+    public func move(width: Float) -> Self {
         animator.moveWidth()(width.toCG)
         return self
     }
     
-    public func moveHeight(height: Float) -> Self {
+    public func move(height: Float) -> Self {
         animator.moveHeight()(height.toCG)
         return self
     }
@@ -207,98 +207,85 @@ public extension ChainableAnimator {
         return self
     }
     
-    public func transformX(x: Float) -> Self {
+    public func transform(x: Float) -> Self {
         animator.transformX()(x.toCG)
         return self
     }
     
-    public func transformY(x: Float) -> Self {
-        animator.transformY()(x.toCG)
+    public func transform(y: Float) -> Self {
+        animator.transformY()(y.toCG)
         return self
     }
     
-    public func transformXY(x: Float, y: Float) -> Self {
+    public func transform(x: Float, y: Float) -> Self {
         animator.transformXY()(x.toCG, y.toCG)
         return self
     }
     
-    public func transformScale(scale: Float) -> Self {
+    public func transform(scale: Float) -> Self {
         animator.transformScale()(scale.toCG)
         return self
     }
     
-    public func transformScaleX(scaleX: Float) -> Self {
+    public func transform(scaleX: Float) -> Self {
         animator.transformScaleX()(scaleX.toCG)
         return self
     }
     
-    public func transformScaleY(scaleY: Float) -> Self {
+    public func transform(scaleY: Float) -> Self {
         animator.transformScaleY()(scaleY.toCG)
         return self
     }
     
-    public func moveOnPath(path: UIBezierPath) -> Self {
-        animator.moveOnPath()(path)
+    public func move(onPath path: UIBezierPath, rotate: Bool = false, isReversed: Bool = false) -> Self {
+        if rotate {
+            if isReversed {
+                animator.moveAndReverseRotateOnPath()(path)
+            } else {
+                animator.moveAndRotateOnPath()(path)
+            }
+        } else {
+            animator.moveOnPath()(path)
+        }
         return self
     }
     
-    public func moveAndRotateOnPath(path: UIBezierPath) -> Self {
-        animator.moveAndRotateOnPath()(path)
-        return self
+    public enum AnchorPosition {
+        case normal
+        case center
+        case topLeft
+        case topRight
+        case bottomLeft
+        case bottomRight
+        case top
+        case bottom
+        case left
+        case right
     }
     
-    public func moveAndReverseRotateOnPath(path: UIBezierPath) -> Self {
-        animator.moveAndReverseRotateOnPath()(path)
-        return self
-    }
-    
-    public var anchorDefault: ChainableAnimator {
-        animator.anchorDefault()
-        return self
-    }
-    
-    public var anchorCenter: ChainableAnimator {
-        animator.anchorCenter()
-        return self
-    }
-    
-    public var anchorTopLeft: ChainableAnimator {
-        animator.anchorTopLeft()
-        return self
-    }
-    
-    public var anchorTopRight: ChainableAnimator {
-        animator.anchorTopRight()
-        return self
-    }
-    
-    public var anchorBottomLeft: ChainableAnimator {
-        animator.anchorBottomLeft()
-        return self
-    }
-    
-    public var anchorBottomRight: ChainableAnimator {
-        animator.anchorBottomRight()
-        return self
-    }
-    
-    public var anchorTop: ChainableAnimator {
-        animator.anchorTop()
-        return self
-    }
-    
-    public var anchorBottom: ChainableAnimator {
-        animator.anchorBottom()
-        return self
-    }
-    
-    public var anchorLeft: ChainableAnimator {
-        animator.anchorLeft()
-        return self
-    }
-    
-    public var anchorRight: ChainableAnimator {
-        animator.anchorRight()
+    public func anchor(_ position: AnchorPosition) -> ChainableAnimator {
+        switch position {
+        case .normal:
+            animator.anchorDefault()
+        case .center:
+            animator.anchorCenter()
+        case .topLeft:
+            animator.anchorTopLeft()
+        case .topRight:
+            animator.anchorTopRight()
+        case .bottomLeft:
+            animator.anchorBottomLeft()
+        case .bottomRight:
+            animator.anchorBottomRight()
+        case .top:
+            animator.anchorTop()
+        case .bottom:
+            animator.anchorBottom()
+        case .left:
+            animator.anchorLeft()
+        case .right:
+            animator.anchorRight()
+        }
         return self
     }
     
@@ -497,23 +484,18 @@ public extension ChainableAnimator {
         return self
     }
     
-    public func preAnimationBlock(block: @escaping (Void) -> Void) -> Self {
+    public func preAnimationBlock(block: @escaping () -> ()) -> Self {
         animator.preAnimationBlock()(block)
         return self
     }
     
-    public func animationBlock(block: @escaping (Void) -> Void) -> Self {
-        animator.animationBlock()(block)
-        return self
-    }
-    
-    public func postAnimationBlock(block: @escaping (Void) -> Void) -> Self {
+    public func postAnimationBlock(block: @escaping () -> ()) -> Self {
         animator.postAnimationBlock()(block)
         return self
     }
     
-    public func repeatAnimation(t: TimeInterval, count: Int) -> Self {
-        animator.repeat()(t, count)
+    public func `repeat`(t: TimeInterval, count: Int) -> Self {
+        animator.`repeat`()(t, count)
         return self
     }
     
@@ -530,7 +512,7 @@ public extension ChainableAnimator {
         animator.animateWithRepeat()(t, count)
     }
     
-    public func animateWithCompletion(t: TimeInterval, completion: @escaping (Void) -> Void) {
+    public func animate(t: TimeInterval, completion: @escaping () -> ()) {
         animator.animateWithCompletion()(t, completion)
     }
 }

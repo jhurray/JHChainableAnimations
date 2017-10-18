@@ -151,7 +151,6 @@
 #pragma mark - Blocks
 // Allows handling in in context of the animation state
 - (JHChainableBlock)preAnimationBlock;
-- (JHChainableBlock)animationBlock;
 - (JHChainableBlock)postAnimationBlock;
 
 
