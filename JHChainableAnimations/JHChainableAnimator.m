@@ -108,7 +108,7 @@ typedef NS_ENUM(NSInteger, JHChainableAnimatorContinuationMode) {
                 }];
             }
             else {
-                void(^completionBlock)() = self.completionBlock ?: ^{};
+                void(^completionBlock)(void) = self.completionBlock ?: ^{};
                 [self clear];
                 completionBlock();
                 self.animating = NO;

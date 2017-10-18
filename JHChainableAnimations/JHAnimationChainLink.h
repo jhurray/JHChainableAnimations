@@ -21,11 +21,11 @@ typedef void (^JHAnimationCompletionAction)(__weak UIView *view, __weak JHChaina
 
 - (instancetype)initWithView:(UIView *)view animator:(JHChainableAnimator *)animator NS_DESIGNATED_INITIALIZER;
 
-- (void)animateWithDuration:(NSTimeInterval)duration completion:(void(^)())completion;
+- (void)animateWithDuration:(NSTimeInterval)duration completion:(void(^)(void))completion;
 - (void)addAnimationFromCalculationBlock:(JHKeyframeAnimation *)animation;
 - (void)addAnimationKeyframeCalculation:(JHKeyframeAnimationCalculationBlock)functionBlock;
 - (void)addAnimationCalculationAction:(JHAnimationCalculationAction)action;
 - (void)addAnimationCompletionAction:(JHAnimationCompletionAction)action;
-- (void)addPreAnimationBlock:(void(^)())preAnimationBlock;
+- (void)addPreAnimationBlock:(void(^)(void))preAnimationBlock;
 
 @end

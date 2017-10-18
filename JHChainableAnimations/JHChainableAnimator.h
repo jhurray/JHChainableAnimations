@@ -13,7 +13,7 @@
 @interface JHChainableAnimator : NSObject
 
 /// Called after the last animation in the chain has completed
-@property (nonatomic, copy) void(^completionBlock)();
+@property (nonatomic, copy) void(^completionBlock)(void);
 
 /// If the animatoris paused, the view will still be animating. animating will only be false if the animation ends or is stopped
 @property (atomic, assign, getter=isAnimating, readonly) BOOL animating;

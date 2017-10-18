@@ -8,8 +8,8 @@
 
 @class JHChainableAnimator;
 
-typedef JHChainableAnimator * (^JHChainable)();
-#define JHChainable() ^JHChainableAnimator * ()
+typedef JHChainableAnimator * (^JHChainable)(void);
+#define JHChainable() ^JHChainableAnimator * (void)
 
 typedef JHChainableAnimator * (^JHChainableTimeInterval)(NSTimeInterval t);
 #define JHChainableTimeInterval(t) ^JHChainableAnimator * (NSTimeInterval t)
@@ -35,8 +35,8 @@ typedef JHChainableAnimator * (^JHChainablePolarCoordinate)(CGFloat radius, CGFl
 typedef JHChainableAnimator * (^JHChainableColor)(UIColor *color);
 #define JHChainableColor(color) ^JHChainableAnimator * (UIColor *color)
 
-typedef JHChainableAnimator * (^JHChainableBlock)(void(^)());
-#define JHChainableBlock(block) ^JHChainableAnimator * (void(^block)())
+typedef JHChainableAnimator * (^JHChainableBlock)(void(^)(void));
+#define JHChainableBlock(block) ^JHChainableAnimator * (void(^block)(void))
 
 typedef JHChainableAnimator * (^JHChainableBezierPath)(UIBezierPath *path);
 #define JHChainableBezierPath(path) ^JHChainableAnimator * (UIBezierPath *path)
@@ -47,8 +47,8 @@ typedef JHChainableAnimator * (^JHChainableCustomKeyframeAnimationCalculation)(d
 typedef JHChainableAnimator * (^JHChainableAnimation)(NSTimeInterval duration);
 #define JHChainableAnimation(duration) ^JHChainableAnimator * (NSTimeInterval duration)
 
-typedef JHChainableAnimator * (^JHChainableAnimationWithCompletion)(NSTimeInterval duration, void(^completion)());
-#define JHChainableAnimationWithCompletion(duration,completion) ^JHChainableAnimator * (NSTimeInterval duration, void(^completion)())
+typedef JHChainableAnimator * (^JHChainableAnimationWithCompletion)(NSTimeInterval duration, void(^completion)(void));
+#define JHChainableAnimationWithCompletion(duration,completion) ^JHChainableAnimator * (NSTimeInterval duration, void(^completion)(void))
 
 typedef JHChainableAnimator * (^JHChainableRepeatAnimation)(NSTimeInterval t, NSInteger count);
 #define JHChainableRepeatAnimation(t, count) ^JHChainableAnimator * (NSTimeInterval t, NSInteger count)

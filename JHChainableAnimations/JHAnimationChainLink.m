@@ -19,7 +19,7 @@ static NSString * const kJHAnimationGroupKey = @"kJHAnimationGroupKey";
 @property (nonatomic, weak) JHChainableAnimator *animator;
 @property (nonatomic, strong) NSMutableArray<JHKeyframeAnimation *> *animations;
 @property (nonatomic, strong) CAAnimationGroup *animationGroup;
-@property (nonatomic, strong) NSMutableArray<void(^)()> *preAnimationBlocks;
+@property (nonatomic, strong) NSMutableArray<void(^)(void)> *preAnimationBlocks;
 @property (nonatomic, strong) NSMutableArray<JHAnimationCalculationAction> *animationCalculationActions;
 @property (nonatomic, strong) NSMutableArray<JHAnimationCompletionAction> *animationCompletionActions;
 
@@ -100,13 +100,13 @@ static NSString * const kJHAnimationGroupKey = @"kJHAnimationGroupKey";
 }
 
 
-- (void)addPreAnimationBlock:(void(^)())preAnimationBlock
+- (void)addPreAnimationBlock:(void(^)(void))preAnimationBlock
 {
     [self.preAnimationBlocks addObject:[preAnimationBlock copy]];
 }
 
 
-- (void)animateWithDuration:(NSTimeInterval)duration completion:(void (^)())completion
+- (void)animateWithDuration:(NSTimeInterval)duration completion:(void (^)(void))completion
 {
     [CATransaction begin];
     [CATransaction setDisableActions:YES];
@@ -127,7 +127,7 @@ static NSString * const kJHAnimationGroupKey = @"kJHAnimationGroupKey";
 
 - (void)beginExecution
 {
-    for (void(^block)() in self.preAnimationBlocks) {
+    for (void(^block)(void) in self.preAnimationBlocks) {
         block();
     }
     
