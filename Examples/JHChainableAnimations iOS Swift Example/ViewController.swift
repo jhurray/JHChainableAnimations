@@ -39,7 +39,7 @@ class ViewController: UIViewController {
         animator = ChainableAnimator(view: myView)
     }
     
-    func pauseSelected() {
+    @objc func pauseSelected() {
         guard let animator = animator else {
             return
         }
@@ -53,7 +53,7 @@ class ViewController: UIViewController {
         }
     }
     
-    func animateView() {
+    @objc func animateView() {
         
         guard let animator = animator else {
             return
