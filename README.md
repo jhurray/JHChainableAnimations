@@ -37,6 +37,7 @@
 
 ## Whats new in version 3.x?
 * Swiftier syntax
+* Swift 4 support
 * Bug fixes and improvements
 
 ## Whats new in version 2.x?
