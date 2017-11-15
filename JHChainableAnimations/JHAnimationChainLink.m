@@ -144,6 +144,8 @@ static NSString * const kJHAnimationGroupKey = @"kJHAnimationGroupKey";
     }
     self.animationGroup.beginTime = CACurrentMediaTime() + self.animationDelay;
     self.animationGroup.animations = self.animations;
+    self.animationGroup.fillMode = kCAFillModeForwards;
+    self.animationGroup.removedOnCompletion = NO;
     [self.view.layer addAnimation:self.animationGroup forKey:kJHAnimationGroupKey];
 }
 
