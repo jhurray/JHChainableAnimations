@@ -7,7 +7,7 @@ Pod::Spec.new do |s|
   s.license  = 'MIT'
   s.source   = { :git => 'https://github.com/jhurray/JHChainableAnimations.git', :tag => s.version.to_s }
   s.source_files = 'JHChainableAnimations/*{.h,.c,.m,.swift}', 'Frameworks-Swift/ChainableAnimations.h'
-  s.platform = :ios
   s.ios.deployment_target = '9.0'
+  s.tvos.deployment_target = '9.0'
   s.requires_arc = true
 end
