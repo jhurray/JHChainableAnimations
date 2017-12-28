@@ -72,8 +72,8 @@ public extension ChainableAnimator {
         return self
     }
     
-    public func make(height: Float, width: Float) -> Self {
-        animator.makeSize()(height.toCG, width.toCG)
+    public func make(width: Float, height: Float) -> Self {
+        animator.makeSize()(width.toCG, height.toCG)
         return self
     }
     
