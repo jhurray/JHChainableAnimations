@@ -326,8 +326,7 @@ typedef NS_ENUM(NSInteger, JHChainableAnimatorContinuationMode) {
 - (JHChainableRect)makeFrame
 {
     JHChainableRect chainable = JHChainableRect(rect) {
-        
-        return self.makeOrigin(rect.origin.x, rect.origin.y).makeBounds(rect);
+        return self.makeBounds(rect).makeOrigin(rect.origin.x, rect.origin.y);
     };
     
     return chainable;
